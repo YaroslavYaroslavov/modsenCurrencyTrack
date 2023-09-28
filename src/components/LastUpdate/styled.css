@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("../../assets/fonts/Poppins-Light.ttf") format("truetype");
+}
+.indicator {
+  background-color: #039a43;
+  width: 15px;
+  height: 15px;
+  border-radius: 200px;
+  border: 10px solid #064321;
+}
+.lastupdate {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: center;
+}
+.lastupdate-text {
+  font-family: "Poppins-Light";
+  font-size: 32.91px;
+  line-height: 41.14px;
+  color: var(--text-color);
+}

@@ -1,0 +1,19 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  transition: 0.3s ease;
+}
+html[data-theme="dark"] {
+  --text-color: rgba(217, 217, 217, 1);
+  --background-color: #000000;
+  --input-background-color: rgb(29, 34, 43);
+  --hover-color: rgb(42, 50, 63);
+}
+html[data-theme="light"] {
+  --text-color: #000000;
+  --background-color: #ffffff;
+  --input-background-color: #f4f6f3;
+  --hover-color: rgb(212, 229, 255);
+}

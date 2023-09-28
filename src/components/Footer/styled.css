@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url("../../assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("../../assets/fonts/Poppins-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../../assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
+footer {
+  padding-top: 40px;
+  width: 65vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-about {
+  width: 25vw;
+  font-size: 24px;
+  /* display: flex; */
+}
+.footer-about-title {
+  display: flex;
+  font-family: "Poppins-SemiBold";
+  align-items: center;
+  margin-bottom: 30px;
+  background-image: linear-gradient(
+    90.18deg,
+    #00ce2c 0.18%,
+    #aedf23 49.3%,
+    #a3dc00 99.88%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  gap: 20px;
+}
+.footer-about-subtitle {
+  font-family: "Poppins-Light";
+  color: var(--text-color);
+}
+.footer-links {
+  display: flex;
+  gap: 50px;
+}
+.footer-link {
+  width: 9vw;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-link-title {
+  color: var(--text-color);
+  font-family: "Poppins-Regular";
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.footer-link-item {
+  font-family: "Poppins-Regular";
+  font-size: 24px;
+  color: rgba(137, 137, 137, 1);
+}
+.copyright {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 30vw;
+  text-align: center;
+  margin: auto;
+  font-family: "Poppins-Regular";
+  font-size: 24px;
+  color: rgba(137, 137, 137, 1);
+}
+.footer-link-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: transparent;
+  position: relative;
+}
+
+.footer-link-title-mobile {
+  font-family: "Poppins-SemiBold";
+  font-size: 26px;
+  display: none;
+  color: var(--text-color);
+  /* display: flex; */
+}
+
+.footer-link-checkbox::after {
+  content: url(../../assets/images/arrow-down-svgrepo-com.svg);
+  position: absolute;
+  top: -395px;
+  left: -393px;
+  transform: scale(0.05, 0.05);
+  /* width: 6px; */
+  /* height: 2px; */
+  /* background-color: #000; */
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.footer-link-checkbox:checked::after {
+  transform: scale(0.05, 0.05) rotate(180deg);
+}
+.footer-link-subtitle-wrapper {
+  transition: 0.5s;
+  height: 100px;
+  overflow: hidden;
+}
+.footer-link-checkbox:not(:checked) ~ .footer-link-subtitle-wrapper {
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+@media (max-width: 1290px) {
+  .footer-about {
+    display: none;
+  }
+  .footer-link {
+    display: none;
+  }
+  .footer-links {
+    flex-direction: column;
+  }
+  .footer-link-title-mobile {
+    display: block;
+    /* flex-direction: column; */
+  }
+  footer {
+    display: block;
+    width: 65vw;
+    margin: auto;
+  }
+}

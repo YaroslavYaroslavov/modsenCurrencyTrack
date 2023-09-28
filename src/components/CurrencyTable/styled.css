@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("../../assets/fonts/Poppins-Light.ttf") format("truetype");
+}
+.tableHeader {
+  font-family: "Poppins-Light";
+  color: var(--text-color);
+  font-size: 32px;
+  border-bottom: 2px solid rgb(71, 71, 71);
+  width: 30vw;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+.tableWrapper {
+  width: 65vw;
+  margin: auto;
+}
+.tableBody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
