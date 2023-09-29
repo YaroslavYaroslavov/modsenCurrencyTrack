@@ -1,7 +1,9 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import "./styled.css";
+
 export const Modal = ({ active, setActive, children }) => {
-  return (
+  return ReactDOM.createPortal(
     <div
       className={active ? "modal active" : "modal"}
       onClick={() => setActive(false)}
@@ -12,6 +14,7 @@ export const Modal = ({ active, setActive, children }) => {
       >
         {children}
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-root")
   );
 };
