@@ -30,8 +30,10 @@ module.exports = {
   },
   plugins: ["react", "simple-import-sort"],
   rules: {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "react/prop-types": ["off"],
     "simple-import-sort/imports": "error",
-    // "react-hooks/exhaustive-deps": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
   },
 };

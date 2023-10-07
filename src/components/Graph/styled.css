@@ -1,0 +1,9 @@
+.canvasWrapper {
+    width: auto !important;
+    height: auto !important;
+    overflow: scroll;
+}
+.canvasWrapper canvas {
+    width: auto !important;
+    height: auto !important;
+}

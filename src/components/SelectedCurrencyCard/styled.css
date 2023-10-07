@@ -1,0 +1,24 @@
+@media (max-width: 400px) {
+    .selectedCurrency {
+        width: 200px;
+    }
+    .currencyTextTitle {
+        font-size: 20px;
+    }
+    .currencyTextCode {
+        font-size: 10px;
+    }
+    .currencyIco {
+        transform: scale(0.8);
+    }
+}
+
+.selectedCurrency {
+    width: 450px;
+    max-width: 80vw;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.selectedCurrency:hover {
+    background-color: rgba(87, 87, 87, 0.2);
+}

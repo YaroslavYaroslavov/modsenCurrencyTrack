@@ -1,105 +1,88 @@
-@font-face {
-  font-family: "Poppins-SemiBold";
-  src: url("../../assets/fonts/Poppins-SemiBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Poppins-Light";
-  src: url("../../assets/fonts/Poppins-Light.ttf") format("truetype");
-}
 .wrapper {
-  width: 97vw;
-  display: flex;
-  /* justify-content: space-evenly; */
-  padding-top: 50px;
-  padding-bottom: 50px;
-  gap: 40px;
-  background: -webkit-linear-gradient(
-    50deg,
-    #000000,
-    #102418,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    50deg,
-    #000000,
-    #102418,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  margin: auto;
+    width: 97vw;
+    display: flex;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 40px;
+    background: -webkit-linear-gradient(50deg, #000000, #102418, #000000);
+    background: linear-gradient(50deg, #000000, #102418, #000000);
+    margin: auto;
 }
 .text {
-  margin-left: 10%;
-  text-align: center;
-  /* align-items: center; */
+    margin-left: 10%;
+    text-align: center;
 }
 .title-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 
-  justify-content: center;
+    justify-content: center;
 }
 .title {
-  font-family: "Poppins-SemiBold";
-  font-size: 76px;
-  line-height: 114px;
-  background-image: linear-gradient(
-    90.18deg,
-    #00ce2c 0.18%,
-    #aedf23 49.3%,
-    #a3dc00 99.88%
-  );
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  margin-right: 100px;
+    font-family: 'Poppins-SemiBold';
+    font-size: 76px;
+    line-height: 114px;
+    background-image: linear-gradient(
+        90.18deg,
+        #00ce2c 0.18%,
+        #aedf23 49.3%,
+        #a3dc00 99.88%
+    );
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-right: 100px;
 }
 .subtitle {
-  font-family: "Poppins-Light";
-  font-size: 25px;
-  text-align: center;
-  width: 400px;
-  line-height: 46.77px;
-  color: rgba(217, 217, 217, 1);
-  float: right;
+    font-family: 'Poppins-Light';
+    font-size: 25px;
+    text-align: center;
+    width: 400px;
+    line-height: 46.77px;
+    color: rgba(217, 217, 217, 1);
+    float: right;
 }
 @media (max-width: 1290px) {
-  .curLogo {
-    display: none;
-  }
-  .title-wrapper {
-    align-items: center;
-    /* flex-direction: row; */
-  }
-  .title {
-    margin: auto;
-    width: 97vw;
-  }
-  .subtitle {
-    width: 97vw;
-  }
-  .text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0;
-  }
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+    .curLogo {
+        display: none;
+    }
+    .title-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .title-wrapper span {
+        margin-right: 0;
+    }
+    .text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+    }
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 }
-@media (max-width: 350px) {
-  .title {
-    font-size: 56px;
-    line-height: 50px;
-    width: 97vw;
-  }
-  .subtitle {
-    width: 97vw;
-    font-size: 15px;
-  }
+@media (max-width: 490px) {
+    .title {
+        font-size: 56px;
+        line-height: 50px;
+        width: 80vw;
+    }
+    .subtitle {
+        width: 80vw;
+        font-size: 15px;
+    }
+    .title-wrapper {
+        width: 65vw;
+        margin: auto;
+    }
 }

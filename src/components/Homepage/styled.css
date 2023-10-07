@@ -1,0 +1,8 @@
+.currencySelect {
+    font-family: 'Poppins-SemiBold';
+    height: 30px;
+    width: 200px;
+}
+.currencySelect option {
+    font-family: 'Poppins-Regular';
+}
