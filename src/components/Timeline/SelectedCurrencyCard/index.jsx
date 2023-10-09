@@ -1,8 +1,7 @@
 import './styled.css';
 
 import React from 'react';
-
-import { currencyIcons } from '../../constans/currencyIcons';
+import currencyIcons from 'src/constans/currencyIcons';
 const SelectedCurrencyCard = ({ selectedCurrency, handleOpenModal }) => {
     return (
         <div
@@ -13,7 +12,7 @@ const SelectedCurrencyCard = ({ selectedCurrency, handleOpenModal }) => {
             <img
                 className="currencyIco"
                 src={currencyIcons[selectedCurrency].icon}
-                alt=""
+                alt={currencyIcons[selectedCurrency].code}
             />
             <div className="currecyTextInfoWrapper">
                 <div className="currencyTextTitle">

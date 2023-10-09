@@ -5,8 +5,8 @@
     padding-top: 50px;
     padding-bottom: 50px;
     gap: 40px;
-    background: -webkit-linear-gradient(50deg, #000000, #102418, #000000);
-    background: linear-gradient(50deg, #000000, #102418, #000000);
+
+    background: var(--gradient-background);
     margin: auto;
 }
 .text {

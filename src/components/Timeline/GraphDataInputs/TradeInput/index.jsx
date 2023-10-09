@@ -1,9 +1,11 @@
 import './styled.css';
 
 import React from 'react';
+
+import tradeInputConfig from './config';
 const TradeInput = ({ setValue, label, value }) => {
     const checkLength = (e) => {
-        if (e.target.value.length > 10) {
+        if (e.target.value.length > tradeInputConfig.MAX_INPUT_LENGTH) {
             return false;
         } else return true;
     };

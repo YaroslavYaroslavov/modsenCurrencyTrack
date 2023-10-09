@@ -1,7 +1,7 @@
 .card-wrapper {
     display: flex;
-    border: 1px solid rgba(71, 71, 71, 1);
-    background: linear-gradient(0deg, #202025, #202025);
+    border: 1px solid var(--color-gray);
+    background: var(--card-backgroud-color);
 
     border-radius: 8px;
     align-items: center;
@@ -19,20 +19,19 @@
 }
 .card-wrapper:hover {
     transform: scale(1.05);
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 .card-title {
     font-family: 'Poppins-Regular';
     font-size: 35px;
 
-    color: rgba(217, 217, 217, 1);
+    color: var(--card-title-color);
 }
 
 .card-subtitle {
     font-family: 'Poppins-Light';
     font-size: 32px;
 
-    color: rgba(167, 178, 195, 1);
+    color: var(--card-subtitle-color);
 }
 @media (max-width: 1650px) {
     .card-wrapper {

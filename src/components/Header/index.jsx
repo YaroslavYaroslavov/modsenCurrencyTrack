@@ -1,22 +1,24 @@
 import './styled.css';
 
 import React from 'react';
+import logo from 'src/assets/images/logo_big.png';
 
-import logo from '../../assets/images/logo_big.png';
-
+import HeaderConfig from './config';
 const Header = () => {
     return (
         <div className="wrapper">
             <div className="text">
                 <div className="title-wrapper">
-                    <span className="title">Modsen Currency </span>
-                    <span className="title">Tracker</span>
+                    <span className="title">
+                        {HeaderConfig.TITLE_FIRST_ROW}
+                    </span>
+                    <span className="title">
+                        {HeaderConfig.TITLE_SECOND_ROW}
+                    </span>
                 </div>
-                <div className="subtitle">
-                    Quotes for the dollar and other international currencies.
-                </div>
+                <div className="subtitle">{HeaderConfig.SUBTUTLE_ROW}</div>
             </div>
-            <img src={logo} className="curLogo" alt="" />
+            <img src={logo} className="curLogo" alt="logotype" />
         </div>
     );
 };

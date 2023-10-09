@@ -31,7 +31,7 @@
     cursor: pointer;
 }
 .selectCurrency:hover {
-    background-color: rgba(87, 87, 87, 0.2);
+    background-color: var(--hover-color-input);
 }
 @media (max-width: 400px) {
     .selectCurrency {

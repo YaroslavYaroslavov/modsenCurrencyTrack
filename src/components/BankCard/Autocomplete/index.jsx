@@ -1,25 +1,8 @@
 import './styled.css';
 
 import React, { Component } from 'react';
-
-const BanksCurrencyHave = [
-    {
-        bankName: 'Приорбанк',
-        haveCurrency: ['USD', 'EUR'],
-        coord: [55.485576, 28.768349],
-    },
-    {
-        bankName: 'Беларусбанк',
-        haveCurrency: ['TRY', 'JPY'],
-        coord: [55.490309, 28.780989],
-    },
-    {
-        bankName: 'Белинвестбанк',
-        haveCurrency: ['BTC'],
-        coord: [55.484639, 28.772916],
-    },
-];
-
+import BanksCurrencyHave from 'src/constans/banksData.js';
+import findCoordinatesByCurrency from 'src/helpers/fetchCurrency.js';
 class AutocompleteInput extends Component {
     constructor(props) {
         super(props);
@@ -29,18 +12,7 @@ class AutocompleteInput extends Component {
         };
     }
 
-    findCoordinatesByCurrency = (banks, suggestion) => {
-        const bank = banks.find((bank) =>
-            bank.haveCurrency.includes(suggestion),
-        );
-        if (bank) {
-            return bank.coord;
-        }
-        return null;
-    };
-
     handleInputChange = (event) => {
-        console.log(this.state.suggestions);
         const value = event.target.value;
         this.setState({ inputValue: value });
         if (value) {
@@ -58,10 +30,7 @@ class AutocompleteInput extends Component {
     };
 
     handleSuggestionClick = (suggestion) => {
-        const coord = this.findCoordinatesByCurrency(
-            BanksCurrencyHave,
-            suggestion,
-        );
+        const coord = findCoordinatesByCurrency(BanksCurrencyHave, suggestion);
         if (coord) {
             this.props.handleZoomPoint(coord);
         }
@@ -88,9 +57,6 @@ class AutocompleteInput extends Component {
                                 key={suggestion}
                                 className="suggestion"
                                 onClick={() =>
-                                    this.handleSuggestionClick(suggestion)
-                                }
-                                onKeyDown={() =>
                                     this.handleSuggestionClick(suggestion)
                                 }
                             >

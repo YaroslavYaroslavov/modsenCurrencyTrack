@@ -2,7 +2,7 @@
     font-family: 'Poppins-Light';
     color: var(--text-color);
     font-size: 32px;
-    border-bottom: 2px solid rgb(71, 71, 71);
+    border-bottom: 2px solid var(--color-gray);
     width: 30vw;
     padding-bottom: 25px;
     margin-bottom: 25px;

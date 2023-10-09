@@ -1,9 +1,12 @@
 import './styled.css';
 
 import React, { Component, createRef } from 'react';
+import addOneDay from 'src/helpers/addOneDay.js';
+import formatDate from 'src/helpers/formatDate';
 
-import TradeInput from '../TradeInput/index.jsx';
-class InputOHLC extends Component {
+import GraphDataInputsConfig from './config';
+import TradeInput from './TradeInput/index.jsx';
+class GraphDataInputs extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,32 +18,12 @@ class InputOHLC extends Component {
         this.dateInputRef = createRef();
     }
 
-    formatDate() {
-        let date = new Date();
-
-        let year = date.getFullYear();
-        let month = (date.getMonth() + 1).toString().padStart(2, '0');
-        let day = date.getDate().toString().padStart(2, '0');
-
-        return `${year}-${month}-${day}`;
-    }
-
-    addOneDay(dateString) {
-        const date = new Date(dateString);
-        date.setDate(date.getDate() + 1);
-
-        const year = date.getFullYear();
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const day = date.getDate().toString().padStart(2, '0');
-
-        return year + '-' + month + '-' + day;
-    }
     handleButtonAddClick = () => {
         const { open, high, low, close } = this.state;
         const { handleDatasChange } = this.props;
 
         if (close < low || close > high) {
-            alert('Close value must be between Low and High values');
+            alert(GraphDataInputsConfig.WARNING_MESSAGE_INVALID_DATA);
             return;
         }
 
@@ -55,7 +38,7 @@ class InputOHLC extends Component {
             },
         ]);
 
-        this.dateInputRef.current.value = this.addOneDay(
+        this.dateInputRef.current.value = addOneDay(
             this.dateInputRef.current.value,
         );
     };
@@ -96,7 +79,7 @@ class InputOHLC extends Component {
                     Pick date:
                     <input
                         type="date"
-                        defaultValue={this.formatDate()}
+                        defaultValue={formatDate()}
                         ref={this.dateInputRef}
                         className="dateInput"
                     />
@@ -105,11 +88,11 @@ class InputOHLC extends Component {
                     className="buttonAddOHLC"
                     onClick={this.handleButtonAddClick}
                 >
-                    Add
+                    {GraphDataInputsConfig.ADD_INPUT_TEXT}
                 </button>
             </div>
         );
     }
 }
 
-export default InputOHLC;
+export default GraphDataInputs;

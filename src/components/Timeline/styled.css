@@ -34,7 +34,7 @@ body {
     width: 120px;
     height: 50px;
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid var(--color-black);
     font-family: 'Poppins-SemiBold';
     transition: 0.1s ease-in-out;
 }

@@ -1,24 +1,22 @@
 import './styled.css';
 
 import React from 'react';
+import logo from 'src/assets/images/logo_small.png';
 
-import logo from '../../assets/images/logo_small.png';
+import FooterConfig from './config';
 const Footer = () => {
     return (
         <>
             <footer>
                 <div className="footer-about">
                     <div className="footer-about-title">
-                        <img src={logo} alt="" />
+                        <img src={logo} alt="logotype" />
                         <div className="footer-about-name">
-                            Modsen Currency Tracker
+                            {FooterConfig.TITLE}
                         </div>
                     </div>
                     <p className="footer-about-subtitle">
-                        Since then, the company has grown organically to.
-                        Starsup is the worlds largest trading platform, with $12
-                        billion worth of currency trading and 500,000 tickets
-                        sold daily to tens of thousands of traders worldwide.
+                        {FooterConfig.SUBTITLE}
                     </p>
                 </div>
                 <div className="footer-links">
@@ -103,9 +101,7 @@ const Footer = () => {
                     </label>
                 </div>
             </footer>
-            <div className="copyright">
-                Startsup © 2023-2024, All Rights Reserved
-            </div>
+            <div className="copyright">{FooterConfig.COPYRIGHT}</div>
         </>
     );
 };

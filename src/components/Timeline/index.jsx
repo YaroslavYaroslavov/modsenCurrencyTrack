@@ -2,19 +2,20 @@ import './styled.css';
 
 import React, { useState } from 'react';
 
-import { Graph } from '../Graph/index.jsx';
-import InputOHLC from '../InputOHLC/index.jsx';
-import { Modal } from '../Modal/index.jsx';
-import SelectCurrency from '../SelectCurrency/index.jsx';
-import SelectedCurrencyCard from '../SelectedCurrencyCard/index.jsx';
+import Modal from '../Modal/index.jsx';
+import TimelineConfig from './config';
+import Graph from './Graph/index.jsx';
+import GraphDataInputs from './GraphDataInputs/index.jsx';
+import SelectCurrency from './SelectCurrency/index.jsx';
+import SelectedCurrencyCard from './SelectedCurrencyCard/index.jsx';
 const Timeline = () => {
     const [selectedCurrency, setSelectedCurrency] =
         useState('australian_dollar');
     const [modalActive, setModalActive] = useState(false);
     const [datas, setDatas] = useState([]);
-    const [isReady, setIsReady] = useState(false);
+    const [isReadyToDraw, setIsReadyToDraw] = useState(false);
     const handleCurrencyChange = (event) => {
-        setIsReady(false);
+        setIsReadyToDraw(false);
         setDatas([]);
         setSelectedCurrency(event.target.value);
         setModalActive(true);
@@ -23,7 +24,7 @@ const Timeline = () => {
         setModalActive(true);
     };
     const handleDrawGraph = () => {
-        setIsReady(true);
+        setIsReadyToDraw(true);
         setModalActive(false);
     };
     return (
@@ -37,40 +38,36 @@ const Timeline = () => {
                 handleOpenModal={handleOpenModal}
             />
 
-            {isReady ? (
-                <Graph isReady={isReady} datas={datas} />
+            {isReadyToDraw ? (
+                <Graph isReady={isReadyToDraw} datas={datas} />
             ) : (
-                <p className="guide">Press on currency image to set data</p>
+                <p className="guide">{TimelineConfig.GUIDE_TEXT}</p>
             )}
             <Modal active={modalActive} setActive={setModalActive}>
-                {datas.length < 30 ? (
-                    <InputOHLC handleDatasChange={setDatas} />
+                {datas.length < TimelineConfig.MAX_DATA_ARRAY_LENGTH ? (
+                    <GraphDataInputs handleDatasChange={setDatas} />
                 ) : (
                     <>
-                        <h1>The maximum number of values has been entered</h1>
+                        <h1>{TimelineConfig.MAX_DATA_ENTERED_TEXT}</h1>
                         <button className="drawGraph" onClick={handleDrawGraph}>
-                            Draw Graph
+                            {TimelineConfig.DRAW_GRAPH_BUTTON_TEXT}
                         </button>
                     </>
                 )}
                 <div className="chartDataListWrapper">
                     {datas.length ? (
                         <ol className="chartDataList">
-                            {datas.map((el, index) => (
+                            {datas.map((candle, index) => (
                                 <li key={index} className="charDataItem">
-                                    <span>Trades Opens: {el.o}</span>
-                                    <span>Maximum Cost: {el.h}</span>
-                                    <span>Minimum Cost: {el.l}</span>
-                                    <span>Trades Close: {el.c}</span>
+                                    <span>Trades Opens: {candle.o}</span>
+                                    <span>Maximum Cost: {candle.h}</span>
+                                    <span>Minimum Cost: {candle.l}</span>
+                                    <span>Trades Close: {candle.c}</span>
                                 </li>
                             ))}
                         </ol>
                     ) : (
-                        <div>
-                            Notation: High, Low - The highest and lowest price
-                            recorded during trades; Open - trades starts on this
-                            cost; Close - trades stops on this cost.
-                        </div>
+                        <p>{TimelineConfig.NOTATION_TEXT}</p>
                     )}
                 </div>
             </Modal>

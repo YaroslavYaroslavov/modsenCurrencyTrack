@@ -3,7 +3,7 @@
     height: 30px;
     text-align: center;
     font-family: 'Poppins-SemiBold';
-    border: 1px solid black;
+    border: 1px solid var(--color-black);
 }
 .labelInput {
     display: flex;

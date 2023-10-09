@@ -1,31 +1,49 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  transition: 0.3s ease;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    --hover-color-input: rgba(87, 87, 87, 0.2);
+
+    --card-backgroud-color: #202025;
+    --color-black: rgb(0, 0, 0);
+    --color-white: rgb(255, 255, 255);
+    --color-gray: rgb(137, 137, 137);
+    --gradient-logo: linear-gradient(
+        90.18deg,
+        #00ce2c 0.18%,
+        #aedf23 49.3%,
+        #a3dc00 99.88%
+    );
+    --card-title-color: rgb(217, 217, 217);
+    --card-subtitle-color: rgb(167, 178, 195);
+    --gradient-background: linear-gradient(50deg, #000000, #102418, #000000);
 }
-html[data-theme="dark"] {
-  --text-color: rgba(217, 217, 217, 1);
-  --background-color: #000000;
-  --input-background-color: rgb(29, 34, 43);
-  --hover-color: rgb(42, 50, 63);
+
+.transition {
+    transition: 0.3s ease;
 }
-html[data-theme="light"] {
-  --text-color: #000000;
-  --background-color: #ffffff;
-  --input-background-color: #f4f6f3;
-  --hover-color: rgb(212, 229, 255);
+html[data-theme='dark'] {
+    --text-color: rgba(217, 217, 217, 1);
+    --background-color: #000000;
+    --input-background-color: rgb(29, 34, 43);
+    --hover-color: rgb(42, 50, 63);
+}
+html[data-theme='light'] {
+    --text-color: #000000;
+    --background-color: #ffffff;
+    --input-background-color: #f4f6f3;
+    --hover-color: rgb(212, 229, 255);
 }
 @font-face {
-  font-family: "Poppins-Light";
-  src: url("./src/assets/fonts/Poppins-Light.ttf") format("truetype");
+    font-family: 'Poppins-Light';
+    src: url('./src/assets/fonts/Poppins-Light.ttf') format('truetype');
 }
 @font-face {
-  font-family: "Poppins-SemiBold";
-  src: url("./src/assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+    font-family: 'Poppins-SemiBold';
+    src: url('./src/assets/fonts/Poppins-SemiBold.ttf') format('truetype');
 }
 @font-face {
-  font-family: "Poppins-Regular";
-  src: url("./src/assets/fonts/Poppins-Regular.ttf") format("truetype");
+    font-family: 'Poppins-Regular';
+    src: url('./src/assets/fonts/Poppins-Regular.ttf') format('truetype');
 }

@@ -20,5 +20,5 @@
     transition: 0.5s;
 }
 .selectedCurrency:hover {
-    background-color: rgba(87, 87, 87, 0.2);
+    background-color: var(--hover-color-input);
 }

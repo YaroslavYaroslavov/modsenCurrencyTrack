@@ -63,4 +63,4 @@ class Graph extends Component {
     }
 }
 
-export { Graph };
+export default Graph;

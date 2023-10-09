@@ -1,15 +1,13 @@
 import './styled.css';
 
-import { currencyIcons } from '@constans/currencyIcons';
 import React from 'react';
+import currencyIcons from 'src/constans/currencyIcons.js';
 
 const SelectCurrency = ({ handleCurrencyChange, selectedCurrency }) => {
     return (
         <>
             <select
                 className="selectCurrency"
-                name=""
-                id=""
                 value={selectedCurrency}
                 onChange={handleCurrencyChange}
             >

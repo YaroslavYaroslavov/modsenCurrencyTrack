@@ -1,8 +1,9 @@
 import './styled.css';
 
-import React from 'react';
+import React, { useMemo } from 'react';
+import currencyIcons from 'src/constans/currencyIcons';
 
-import { currencyIcons } from '../../constans/currencyIcons';
+import configCurrencuCard from './config.js';
 const CurrencyCard = ({
     currency = 'ifix',
     convertTo = null,
@@ -12,8 +13,13 @@ const CurrencyCard = ({
     const currencyFrom = currencyIcons[currency];
     const currencyTo = currencyIcons[convertTo];
     const notVisible = currencyFrom === currencyTo;
-    const convertedValue =
-        data?.data[currencyTo.code].value / data?.data[currencyFrom.code].value;
+    const convertedValue = useMemo(() => {
+        return (
+            data?.data[currencyTo.code].value /
+            data?.data[currencyFrom.code].value
+        );
+    }, [data, currencyTo, currencyFrom]);
+
     if (notVisible) {
         return null;
     }
@@ -22,12 +28,13 @@ const CurrencyCard = ({
             onClick={() => {
                 onClick(true);
             }}
-            onKeyDown={() => {
-                onClick(true);
-            }}
             className="card-wrapper"
         >
-            <img src={currencyFrom?.icon} alt="" className="card-ico" />
+            <img
+                src={currencyFrom?.icon}
+                alt="card icon"
+                className="card-ico"
+            />
             <div className="card-text">
                 <div className="card-title">{currencyFrom?.displayName}</div>
                 <div className="card-subtitle">
@@ -35,10 +42,10 @@ const CurrencyCard = ({
                         currencyTo?.currencyText +
                             ' ' +
                             convertedValue.toFixed(5)) ||
-                        'No info yet'}
+                        configCurrencuCard.NO_INFO_MSG}
                 </div>
             </div>
         </div>
     );
 };
-export default React.memo(CurrencyCard);
+export default CurrencyCard;

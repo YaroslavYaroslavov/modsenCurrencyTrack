@@ -1,7 +1,9 @@
+import './styled.css';
+
 import React, { Component } from 'react';
+import BanksCurrencyHave from 'src/constans/banksData.js';
 
-import AutocompleteInput from '../Autocomplete/index.jsx';
-
+import AutocompleteInput from './Autocomplete/index.jsx';
 class BankCard extends Component {
     constructor(props) {
         super(props);
@@ -27,59 +29,25 @@ class BankCard extends Component {
 
             const MyIconContentLayout =
                 this.state.ymaps.templateLayoutFactory.createClass(
-                    '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>',
+                    '<div style="color: var(--color-white); font-weight: bold;">$[properties.iconContent]</div>',
                 );
-            const myPlacemarkWithContent_1 = new this.state.ymaps.Placemark(
-                [55.486708, 28.766903],
-                {
-                    hintContent: 'Приорбанк',
-                    balloonContent: 'улица Евфросиньи Полоцкой, 1А',
-                },
-                {
-                    iconLayout: 'default#imageWithContent',
-                    iconImageSize: [50, 50],
-                    iconImageOffset: [-25, -50],
-                    iconContentOffset: [15, 15],
-                    iconContentLayout: MyIconContentLayout,
-                },
-            );
-            const myPlacemarkWithContent_2 = new this.state.ymaps.Placemark(
-                [55.490309, 28.780989],
-                {
-                    hintContent: 'Беларусбанк',
-                    balloonContent:
-                        'Октябрьская улица, 39, Полоцк, Витебская область',
-                },
-                {
-                    iconLayout: 'default#imageWithContent',
-                    iconImageSize: [50, 50],
-                    iconImageOffset: [-25, -50],
-                    iconContentOffset: [15, 15],
-                    iconContentLayout: MyIconContentLayout,
-                },
-            );
-            const myPlacemarkWithContent_3 = new this.state.ymaps.Placemark(
-                [55.484639, 28.772916],
-                {
-                    hintContent: 'Белинвестбанк',
-                    balloonContent:
-                        'проспект Франциска Скорины, 24, Полоцк, Витебская область',
-                },
-                {
-                    iconLayout: 'default#imageWithContent',
-                    iconImageSize: [50, 50],
-                    iconImageOffset: [-25, -50],
-                    iconContentOffset: [15, 15],
-                    iconContentLayout: MyIconContentLayout,
-                },
-            );
-
-            // Добавляем маркеры на карту
-            myMap.geoObjects
-                .add(myPlacemarkWithContent_1)
-                .add(myPlacemarkWithContent_2)
-                .add(myPlacemarkWithContent_3);
-
+            BanksCurrencyHave.forEach((bank) => {
+                const placemark = new this.state.ymaps.Placemark(
+                    bank.coord,
+                    {
+                        hintContent: bank.bankName,
+                        balloonContent: bank.balloonContent,
+                    },
+                    {
+                        iconLayout: 'default#imageWithContent',
+                        iconImageSize: [50, 50],
+                        iconImageOffset: [-25, -50],
+                        iconContentOffset: [15, 15],
+                        iconContentLayout: MyIconContentLayout,
+                    },
+                );
+                myMap.geoObjects.add(placemark);
+            });
             this.setState({
                 map: myMap,
             });
@@ -99,11 +67,7 @@ class BankCard extends Component {
         return (
             <>
                 <AutocompleteInput handleZoomPoint={this.handleZoomPoint} />
-                <div
-                    ref={this.mapRef}
-                    id="map"
-                    style={{ width: 100 + '%', height: 400 + 'px' }}
-                ></div>
+                <div ref={this.mapRef} id="map" className="yandexMap"></div>
             </>
         );
     }
