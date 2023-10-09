@@ -9,9 +9,7 @@ const fetchData = async () => {
             !lastUpdated ||
             currentTime - new Date(lastUpdated) >= twentyFourHours
         ) {
-            const response = await fetch(
-                `https://api.currencyapi.com/v3/latest?apikey=${process.env.REACT_APP_API_KEY}&currencies=EUR%2CUSD%2CCAD%2CARS%2CJPY%2CAUD%2CCNY%2CBTC%2CTRY`,
-            );
+            const response = await fetch(process.env.REACT_APP_CONVERTER_URL);
             const data = await response.json();
             localStorage.setItem('lastUpdated', data.meta.last_updated_at);
             localStorage.setItem('data', JSON.stringify(data));
