@@ -1,11 +1,11 @@
 import './styled.css';
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from 'src/assets/images/logo_small.png';
+import PATHS from 'src/constants/pathsArray.js';
 import { useTheme } from 'src/hooks/use-theme';
 
-import configNavbar from './config.js';
 import ThemeSwitcher from './ThemeSwitcher/index.jsx';
 
 const Navbar = () => {
@@ -13,19 +13,18 @@ const Navbar = () => {
     const { theme, setTheme } = useTheme();
     const location = useLocation();
 
-    const handleChangeTheme = () => {
+    const handleChangeTheme = useCallback(() => {
         theme === 'light' ? setTheme('dark') : setTheme('light');
+    }, [setTheme, theme]);
+    const toggleMenuButton = () => {
+        setIsMenuOpen((prev) => !prev);
     };
-
     return (
         <div className="navbar">
             <Link to="/">
                 <img src={Logo} alt="logotype" className="logo" />
             </Link>
-            <div
-                className="menu-toggle"
-                onClick={() => setIsMenuOpen((prev) => !prev)}
-            >
+            <div className="menu-toggle" onClick={toggleMenuButton}>
                 <div className="menu-line"></div>
                 <div className="menu-line"></div>
                 <div className="menu-line"></div>
@@ -33,12 +32,10 @@ const Navbar = () => {
             <div className={`linksWrapper`}>
                 <div
                     className={`menu-wrapper ${isMenuOpen ? 'open' : ''}`}
-                    onClick={() => {
-                        setIsMenuOpen((prev) => !prev);
-                    }}
+                    onClick={toggleMenuButton}
                 >
                     <ul className={`menu-content ${isMenuOpen ? 'open' : ''}`}>
-                        {configNavbar.PATHS.map(({ path, pageName }) => (
+                        {PATHS.map(({ path, pageName }) => (
                             <li key={path}>
                                 <Link
                                     to={`/${path}`}
@@ -56,7 +53,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="links">
-                    {configNavbar.PATHS.map(({ path, pageName }) => (
+                    {PATHS.map(({ path, pageName }) => (
                         <Link
                             to={`/${path}`}
                             className={`link ${

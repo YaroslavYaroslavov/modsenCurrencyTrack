@@ -1,5 +1,6 @@
 import './styled.css';
 
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import usePortal from 'src/hooks/use-portal';
@@ -26,5 +27,10 @@ const Modal = ({ active, setActive, children }) => {
             portal,
         )
     );
+};
+Modal.propTypes = {
+    active: PropTypes.bool,
+    setActive: PropTypes.func,
+    children: PropTypes.array,
 };
 export default Modal;

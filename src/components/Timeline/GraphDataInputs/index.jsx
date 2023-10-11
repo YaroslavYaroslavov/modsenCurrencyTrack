@@ -1,5 +1,6 @@
 import './styled.css';
 
+import PropTypes from 'prop-types';
 import React, { Component, createRef } from 'react';
 import addOneDay from 'src/helpers/addOneDay.js';
 import formatDate from 'src/helpers/formatDate';
@@ -95,4 +96,7 @@ class GraphDataInputs extends Component {
     }
 }
 
+GraphDataInputs.propTypes = {
+    handleDatasChange: PropTypes.func,
+};
 export default GraphDataInputs;

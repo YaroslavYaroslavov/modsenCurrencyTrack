@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
@@ -6,9 +8,9 @@ dotenv.config();
 module.exports = {
     target: 'web',
     entry: './index.js',
-    mode: 'development',
+    mode: 'production',
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, './build'),
         filename: 'index_bundle.js',
     },
 
@@ -48,7 +50,10 @@ module.exports = {
             },
         ],
     },
-
+    optimization: {
+        minimize: true,
+        minimizer: [new HtmlMinimizerPlugin(), new CssMinimizerPlugin()],
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),

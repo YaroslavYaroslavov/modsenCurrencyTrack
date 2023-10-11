@@ -1,5 +1,6 @@
 import './styled.css';
 
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import LastUpdateConfig from './config';
@@ -27,5 +28,9 @@ const LastUpdate = ({
             </div>
         </div>
     );
+};
+LastUpdate.propTypes = {
+    isLoading: PropTypes.bool,
+    lastUpdated: PropTypes.string,
 };
 export default LastUpdate;

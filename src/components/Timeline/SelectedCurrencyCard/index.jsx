@@ -1,7 +1,9 @@
 import './styled.css';
 
+import PropTypes from 'prop-types';
 import React from 'react';
-import currencyIcons from 'src/constans/currencyIcons';
+import currencyIcons from 'src/constants/currencyIcons';
+
 const SelectedCurrencyCard = ({ selectedCurrency, handleOpenModal }) => {
     return (
         <div
@@ -24,5 +26,9 @@ const SelectedCurrencyCard = ({ selectedCurrency, handleOpenModal }) => {
             </div>
         </div>
     );
+};
+SelectedCurrencyCard.propTypes = {
+    selectedCurrency: PropTypes.string,
+    handleOpenModal: PropTypes.func,
 };
 export default SelectedCurrencyCard;

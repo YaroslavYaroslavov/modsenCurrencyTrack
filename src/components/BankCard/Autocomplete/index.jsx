@@ -1,9 +1,10 @@
 import './styled.css';
 
-import React, { Component } from 'react';
-import BanksCurrencyHave from 'src/constans/banksData.js';
+import PropTypes from 'prop-types';
+import React from 'react';
+import BanksCurrencyHave from 'src/constants/banksData.js';
 import findCoordinatesByCurrency from 'src/helpers/fetchCurrency.js';
-class AutocompleteInput extends Component {
+class AutocompleteInput extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -69,5 +70,7 @@ class AutocompleteInput extends Component {
         );
     }
 }
-
+AutocompleteInput.propTypes = {
+    handleZoomPoint: PropTypes.func,
+};
 export default AutocompleteInput;

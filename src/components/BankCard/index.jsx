@@ -1,9 +1,12 @@
 import './styled.css';
 
 import React, { Component } from 'react';
-import BanksCurrencyHave from 'src/constans/banksData.js';
+import BanksCurrencyHave from 'src/constants/banksData.js';
 
 import AutocompleteInput from './Autocomplete/index.jsx';
+const DIV_MAP_TEMPLATE =
+    '<div style="font-weight: bold;">$[properties.iconContent]</div>';
+
 class BankCard extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +32,7 @@ class BankCard extends Component {
 
             const MyIconContentLayout =
                 this.state.ymaps.templateLayoutFactory.createClass(
-                    '<div style="color: var(--color-white); font-weight: bold;">$[properties.iconContent]</div>',
+                    DIV_MAP_TEMPLATE,
                 );
             BanksCurrencyHave.forEach((bank) => {
                 const placemark = new this.state.ymaps.Placemark(
