@@ -10,8 +10,9 @@ import Navbar from '../Navbar/index.jsx';
 const BankCard = lazy(() => import('../BankCard/index.jsx'));
 const Timeline = lazy(() => import('../Timeline/index.jsx'));
 const Homepage = lazy(() => import('../Homepage/index.jsx'));
+const Contato = lazy(() => import('../Contato/index.jsx'));
 
-const { homepage, timeline, bankcard } = pathRoutes;
+const { homepage, timeline, bankcard, contato } = pathRoutes;
 
 const App = () => {
     const [convertTo, setConvertTo] = useState('australian_dollar');
@@ -68,6 +69,14 @@ const App = () => {
                         element={
                             <Suspense fallback={<div>Loading...</div>}>
                                 <BankCard />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path={contato}
+                        element={
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <Contato />
                             </Suspense>
                         }
                     />
