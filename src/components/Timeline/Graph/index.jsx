@@ -1,6 +1,9 @@
 import './styled.css';
 
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+
+const COLOR_GRAY = 'rgb(128,128,128)';
 class Graph extends Component {
     constructor(props) {
         super(props);
@@ -31,16 +34,16 @@ class Graph extends Component {
                     scales: {
                         x: {
                             grid: {
-                                color: 'rgb(128,128,128)',
+                                color: COLOR_GRAY,
                             },
-                            color: 'rgb(128,128,128)',
+                            color: COLOR_GRAY,
                         },
                         y: {
                             grid: {
-                                color: 'rgb(128,128,128)',
+                                color: COLOR_GRAY,
                             },
                             position: 'right',
-                            color: 'rgb(128,128,128)',
+                            color: COLOR_GRAY,
                         },
                     },
                 },
@@ -63,4 +66,8 @@ class Graph extends Component {
     }
 }
 
+Graph.propTypes = {
+    isReady: PropTypes.bool,
+    datas: PropTypes.array,
+};
 export default Graph;

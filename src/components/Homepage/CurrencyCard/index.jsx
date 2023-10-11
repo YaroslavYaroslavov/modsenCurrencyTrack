@@ -1,9 +1,10 @@
 import './styled.css';
 
+import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
-import currencyIcons from 'src/constans/currencyIcons';
+import currencyIcons from 'src/constants/currencyIcons';
 
-import configCurrencuCard from './config.js';
+import configCurrencyCard from './config.js';
 const CurrencyCard = ({
     currency = 'ifix',
     convertTo = null,
@@ -19,17 +20,14 @@ const CurrencyCard = ({
             data?.data[currencyFrom.code].value
         );
     }, [data, currencyTo, currencyFrom]);
-
+    const handleOpenModal = () => {
+        onClick(true);
+    };
     if (notVisible) {
         return null;
     }
     return (
-        <div
-            onClick={() => {
-                onClick(true);
-            }}
-            className="card-wrapper"
-        >
+        <div onClick={handleOpenModal} className="card-wrapper">
             <img
                 src={currencyFrom?.icon}
                 alt="card icon"
@@ -42,10 +40,17 @@ const CurrencyCard = ({
                         currencyTo?.currencyText +
                             ' ' +
                             convertedValue.toFixed(5)) ||
-                        configCurrencuCard.NO_INFO_MSG}
+                        configCurrencyCard.NO_INFO_MSG}
                 </div>
             </div>
         </div>
     );
 };
+CurrencyCard.propTypes = {
+    currency: PropTypes.string,
+    convertTo: PropTypes.string,
+    onClick: PropTypes.func,
+    data: PropTypes.object,
+};
+
 export default CurrencyCard;

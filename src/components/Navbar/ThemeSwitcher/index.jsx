@@ -1,8 +1,10 @@
 import './styled.css';
 
+import PropTypes from 'prop-types';
 import React from 'react';
 
-const ThemeSwitcher = ({ handleChangeTheme, theme }) => {
+const ThemeSwitcher = React.memo(({ handleChangeTheme, theme }) => {
+    console.log(theme);
     return (
         <>
             <label className="switch">
@@ -16,6 +18,12 @@ const ThemeSwitcher = ({ handleChangeTheme, theme }) => {
             </label>
         </>
     );
+});
+ThemeSwitcher.displayName = 'ThemeSwitcher';
+
+ThemeSwitcher.propTypes = {
+    handleChangeTheme: PropTypes.func,
+    theme: PropTypes.string,
 };
 
 export default ThemeSwitcher;

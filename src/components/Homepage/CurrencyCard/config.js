@@ -1,4 +1,4 @@
-const configCurrencuCard = {
+const configCurrencyCard = {
     NO_INFO_MSG: 'No info yet',
 };
-export default configCurrencuCard;
+export default configCurrencyCard;

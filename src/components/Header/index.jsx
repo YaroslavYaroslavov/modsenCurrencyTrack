@@ -16,7 +16,7 @@ const Header = () => {
                         {HeaderConfig.TITLE_SECOND_ROW}
                     </span>
                 </div>
-                <div className="subtitle">{HeaderConfig.SUBTUTLE_ROW}</div>
+                <div className="subtitle">{HeaderConfig.SUBTITLE_ROW}</div>
             </div>
             <img src={logo} className="curLogo" alt="logotype" />
         </div>

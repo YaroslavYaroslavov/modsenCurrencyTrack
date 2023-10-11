@@ -1,5 +1,6 @@
 import './styled.css';
 
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import tradeInputConfig from './config';
@@ -25,5 +26,11 @@ const TradeInput = ({ setValue, label, value }) => {
             />
         </label>
     );
+};
+
+TradeInput.propTypes = {
+    setValue: PropTypes.func,
+    label: PropTypes.string,
+    value: PropTypes.number,
 };
 export default TradeInput;

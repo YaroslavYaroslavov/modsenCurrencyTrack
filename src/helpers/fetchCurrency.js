@@ -1,13 +1,14 @@
+const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
 const fetchData = async () => {
     try {
         const lastUpdated = JSON.parse(localStorage.getItem('data'))?.meta
             ?.last_updated_at;
         const currentTime = new Date();
-        const twentyFourHours = 24 * 60 * 60 * 1000;
 
         if (
             !lastUpdated ||
-            currentTime - new Date(lastUpdated) >= twentyFourHours
+            currentTime - new Date(lastUpdated) >= TWENTY_FOUR_HOURS
         ) {
             const response = await fetch(process.env.REACT_APP_CONVERTER_URL);
             const data = await response.json();
