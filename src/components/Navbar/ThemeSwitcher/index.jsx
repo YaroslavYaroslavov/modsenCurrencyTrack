@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const ThemeSwitcher = React.memo(({ handleChangeTheme, theme }) => {
-    console.log(theme);
     return (
         <>
             <label className="switch">

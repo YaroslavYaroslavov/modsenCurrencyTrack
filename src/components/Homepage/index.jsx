@@ -1,3 +1,5 @@
+import './styled.css';
+
 import React, { useCallback, useMemo, useState } from 'react';
 import currencyIcons from 'src/constants/currencyIcons';
 
@@ -46,7 +48,7 @@ const Homepage = () => {
                         isCurrency={true}
                     />
                 )),
-        [convertTo],
+        [convertTo, data],
     );
 
     return (
@@ -54,8 +56,8 @@ const Homepage = () => {
             <CurrencyTable type="Stocks">{stocks}</CurrencyTable>
             <CurrencyTable type="Quotes">{quotes}</CurrencyTable>
             <Modal active={modalActive} setActive={setModalActive}>
-                <h2>Convert to</h2>
-                <h3>Now selected: {currencyIcons[convertTo].displayName}</h3>
+                <h2>Choose which currency to convert the cards to</h2>
+                <h3>Now selected:</h3>
                 <select
                     className="currencySelect"
                     onChange={handleChangeCurrency}

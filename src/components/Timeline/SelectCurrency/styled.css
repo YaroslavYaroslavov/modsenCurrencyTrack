@@ -6,7 +6,7 @@
     color: var(--text-color);
     margin-bottom: 50px;
 }
-.currecyTextInfoWrapper {
+.currencyTextInfoWrapper {
     display: flex;
     flex-direction: column;
     height: 80px;

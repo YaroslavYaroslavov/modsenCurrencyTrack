@@ -3,7 +3,7 @@ import './styled.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 import BanksCurrencyHave from 'src/constants/banksData.js';
-import findCoordinatesByCurrency from 'src/helpers/fetchCurrency.js';
+import findCoordinatesByCurrency from 'src/helpers/findCoordByCur.js';
 class AutocompleteInput extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -47,7 +47,7 @@ class AutocompleteInput extends React.PureComponent {
                     type="text"
                     value={inputValue}
                     onChange={this.handleInputChange}
-                    placeholder="Currency search..."
+                    placeholder="Type currency code"
                 />
                 <div className="suggestionWrapper">
                     {inputValue && !suggestions.length ? (
