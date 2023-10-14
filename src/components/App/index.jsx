@@ -6,6 +6,7 @@ import fetchData from 'src/helpers/fetchCurrency.js';
 import Footer from '../Footer/index.jsx';
 import Header from '../Header/index.jsx';
 import LastUpdate from '../LastUpdate/index.jsx';
+import Loader from '../Loader/index.jsx';
 import Navbar from '../Navbar/index.jsx';
 const BankCard = lazy(() => import('../BankCard/index.jsx'));
 const Timeline = lazy(() => import('../Timeline/index.jsx'));
@@ -14,16 +15,31 @@ const Contato = lazy(() => import('../Contato/index.jsx'));
 
 const { homepage, timeline, bankcard, contato } = pathRoutes;
 
+// const RouteWrapper = (InnerComponent,) => {
+//     return (
+//         <Route
+//             path={homepage}
+//             element={
+//                 <Suspense fallback={<Loader />}>
+//                     <Homepage
+//                         convertTo={convertTo}
+//                         data={data}
+//                         setConvertTo={setConvertTo}
+//                     />
+//                 </Suspense>
+//             }
+//         />
+//     );
+// }
+
 const App = () => {
     const [convertTo, setConvertTo] = useState('australian_dollar');
-    const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         fetchData()
-            .then((data) => {
-                setData(data);
+            .then(() => {
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -37,29 +53,21 @@ const App = () => {
             <HashRouter>
                 <Navbar />
                 <Header />
-                <LastUpdate
-                    error={error}
-                    isLoading={isLoading}
-                    lastUpdated={data?.meta.last_updated_at}
-                />
+                <LastUpdate error={error} isLoading={isLoading} />
 
                 <Routes>
                     <Route
                         path={homepage}
                         element={
-                            <Suspense fallback={<div>Loading...</div>}>
-                                <Homepage
-                                    convertTo={convertTo}
-                                    data={data}
-                                    setConvertTo={setConvertTo}
-                                />
+                            <Suspense fallback={<Loader />}>
+                                <Homepage />
                             </Suspense>
                         }
                     />
                     <Route
                         path={timeline}
                         element={
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense fallback={<Loader />}>
                                 <Timeline />
                             </Suspense>
                         }
@@ -67,7 +75,7 @@ const App = () => {
                     <Route
                         path={bankcard}
                         element={
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense fallback={<Loader />}>
                                 <BankCard />
                             </Suspense>
                         }
@@ -75,7 +83,7 @@ const App = () => {
                     <Route
                         path={contato}
                         element={
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense fallback={<Loader />}>
                                 <Contato />
                             </Suspense>
                         }

@@ -3,12 +3,10 @@ import './styled.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import getDataFromLocalStorage from '../../helpers/getDataFromLocalStorage';
 import LastUpdateConfig from './config';
-const LastUpdate = ({
-    error,
-    isLoading,
-    lastUpdated = '2023-09-19T00:00:00Z',
-}) => {
+const LastUpdate = ({ error, isLoading }) => {
+    const { lastUpdated } = getDataFromLocalStorage();
     const timeLastUpdate = new Date(lastUpdated);
     const ampm = timeLastUpdate.getHours() >= 12 ? 'pm' : 'am';
     return (
