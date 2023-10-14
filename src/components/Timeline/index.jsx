@@ -57,12 +57,12 @@ const Timeline = () => {
                 <div className="chartDataListWrapper">
                     {datas.length ? (
                         <ol className="chartDataList">
-                            {datas.map((candle, index) => (
+                            {datas.map(({ o, h, l, c }, index) => (
                                 <li key={index} className="charDataItem">
-                                    <span>Trades Opens: {candle.o}</span>
-                                    <span>Maximum Cost: {candle.h}</span>
-                                    <span>Minimum Cost: {candle.l}</span>
-                                    <span>Trades Close: {candle.c}</span>
+                                    <span>Trades Opens: {o}</span>
+                                    <span>Maximum Cost: {h}</span>
+                                    <span>Minimum Cost: {l}</span>
+                                    <span>Trades Close: {c}</span>
                                 </li>
                             ))}
                         </ol>
