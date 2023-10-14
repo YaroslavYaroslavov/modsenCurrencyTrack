@@ -11,8 +11,7 @@
     margin-bottom: 25px;
 }
 .tableWrapper {
-    width: 65svw;
-    /* max-width: 1300px; */
+    width: var(--container-width);
     margin: auto;
 }
 .tableBody {

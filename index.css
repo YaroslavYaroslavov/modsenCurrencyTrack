@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: var(--background-color);
     --hover-color-input: rgba(87, 87, 87, 0.2);
-
+    --container-width: 65vw;
     --card-background-color: #202025;
     --color-black: rgb(0, 0, 0);
     --color-black-half-opacity: rgba(0, 0, 0, 0.4);
