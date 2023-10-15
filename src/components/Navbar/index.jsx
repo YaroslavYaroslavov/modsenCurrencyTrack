@@ -20,7 +20,7 @@ const Navbar = () => {
         setIsMenuOpen((prev) => !prev);
     };
     return (
-        <div className="navbar">
+        <nav className="navbar">
             <Link to="/">
                 <img src={Logo} alt="logotype" className="logo" />
             </Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
                     theme={theme}
                 />
             </div>
-        </div>
+        </nav>
     );
 };
 
