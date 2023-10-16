@@ -1,10 +1,26 @@
 .indicator {
-    background-color: #039a43;
-    border: 4px solid #064321;
-    min-width: 20px;
-    min-height: 20px;
+    --indicator-border-color: rgb(12, 120, 26);
+    --indicator-border-color-transparent: rgba(12, 120, 26, 0);
+    --indicator-color: #0c8b45;
+    box-shadow: 0 0 0px 4px var(--indicator-border-color);
+    background-color: var(--indicator-border-color);
+    min-width: 10px;
+    min-height: 10px;
     border-radius: 100%;
+    animation: borderAnimation 1.5s infinite ease-in;
 }
+.indicator[data-status='error'] {
+    --indicator-border-color: rgb(198, 0, 0);
+    --indicator-color: #9a0317;
+    --indicator-border-color-transparent: rgba(198, 0, 0, 0);
+}
+
+.indicator[data-status='loading'] {
+    --indicator-border-color: rgba(247, 154, 13, 1);
+    --indicator-border-color-transparent: rgba(247, 154, 13, 0);
+    --indicator-color: #fffb00;
+}
+
 .lastupdate {
     position: relative;
     display: flex;
@@ -22,13 +38,13 @@
     line-height: 41px;
     color: var(--text-color);
 }
-.error {
-    background-color: #9a0317;
-    border: 4px solid #641d07;
-}
-.loading {
-    background-color: #9a9803;
-    border: 4px solid rgb(247, 154, 13);
+@keyframes borderAnimation {
+    0% {
+        box-shadow: 0 0 0px 0px var(--indicator-border-color);
+    }
+    100% {
+        box-shadow: 0 0 0px 10px var(--indicator-border-color-transparent);
+    }
 }
 @media (max-width: 700px) {
     .indicator {

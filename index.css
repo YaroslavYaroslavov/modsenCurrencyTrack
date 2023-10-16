@@ -21,6 +21,12 @@ body {
     --card-title-color: rgb(217, 217, 217);
     --card-subtitle-color: rgb(167, 178, 195);
     --gradient-background: linear-gradient(50deg, #000000, #102418, #000000);
+    --border-color-success: rgb(12, 120, 26);
+    --border-color-success-transparent: rgba(12, 120, 26, 0);
+    --border-color-error: rgb(198, 0, 0);
+    --border-color-error-transparent: rgba(198, 0, 0, 0);
+    --border-color-loading: rgba(247, 154, 13, 1);
+    --border-color-loading-transparent: rgba(247, 154, 13, 0);
 }
 
 .transition {
