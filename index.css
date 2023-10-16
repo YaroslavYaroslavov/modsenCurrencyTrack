@@ -17,7 +17,7 @@ body {
         #aedf23 49.3%,
         #a3dc00 99.88%
     );
-
+    --container-width: 65vw;
     --card-title-color: rgb(217, 217, 217);
     --card-subtitle-color: rgb(167, 178, 195);
     --gradient-background: linear-gradient(50deg, #000000, #102418, #000000);

@@ -16,7 +16,7 @@
     font-size: 35px;
 }
 .canvasWrapper {
-    width: 65vw;
+    width: var(--container-width);
 }
 .selectCurrency {
     color: var(--text-color);

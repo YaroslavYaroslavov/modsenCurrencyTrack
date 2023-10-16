@@ -1,5 +1,5 @@
 .timelineWrapper {
-    width: 65vw;
+    width: var(--container-width);
     margin: auto;
     display: flex;
     flex-direction: column;

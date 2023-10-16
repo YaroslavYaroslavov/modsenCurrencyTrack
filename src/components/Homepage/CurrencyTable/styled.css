@@ -3,7 +3,6 @@
     color: var(--text-color);
     font-size: 32px;
     border-bottom: 2px solid var(--color-gray);
-    /* width: 30vw; */
     min-width: 170px;
     max-width: 350px;
     margin-left: 50px;

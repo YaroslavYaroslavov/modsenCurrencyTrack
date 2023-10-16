@@ -19,6 +19,18 @@ const Navbar = () => {
     const toggleMenuButton = () => {
         setIsMenuOpen((prev) => !prev);
     };
+    const links = PATHS.map(({ path, pageName }) => (
+        <li key={path}>
+            <Link
+                to={`/${path}`}
+                className={`link ${
+                    location.pathname === `/${path}` ? 'active' : ''
+                }`}
+            >
+                {pageName}
+            </Link>
+        </li>
+    ));
     return (
         <nav className="navbar">
             <Link to="/">
@@ -35,35 +47,12 @@ const Navbar = () => {
                     onClick={toggleMenuButton}
                 >
                     <ul className={`menu-content ${isMenuOpen ? 'open' : ''}`}>
-                        {PATHS.map(({ path, pageName }) => (
-                            <li key={path}>
-                                <Link
-                                    to={`/${path}`}
-                                    className={`link ${
-                                        location.pathname === `/${path}`
-                                            ? 'active'
-                                            : ''
-                                    }`}
-                                >
-                                    {pageName}
-                                </Link>
-                            </li>
-                        ))}
+                        {links}
                     </ul>
                 </div>
 
                 <div className="links">
-                    {PATHS.map(({ path, pageName }) => (
-                        <Link
-                            to={`/${path}`}
-                            className={`link ${
-                                location.pathname === `/${path}` ? 'active' : ''
-                            }`}
-                            key={path}
-                        >
-                            {pageName}
-                        </Link>
-                    ))}
+                    <ul className="linkList">{links}</ul>
                 </div>
             </div>
             <div className="switch">
