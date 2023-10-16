@@ -1,5 +1,5 @@
 .timelineWrapper {
-    width: 65vw;
+    width: var(--container-width);
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@ body {
 }
 .guide {
     font-family: sans-serif;
-    font-size: 40px;
+    font-size: clamp(20px, 5vw, 40px);
     color: var(--text-color);
 }
 
@@ -37,7 +37,4 @@ body {
     border: 2px solid var(--color-black);
     font-family: 'Poppins-SemiBold';
     transition: 0.1s ease-in-out;
-}
-
-@media (max-width: 400px) {
 }

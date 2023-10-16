@@ -3,12 +3,14 @@
     color: var(--text-color);
     font-size: 32px;
     border-bottom: 2px solid var(--color-gray);
-    width: 30vw;
+    min-width: 170px;
+    max-width: 350px;
+    margin-left: 50px;
     padding-bottom: 25px;
     margin-bottom: 25px;
 }
 .tableWrapper {
-    width: 65vw;
+    width: var(--container-width);
     margin: auto;
 }
 .tableBody {

@@ -4,22 +4,25 @@ import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import currencyIcons from 'src/constants/currencyIcons';
 
+import getDataFromLocalStorage from '../../../helpers/getDataFromLocalStorage';
 import configCurrencyCard from './config.js';
 const CurrencyCard = ({
     currency = 'ifix',
     convertTo = null,
     onClick,
-    data,
+    isCurrency = false,
 }) => {
     const currencyFrom = currencyIcons[currency];
     const currencyTo = currencyIcons[convertTo];
     const notVisible = currencyFrom === currencyTo;
+    const { data } = getDataFromLocalStorage();
     const convertedValue = useMemo(() => {
+        if (!isCurrency) return;
         return (
             data?.data[currencyTo.code].value /
             data?.data[currencyFrom.code].value
         );
-    }, [data, currencyTo, currencyFrom]);
+    }, [isCurrency, data, currencyTo, currencyFrom]);
     const handleOpenModal = () => {
         onClick(true);
     };

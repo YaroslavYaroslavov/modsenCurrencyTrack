@@ -1,6 +1,6 @@
 footer {
     padding-top: 40px;
-    width: 65vw;
+    width: var(--container-width);
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -53,7 +53,7 @@ footer {
     text-align: center;
     margin: auto;
     font-family: 'Poppins-Regular';
-    font-size: 24px;
+    font-size: clamp(10px, 3vw, 24px);
     color: var(--color-gray);
 }
 .footer-link-checkbox {
@@ -121,11 +121,10 @@ footer {
     }
     footer {
         display: block;
-        width: 65vw;
+        width: var(--container-width);
         margin: auto;
     }
     .copyright {
-        width: 65vw;
-        font-size: 5vw;
+        width: var(--container-width);
     }
 }

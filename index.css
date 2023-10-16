@@ -4,18 +4,20 @@ body {
     padding: 0;
     background-color: var(--background-color);
     --hover-color-input: rgba(87, 87, 87, 0.2);
-
-    --card-backgroud-color: #202025;
+    --container-width: 65vw;
+    --card-background-color: #202025;
     --color-black: rgb(0, 0, 0);
     --color-black-half-opacity: rgba(0, 0, 0, 0.4);
     --color-white: rgb(255, 255, 255);
     --color-gray: rgb(137, 137, 137);
+    --color-green: #aedf23;
     --gradient-logo: linear-gradient(
         90.18deg,
         #00ce2c 0.18%,
         #aedf23 49.3%,
         #a3dc00 99.88%
     );
+    --container-width: 65vw;
     --card-title-color: rgb(217, 217, 217);
     --card-subtitle-color: rgb(167, 178, 195);
     --gradient-background: linear-gradient(50deg, #000000, #102418, #000000);

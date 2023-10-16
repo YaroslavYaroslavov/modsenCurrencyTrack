@@ -14,15 +14,6 @@ module.exports = {
         filename: 'index_bundle.js',
     },
 
-    devServer: {
-        port: '5000',
-        static: {
-            directory: path.join(__dirname, 'public'),
-        },
-        open: true,
-        hot: true,
-        liveReload: true,
-    },
     resolve: {
         alias: {
             src: path.resolve(__dirname, 'src'),

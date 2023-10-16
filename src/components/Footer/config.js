@@ -6,5 +6,19 @@ const FooterConfig = {
     COPYRIGHT: `Startsup © 2023 - ${
         new Date().getFullYear() + 1
     }, All Rights Reserved`,
+    LINKS: [
+        {
+            linkName: 'General',
+            subLinks: [{ subLinkName: 'Market' }, { subLinkName: 'Service' }],
+        },
+        {
+            linkName: 'Product',
+            subLinks: [{ subLinkName: 'Sparks' }, { subLinkName: 'Ideas' }],
+        },
+        {
+            linkName: 'Community',
+            subLinks: [{ subLinkName: 'Snaps' }, { subLinkName: 'Streams' }],
+        },
+    ],
 };
 export default FooterConfig;

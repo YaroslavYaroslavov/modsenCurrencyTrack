@@ -6,23 +6,27 @@
     background-color: var(--background-color);
     transition: 0.3s ease;
     height: 103px;
-    width: 65vw;
+    width: var(--container-width);
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Poppins-Light', Arial, sans-serif;
 }
+.linkList {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    list-style-type: none;
+}
 .linksWrapper {
     display: flex;
-    width: 40vw;
+    width: var(--container-width);
     align-items: center;
-    justify-content: center;
 }
 .links {
     display: flex;
     width: 100%;
-    justify-content: space-between;
 }
 .link {
     color: var(--text-color);

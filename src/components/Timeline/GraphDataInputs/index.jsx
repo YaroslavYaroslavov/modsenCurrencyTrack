@@ -57,21 +57,21 @@ class GraphDataInputs extends Component {
                 />
                 <TradeInput
                     setValue={(e) => {
-                        this.setState({ high: e.target.value });
+                        this.setState({ high: +e.target.value });
                     }}
                     label="High"
                     value={this.state.high}
                 />
                 <TradeInput
                     setValue={(e) => {
-                        this.setState({ low: e.target.value });
+                        this.setState({ low: +e.target.value });
                     }}
                     label="Low"
                     value={this.state.low}
                 />
                 <TradeInput
                     setValue={(e) => {
-                        this.setState({ close: e.target.value });
+                        this.setState({ close: +e.target.value });
                     }}
                     label="Close"
                     value={this.state.close}

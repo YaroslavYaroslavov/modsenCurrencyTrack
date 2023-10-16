@@ -2,9 +2,6 @@
     .selectedCurrency {
         width: 200px;
     }
-    .currencyTextTitle {
-        font-size: 20px;
-    }
     .currencyTextCode {
         font-size: 10px;
     }
@@ -15,10 +12,13 @@
 
 .selectedCurrency {
     width: 450px;
-    max-width: 80vw;
+    max-width: var(--container-width);
     cursor: pointer;
     transition: 0.5s;
 }
 .selectedCurrency:hover {
     background-color: var(--hover-color-input);
+}
+.currencyTextTitle {
+    font-size: clamp(10px, 5vw, 40px);
 }

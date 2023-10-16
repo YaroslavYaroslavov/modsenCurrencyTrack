@@ -6,17 +6,13 @@ import currencyIcons from 'src/constants/currencyIcons';
 
 const SelectedCurrencyCard = ({ selectedCurrency, handleOpenModal }) => {
     return (
-        <div
-            className="selectedCurrency"
-            onKeyDown={handleOpenModal}
-            onClick={handleOpenModal}
-        >
+        <div className="selectedCurrency" onClick={handleOpenModal}>
             <img
                 className="currencyIco"
                 src={currencyIcons[selectedCurrency].icon}
                 alt={currencyIcons[selectedCurrency].code}
             />
-            <div className="currecyTextInfoWrapper">
+            <div className="currencyTextInfoWrapper">
                 <div className="currencyTextTitle">
                     {currencyIcons[selectedCurrency].displayName}
                 </div>
