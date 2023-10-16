@@ -121,9 +121,10 @@ var Modal = function Modal(_ref) {
 };
 Modal.propTypes = {
   active: (prop_types_default()).bool,
-  setActive: (prop_types_default()).func,
-  children: (prop_types_default()).array
+  setActive: (prop_types_default()).func
+  // children: PropTypes.array,
 };
+
 /* harmony default export */ const components_Modal = (Modal);
 
 /***/ }),
