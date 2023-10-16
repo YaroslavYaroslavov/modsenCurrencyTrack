@@ -4133,6 +4133,12 @@ body {
     --card-title-color: rgb(217, 217, 217);
     --card-subtitle-color: rgb(167, 178, 195);
     --gradient-background: linear-gradient(50deg, #000000, #102418, #000000);
+    --border-color-success: rgb(12, 120, 26);
+    --border-color-success-transparent: rgba(12, 120, 26, 0);
+    --border-color-error: rgb(198, 0, 0);
+    --border-color-error-transparent: rgba(198, 0, 0, 0);
+    --border-color-loading: rgba(247, 154, 13, 1);
+    --border-color-loading-transparent: rgba(247, 154, 13, 0);
 }
 
 .transition {
@@ -4479,12 +4485,28 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.wrapper {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.indicator {
-    background-color: #039a43;
-    border: 4px solid #064321;
-    min-width: 20px;
-    min-height: 20px;
+    --indicator-border-color: rgb(12, 120, 26);
+    --indicator-border-color-transparent: rgba(12, 120, 26, 0);
+    --indicator-color: #0c8b45;
+    box-shadow: 0 0 0px 4px var(--indicator-border-color);
+    background-color: var(--indicator-border-color);
+    min-width: 10px;
+    min-height: 10px;
     border-radius: 100%;
+    animation: borderAnimation 1.5s infinite ease-in;
 }
+.indicator[data-status='error'] {
+    --indicator-border-color: rgb(198, 0, 0);
+    --indicator-color: #9a0317;
+    --indicator-border-color-transparent: rgba(198, 0, 0, 0);
+}
+
+.indicator[data-status='loading'] {
+    --indicator-border-color: rgba(247, 154, 13, 1);
+    --indicator-border-color-transparent: rgba(247, 154, 13, 0);
+    --indicator-color: #fffb00;
+}
+
 .lastupdate {
     position: relative;
     display: flex;
@@ -4502,13 +4524,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.indicator {
     line-height: 41px;
     color: var(--text-color);
 }
-.error {
-    background-color: #9a0317;
-    border: 4px solid #641d07;
-}
-.loading {
-    background-color: #9a9803;
-    border: 4px solid rgb(247, 154, 13);
+@keyframes borderAnimation {
+    0% {
+        box-shadow: 0 0 0px 0px var(--indicator-border-color);
+    }
+    100% {
+        box-shadow: 0 0 0px 10px var(--indicator-border-color-transparent);
+    }
 }
 @media (max-width: 700px) {
     .indicator {
@@ -8591,7 +8613,7 @@ var fetchData = function fetchData() {
             break;
           }
           _context.next = 6;
-          return fetch({"ALLUSERSPROFILE":"C:\\ProgramData","APPDATA":"C:\\Users\\zhjck\\AppData\\Roaming","CHROME_CRASHPAD_PIPE_NAME":"\\\\.\\pipe\\crashpad_3056_ZQJYECWXJKJXWVTQ","COLOR":"1","COLORTERM":"truecolor","CommonProgramFiles":"C:\\Program Files\\Common Files","CommonProgramFiles(x86)":"C:\\Program Files (x86)\\Common Files","CommonProgramW6432":"C:\\Program Files\\Common Files","COMPUTERNAME":"JAROSLAWIK","ComSpec":"C:\\Windows\\system32\\cmd.exe","DriverData":"C:\\Windows\\System32\\Drivers\\DriverData","EDITOR":"notepad.exe","EGPL_GeoLibrarian_Drive":"L","FPS_BROWSER_APP_PROFILE_STRING":"Internet Explorer","FPS_BROWSER_USER_PROFILE_STRING":"Default","GIT_ASKPASS":"c:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh","HOME":"C:\\Users\\zhjck","HOMEDRIVE":"C:","HOMEPATH":"\\Users\\zhjck","INIT_CWD":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack","IntelliJ IDEA":"C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\bin;","INTEL_DEV_REDIST":"C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\","KMP_DUPLICATE_LIB_OK":"TRUE","LANG":"en_US.UTF-8","LOCALAPPDATA":"C:\\Users\\zhjck\\AppData\\Local","LOGONSERVER":"\\\\JAROSLAWIK","MIC_LD_LIBRARY_PATH":"C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic","MKL_SERIAL":"YES","NIEXTCCOMPILERSUPP":"C:\\Program Files (x86)\\National Instruments\\Shared\\ExternalCompilerSupport\\C\\","NODE":"C:\\Program Files\\nodejs\\node.exe","NODE_EXE":"C:\\Program Files\\nodejs\\\\node.exe","NPM_CLI_JS":"C:\\Program Files\\nodejs\\\\node_modules\\npm\\bin\\npm-cli.js","npm_command":"run-script","npm_config_cache":"C:\\Users\\zhjck\\AppData\\Local\\npm-cache","npm_config_globalconfig":"C:\\Users\\zhjck\\AppData\\Roaming\\npm\\etc\\npmrc","npm_config_global_prefix":"C:\\Users\\zhjck\\AppData\\Roaming\\npm","npm_config_init_module":"C:\\Users\\zhjck\\.npm-init.js","npm_config_local_prefix":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_node_gyp":"C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js","npm_config_noproxy":"","npm_config_prefix":"C:\\Users\\zhjck\\AppData\\Roaming\\npm","npm_config_userconfig":"C:\\Users\\zhjck\\.npmrc","npm_config_user_agent":"npm/8.3.1 node/v16.14.0 win32 x64 workspaces/false","npm_execpath":"C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js","npm_lifecycle_event":"build","npm_lifecycle_script":"webpack --config webpack.prod.js","npm_node_execpath":"C:\\Program Files\\nodejs\\node.exe","npm_package_json":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\package.json","npm_package_name":"modsencurtrack","npm_package_version":"1.1.0","NPM_PREFIX_NPM_CLI_JS":"C:\\Users\\zhjck\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js","NUMBER_OF_PROCESSORS":"4","OneDrive":"C:\\Users\\zhjck\\OneDrive","OPENCV_DIR":"C:\\Users\\zhjck\\Desktop\\opencv\\build","ORIGINAL_XDG_CURRENT_DESKTOP":"undefined","OS":"Windows_NT","Path":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\Projects\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\node_modules\\.bin;C:\\Users\\zhjck\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\Projects\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\node_modules\\.bin;C:\\Users\\zhjck\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\CMake\\bin;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\zhjck\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\bin;;C:\\Users\\zhjck\\AppData\\Roaming\\npm","PATHEXT":".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL","PROCESSOR_ARCHITECTURE":"AMD64","PROCESSOR_IDENTIFIER":"Intel64 Family 6 Model 126 Stepping 5, GenuineIntel","PROCESSOR_LEVEL":"6","PROCESSOR_REVISION":"7e05","ProgramData":"C:\\ProgramData","ProgramFiles":"C:\\Program Files","ProgramFiles(x86)":"C:\\Program Files (x86)","ProgramW6432":"C:\\Program Files","PROMPT":"$P$G","PSModulePath":"C:\\Users\\zhjck\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules","PT5HOME":"C:\\Program Files (x86)\\Cisco Packet Tracer 6.0","PT6HOME":"C:\\Program Files (x86)\\Cisco Packet Tracer 6.0","PUBLIC":"C:\\Users\\Public","REACT_APP_CONVERTER_URL":"https://api.currencyapi.com/v3/latest?apikey=cur_live_gTMUNZmKPpqpPzqMymNzC1Lbe7Wsb9JXwalG3DJq&currencies=EUR%2CUSD%2CCAD%2CARS%2CJPY%2CAUD%2CCNY%2CBTC%2CTRY","SESSIONNAME":"Console","SystemDrive":"C:","SystemRoot":"C:\\Windows","TEMP":"C:\\Users\\zhjck\\AppData\\Local\\Temp","TERM_PROGRAM":"vscode","TERM_PROGRAM_VERSION":"1.83.1","TMP":"C:\\Users\\zhjck\\AppData\\Local\\Temp","USERDOMAIN":"JAROSLAWIK","USERDOMAIN_ROAMINGPROFILE":"JAROSLAWIK","USERNAME":"zhjck","USERPROFILE":"C:\\Users\\zhjck","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","VSCODE_GIT_ASKPASS_MAIN":"c:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"C:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe","VSCODE_GIT_IPC_HANDLE":"\\\\.\\pipe\\vscode-git-b9907dc985-sock","VSCODE_INJECTION":"1","windir":"C:\\Windows","ZES_ENABLE_SYSMAN":"1"}.REACT_APP_CONVERTER_URL);
+          return fetch({"ALLUSERSPROFILE":"C:\\ProgramData","APPDATA":"C:\\Users\\zhjck\\AppData\\Roaming","CHROME_CRASHPAD_PIPE_NAME":"\\\\.\\pipe\\crashpad_2652_IYUKQEJJPENJLRIX","COLOR":"1","COLORTERM":"truecolor","CommonProgramFiles":"C:\\Program Files\\Common Files","CommonProgramFiles(x86)":"C:\\Program Files (x86)\\Common Files","CommonProgramW6432":"C:\\Program Files\\Common Files","COMPUTERNAME":"JAROSLAWIK","ComSpec":"C:\\Windows\\system32\\cmd.exe","DriverData":"C:\\Windows\\System32\\Drivers\\DriverData","EDITOR":"notepad.exe","EGPL_GeoLibrarian_Drive":"L","FPS_BROWSER_APP_PROFILE_STRING":"Internet Explorer","FPS_BROWSER_USER_PROFILE_STRING":"Default","GIT_ASKPASS":"c:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh","HOME":"C:\\Users\\zhjck","HOMEDRIVE":"C:","HOMEPATH":"\\Users\\zhjck","INIT_CWD":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack","IntelliJ IDEA":"C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\bin;","INTEL_DEV_REDIST":"C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\","KMP_DUPLICATE_LIB_OK":"TRUE","LANG":"en_US.UTF-8","LOCALAPPDATA":"C:\\Users\\zhjck\\AppData\\Local","LOGONSERVER":"\\\\JAROSLAWIK","MIC_LD_LIBRARY_PATH":"C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic","MKL_SERIAL":"YES","NIEXTCCOMPILERSUPP":"C:\\Program Files (x86)\\National Instruments\\Shared\\ExternalCompilerSupport\\C\\","NODE":"C:\\Program Files\\nodejs\\node.exe","NODE_EXE":"C:\\Program Files\\nodejs\\\\node.exe","NPM_CLI_JS":"C:\\Program Files\\nodejs\\\\node_modules\\npm\\bin\\npm-cli.js","npm_command":"run-script","npm_config_cache":"C:\\Users\\zhjck\\AppData\\Local\\npm-cache","npm_config_globalconfig":"C:\\Users\\zhjck\\AppData\\Roaming\\npm\\etc\\npmrc","npm_config_global_prefix":"C:\\Users\\zhjck\\AppData\\Roaming\\npm","npm_config_init_module":"C:\\Users\\zhjck\\.npm-init.js","npm_config_local_prefix":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_node_gyp":"C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js","npm_config_noproxy":"","npm_config_prefix":"C:\\Users\\zhjck\\AppData\\Roaming\\npm","npm_config_userconfig":"C:\\Users\\zhjck\\.npmrc","npm_config_user_agent":"npm/8.3.1 node/v16.14.0 win32 x64 workspaces/false","npm_execpath":"C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js","npm_lifecycle_event":"build","npm_lifecycle_script":"webpack --config webpack.prod.js","npm_node_execpath":"C:\\Program Files\\nodejs\\node.exe","npm_package_json":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\package.json","npm_package_name":"modsencurtrack","npm_package_version":"1.1.0","NPM_PREFIX_NPM_CLI_JS":"C:\\Users\\zhjck\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js","NUMBER_OF_PROCESSORS":"4","OneDrive":"C:\\Users\\zhjck\\OneDrive","OPENCV_DIR":"C:\\Users\\zhjck\\Desktop\\opencv\\build","ORIGINAL_XDG_CURRENT_DESKTOP":"undefined","OS":"Windows_NT","Path":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\Projects\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\node_modules\\.bin;C:\\Users\\zhjck\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\Projects\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\node_modules\\.bin;C:\\Users\\zhjck\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\CMake\\bin;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\zhjck\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\bin;;C:\\Users\\zhjck\\AppData\\Roaming\\npm","PATHEXT":".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL","PROCESSOR_ARCHITECTURE":"AMD64","PROCESSOR_IDENTIFIER":"Intel64 Family 6 Model 126 Stepping 5, GenuineIntel","PROCESSOR_LEVEL":"6","PROCESSOR_REVISION":"7e05","ProgramData":"C:\\ProgramData","ProgramFiles":"C:\\Program Files","ProgramFiles(x86)":"C:\\Program Files (x86)","ProgramW6432":"C:\\Program Files","PROMPT":"$P$G","PSModulePath":"C:\\Users\\zhjck\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules","PT5HOME":"C:\\Program Files (x86)\\Cisco Packet Tracer 6.0","PT6HOME":"C:\\Program Files (x86)\\Cisco Packet Tracer 6.0","PUBLIC":"C:\\Users\\Public","REACT_APP_CONVERTER_URL":"https://api.currencyapi.com/v3/latest?apikey=cur_live_gTMUNZmKPpqpPzqMymNzC1Lbe7Wsb9JXwalG3DJq&currencies=EUR%2CUSD%2CCAD%2CARS%2CJPY%2CAUD%2CCNY%2CBTC%2CTRY","SESSIONNAME":"Console","SystemDrive":"C:","SystemRoot":"C:\\Windows","TEMP":"C:\\Users\\zhjck\\AppData\\Local\\Temp","TERM_PROGRAM":"vscode","TERM_PROGRAM_VERSION":"1.83.1","TMP":"C:\\Users\\zhjck\\AppData\\Local\\Temp","USERDOMAIN":"JAROSLAWIK","USERDOMAIN_ROAMINGPROFILE":"JAROSLAWIK","USERNAME":"zhjck","USERPROFILE":"C:\\Users\\zhjck","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","VSCODE_GIT_ASKPASS_MAIN":"c:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"C:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe","VSCODE_GIT_IPC_HANDLE":"\\\\.\\pipe\\vscode-git-b9907dc985-sock","VSCODE_INJECTION":"1","windir":"C:\\Windows","ZES_ENABLE_SYSMAN":"1"}.REACT_APP_CONVERTER_URL);
         case 6:
           response = _context.sent;
           _context.next = 9;
@@ -8859,10 +8881,11 @@ var LastUpdate = function LastUpdate(_ref) {
   return /*#__PURE__*/react.createElement("div", {
     className: "lastupdate"
   }, /*#__PURE__*/react.createElement("div", {
-    className: "indicator ".concat(error && 'error', " ").concat(isLoading ? LastUpdate_config.LOADING_TEXT : '')
+    className: 'indicator',
+    "data-status": error ? 'error' : isLoading ? 'loading' : 'success'
   }), /*#__PURE__*/react.createElement("div", {
     className: "lastupdate-text"
-  }, error ? LastUpdate_config.ERROR_TEXT : isLoading ? LastUpdate_config.LOADING_TEXT : "Last updated at ".concat(timeLastUpdate.getHours() % 12, ":\n                ").concat(timeLastUpdate.getMinutes()).concat(ampm)));
+  }, error ? LastUpdate_config.ERROR_TEXT : isLoading ? LastUpdate_config.LOADING_TEXT : "Last updated at ".concat(timeLastUpdate.getHours() % 12, ":").concat(timeLastUpdate.getMinutes()).concat(ampm)));
 };
 LastUpdate.propTypes = {
   isLoading: (prop_types_default()).bool,

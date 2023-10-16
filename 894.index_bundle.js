@@ -348,7 +348,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.card-wrapper {
 }
 @media (max-width: 790px) {
     .card-wrapper {
-        min-width: 100%;
         height: 30px;
         margin-bottom: 0px;
     }
@@ -391,9 +390,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tableHeader {
     color: var(--text-color);
     font-size: 32px;
     border-bottom: 2px solid var(--color-gray);
-    min-width: 170px;
     max-width: 350px;
-    margin-left: 50px;
     padding-bottom: 25px;
     margin-bottom: 25px;
 }
