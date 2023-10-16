@@ -61,13 +61,12 @@ var update = injectStylesIntoStyleTag_default()(styled/* default */.Z, options);
 
        /* harmony default export */ const Homepage_styled = (styled/* default */.Z && styled/* default */.Z.locals ? styled/* default */.Z.locals : undefined);
 
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(5697);
-var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(7294);
 // EXTERNAL MODULE: ./src/constants/currencyIcons.js + 11 modules
 var currencyIcons = __webpack_require__(9883);
+// EXTERNAL MODULE: ./src/helpers/getDataFromLocalStorage.js
+var getDataFromLocalStorage = __webpack_require__(6317);
 // EXTERNAL MODULE: ./src/components/Modal/index.jsx + 2 modules
 var Modal = __webpack_require__(3831);
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/Homepage/CurrencyCard/styled.css
@@ -101,6 +100,9 @@ var styled_update = injectStylesIntoStyleTag_default()(CurrencyCard_styled/* def
 
        /* harmony default export */ const Homepage_CurrencyCard_styled = (CurrencyCard_styled/* default */.Z && CurrencyCard_styled/* default */.Z.locals ? CurrencyCard_styled/* default */.Z.locals : undefined);
 
+// EXTERNAL MODULE: ./node_modules/prop-types/index.js
+var prop_types = __webpack_require__(5697);
+var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
 ;// CONCATENATED MODULE: ./src/components/Homepage/CurrencyCard/config.js
 var configCurrencyCard = {
   NO_INFO_MSG: 'No info yet'
@@ -112,19 +114,24 @@ var configCurrencyCard = {
 
 
 
+
 var CurrencyCard = function CurrencyCard(_ref) {
   var _ref$currency = _ref.currency,
     currency = _ref$currency === void 0 ? 'ifix' : _ref$currency,
     _ref$convertTo = _ref.convertTo,
     convertTo = _ref$convertTo === void 0 ? null : _ref$convertTo,
     onClick = _ref.onClick,
-    data = _ref.data;
+    _ref$isCurrency = _ref.isCurrency,
+    isCurrency = _ref$isCurrency === void 0 ? false : _ref$isCurrency;
   var currencyFrom = currencyIcons/* default */.Z[currency];
   var currencyTo = currencyIcons/* default */.Z[convertTo];
   var notVisible = currencyFrom === currencyTo;
+  var _getDataFromLocalStor = (0,getDataFromLocalStorage/* default */.Z)(),
+    data = _getDataFromLocalStor.data;
   var convertedValue = (0,react.useMemo)(function () {
+    if (!isCurrency) return;
     return (data === null || data === void 0 ? void 0 : data.data[currencyTo.code].value) / (data === null || data === void 0 ? void 0 : data.data[currencyFrom.code].value);
-  }, [data, currencyTo, currencyFrom]);
+  }, [isCurrency, data, currencyTo, currencyFrom]);
   var handleOpenModal = function handleOpenModal() {
     onClick(true);
   };
@@ -219,38 +226,47 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Homepage = function Homepage(_ref) {
-  var data = _ref.data,
-    convertTo = _ref.convertTo,
-    setConvertTo = _ref.setConvertTo;
+var Homepage = function Homepage() {
   var _useState = (0,react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     modalActive = _useState2[0],
     setModalActive = _useState2[1];
-  var handleChangeCurrency = function handleChangeCurrency(event) {
+  var _useState3 = (0,react.useState)('australian_dollar'),
+    _useState4 = _slicedToArray(_useState3, 2),
+    convertTo = _useState4[0],
+    setConvertTo = _useState4[1];
+  var _getDataFromLocalStor = (0,getDataFromLocalStorage/* default */.Z)(),
+    data = _getDataFromLocalStor.data;
+  var handleChangeCurrency = (0,react.useCallback)(function (event) {
     setConvertTo(event.target.value);
     setModalActive(false);
-  };
-  var stocks = Object.keys(currencyIcons/* default */.Z).filter(function (key) {
-    return !currencyIcons/* default */.Z[key].isCurrency;
-  }).map(function (key) {
-    return /*#__PURE__*/react.createElement(Homepage_CurrencyCard, {
-      key: key,
-      onClick: setModalActive,
-      currency: key
+  }, []);
+  var stocks = (0,react.useMemo)(function () {
+    return Object.keys(currencyIcons/* default */.Z).filter(function (key) {
+      return !currencyIcons/* default */.Z[key].isCurrency;
+    }).map(function (key) {
+      return /*#__PURE__*/react.createElement(Homepage_CurrencyCard, {
+        key: key,
+        onClick: setModalActive,
+        currency: key,
+        isCurrency: false
+      });
     });
-  });
-  var quotes = Object.keys(currencyIcons/* default */.Z).filter(function (key) {
-    return currencyIcons/* default */.Z[key].isCurrency && key !== convertTo;
-  }).map(function (key) {
-    return /*#__PURE__*/react.createElement(Homepage_CurrencyCard, {
-      key: key,
-      data: data,
-      onClick: setModalActive,
-      currency: key,
-      convertTo: convertTo
+  }, []);
+  var quotes = (0,react.useMemo)(function () {
+    return Object.keys(currencyIcons/* default */.Z).filter(function (key) {
+      return currencyIcons/* default */.Z[key].isCurrency && key !== convertTo;
+    }).map(function (key) {
+      return /*#__PURE__*/react.createElement(Homepage_CurrencyCard, {
+        key: key,
+        onClick: setModalActive,
+        currency: key,
+        convertTo: convertTo,
+        data: data,
+        isCurrency: true
+      });
     });
-  });
+  }, [convertTo, data]);
   return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Homepage_CurrencyTable, {
     type: "Stocks"
   }, stocks), /*#__PURE__*/react.createElement(Homepage_CurrencyTable, {
@@ -258,23 +274,18 @@ var Homepage = function Homepage(_ref) {
   }, quotes), /*#__PURE__*/react.createElement(Modal/* default */.Z, {
     active: modalActive,
     setActive: setModalActive
-  }, /*#__PURE__*/react.createElement("h2", null, "Convert to"), /*#__PURE__*/react.createElement("h3", null, "Now selected: ", currencyIcons/* default */.Z[convertTo].displayName), /*#__PURE__*/react.createElement("select", {
+  }, /*#__PURE__*/react.createElement("h2", null, "Choose which currency to convert the cards to"), /*#__PURE__*/react.createElement("h3", null, "Now selected:"), /*#__PURE__*/react.createElement("select", {
     className: "currencySelect",
     onChange: handleChangeCurrency
   }, Object.keys(currencyIcons/* default */.Z).map(function (key) {
     var element = currencyIcons/* default */.Z[key];
-    if (element.isCurrency && key !== convertTo) {
+    if (element.isCurrency) {
       return /*#__PURE__*/react.createElement("option", {
         key: key,
         value: key
       }, element.displayName);
     }
   }))));
-};
-Homepage.propTypes = {
-  data: (prop_types_default()).object,
-  convertTo: (prop_types_default()).string,
-  setConvertTo: (prop_types_default()).func
 };
 /* harmony default export */ const components_Homepage = (Homepage);
 
@@ -298,7 +309,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `.card-wrapper {
     display: flex;
     border: 1px solid var(--color-gray);
-    background: var(--card-backgroud-color);
+    background: var(--card-background-color);
 
     border-radius: 8px;
     align-items: center;
@@ -332,13 +343,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.card-wrapper {
 }
 @media (max-width: 1650px) {
     .card-wrapper {
-        width: 90vw;
+        width: 100%;
     }
 }
 @media (max-width: 790px) {
     .card-wrapper {
         min-width: 100%;
-        height: 10px;
+        height: 30px;
         margin-bottom: 0px;
     }
     .card-wrapper img {
@@ -380,12 +391,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tableHeader {
     color: var(--text-color);
     font-size: 32px;
     border-bottom: 2px solid var(--color-gray);
-    width: 30vw;
+    min-width: 170px;
+    max-width: 350px;
+    margin-left: 50px;
     padding-bottom: 25px;
     margin-bottom: 25px;
 }
 .tableWrapper {
-    width: 65vw;
+    width: var(--container-width);
     margin: auto;
 }
 .tableBody {

@@ -410,7 +410,7 @@ var GraphDataInputs = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react.createElement(GraphDataInputs_TradeInput, {
         setValue: function setValue(e) {
           _this2.setState({
-            high: e.target.value
+            high: +e.target.value
           });
         },
         label: "High",
@@ -418,7 +418,7 @@ var GraphDataInputs = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react.createElement(GraphDataInputs_TradeInput, {
         setValue: function setValue(e) {
           _this2.setState({
-            low: e.target.value
+            low: +e.target.value
           });
         },
         label: "Low",
@@ -426,7 +426,7 @@ var GraphDataInputs = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react.createElement(GraphDataInputs_TradeInput, {
         setValue: function setValue(e) {
           _this2.setState({
-            close: e.target.value
+            close: +e.target.value
           });
         },
         label: "Close",
@@ -551,14 +551,13 @@ var SelectedCurrencyCard = function SelectedCurrencyCard(_ref) {
     handleOpenModal = _ref.handleOpenModal;
   return /*#__PURE__*/react.createElement("div", {
     className: "selectedCurrency",
-    onKeyDown: handleOpenModal,
     onClick: handleOpenModal
   }, /*#__PURE__*/react.createElement("img", {
     className: "currencyIco",
     src: currencyIcons/* default */.Z[selectedCurrency].icon,
     alt: currencyIcons/* default */.Z[selectedCurrency].code
   }), /*#__PURE__*/react.createElement("div", {
-    className: "currecyTextInfoWrapper"
+    className: "currencyTextInfoWrapper"
   }, /*#__PURE__*/react.createElement("div", {
     className: "currencyTextTitle"
   }, currencyIcons/* default */.Z[selectedCurrency].displayName), /*#__PURE__*/react.createElement("div", {
@@ -640,11 +639,15 @@ var Timeline = function Timeline() {
     className: "chartDataListWrapper"
   }, datas.length ? /*#__PURE__*/react.createElement("ol", {
     className: "chartDataList"
-  }, datas.map(function (candle, index) {
+  }, datas.map(function (_ref, index) {
+    var o = _ref.o,
+      h = _ref.h,
+      l = _ref.l,
+      c = _ref.c;
     return /*#__PURE__*/react.createElement("li", {
       key: index,
       className: "charDataItem"
-    }, /*#__PURE__*/react.createElement("span", null, "Trades Opens: ", candle.o), /*#__PURE__*/react.createElement("span", null, "Maximum Cost: ", candle.h), /*#__PURE__*/react.createElement("span", null, "Minimum Cost: ", candle.l), /*#__PURE__*/react.createElement("span", null, "Trades Close: ", candle.c));
+    }, /*#__PURE__*/react.createElement("span", null, "Trades Opens: ", o), /*#__PURE__*/react.createElement("span", null, "Maximum Cost: ", h), /*#__PURE__*/react.createElement("span", null, "Minimum Cost: ", l), /*#__PURE__*/react.createElement("span", null, "Trades Close: ", c));
   })) : /*#__PURE__*/react.createElement("p", null, config.NOTATION_TEXT))));
 };
 /* harmony default export */ const components_Timeline = (Timeline);
@@ -786,7 +789,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.selectedCurrency {
     color: var(--text-color);
     margin-bottom: 50px;
 }
-.currecyTextInfoWrapper {
+.currencyTextInfoWrapper {
     display: flex;
     flex-direction: column;
     height: 80px;
@@ -796,7 +799,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.selectedCurrency {
     font-size: 35px;
 }
 .canvasWrapper {
-    width: 65vw;
+    width: var(--container-width);
 }
 .selectCurrency {
     color: var(--text-color);
@@ -811,7 +814,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.selectedCurrency {
     cursor: pointer;
 }
 .selectCurrency:hover {
-    background-color: var(--hover-color-input);
+    background-color: var(--hover-color);
 }
 @media (max-width: 400px) {
     .selectCurrency {
@@ -845,9 +848,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (max-width: 400px) {
     .selectedCurrency {
         width: 200px;
     }
-    .currencyTextTitle {
-        font-size: 20px;
-    }
     .currencyTextCode {
         font-size: 10px;
     }
@@ -858,12 +858,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (max-width: 400px) {
 
 .selectedCurrency {
     width: 450px;
-    max-width: 80vw;
+    max-width: var(--container-width);
     cursor: pointer;
     transition: 0.5s;
 }
 .selectedCurrency:hover {
     background-color: var(--hover-color-input);
+}
+.currencyTextTitle {
+    font-size: clamp(10px, 5vw, 40px);
 }
 `, ""]);
 // Exports
@@ -888,7 +891,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (max-width: 400px) {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.timelineWrapper {
-    width: 65vw;
+    width: var(--container-width);
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -898,7 +901,7 @@ body {
 }
 .guide {
     font-family: sans-serif;
-    font-size: 40px;
+    font-size: clamp(20px, 5vw, 40px);
     color: var(--text-color);
 }
 
@@ -926,9 +929,6 @@ body {
     border: 2px solid var(--color-black);
     font-family: 'Poppins-SemiBold';
     transition: 0.1s ease-in-out;
-}
-
-@media (max-width: 400px) {
 }
 `, ""]);
 // Exports

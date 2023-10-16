@@ -132,14 +132,14 @@ var Contato = /*#__PURE__*/function (_Component) {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.contactUs {
-    width: 65vw;
+    width: var(--container-width);
     margin: auto;
     color: var(--text-color);
     font-family: 'Poppins-Regular';
 }
 .contactUs h2 {
     font-family: 'Poppins-Bold';
-    font-size: 45px;
+    font-size: clamp(20px, 6vw, 45px);
 }
 .contactUs form {
     display: flex;
@@ -148,7 +148,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.contactUs {
 .contactUs form div {
     display: flex;
     flex-direction: column;
-    width: 33%;
+    min-width: 170px;
+    max-width: 450px;
 }
 .contactUs input {
     height: 30px;
@@ -158,7 +159,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.contactUs {
 }
 .contactUs textarea {
     height: 130px;
-    font-size: 22px;
+    font-size: 20px;
 }
 .contactUs button {
     width: 33%;
