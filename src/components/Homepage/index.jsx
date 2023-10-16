@@ -1,21 +1,17 @@
 import './styled.css';
 
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import Converter from 'src/components/Homepage/Converter/index.jsx';
 import currencyIcons from 'src/constants/currencyIcons';
+import getDataFromLocalStorage from 'src/helpers/getDataFromLocalStorage.js';
 
-import getDataFromLocalStorage from '../../helpers/getDataFromLocalStorage.js';
 import Modal from '../Modal/index.jsx';
 import CurrencyCard from './CurrencyCard/index.jsx';
 import CurrencyTable from './CurrencyTable/index.jsx';
-
 const Homepage = () => {
     const [modalActive, setModalActive] = useState(false);
     const [convertTo, setConvertTo] = useState('australian_dollar');
     const { data } = getDataFromLocalStorage();
-    const handleChangeCurrency = useCallback((event) => {
-        setConvertTo(event.target.value);
-        setModalActive(false);
-    }, []);
 
     const stocks = useMemo(
         () =>
@@ -56,23 +52,7 @@ const Homepage = () => {
             <CurrencyTable type="Stocks">{stocks}</CurrencyTable>
             <CurrencyTable type="Quotes">{quotes}</CurrencyTable>
             <Modal active={modalActive} setActive={setModalActive}>
-                <h2>Choose which currency to convert the cards to</h2>
-                <h3>Now selected:</h3>
-                <select
-                    className="currencySelect"
-                    onChange={handleChangeCurrency}
-                >
-                    {Object.keys(currencyIcons).map((key) => {
-                        const element = currencyIcons[key];
-                        if (element.isCurrency) {
-                            return (
-                                <option key={key} value={key}>
-                                    {element.displayName}
-                                </option>
-                            );
-                        }
-                    })}
-                </select>
+                <Converter handleChangeCurrency={setConvertTo} />
             </Modal>
         </>
     );
