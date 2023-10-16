@@ -12,17 +12,19 @@ const LastUpdate = ({ error, isLoading }) => {
     return (
         <div className="lastupdate">
             <div
-                className={`indicator ${error && 'error'} ${
-                    isLoading ? LastUpdateConfig.LOADING_TEXT : ''
-                }`}
+                className={'indicator'}
+                data-status={
+                    error ? 'error' : isLoading ? 'loading' : 'success'
+                }
             ></div>
             <div className="lastupdate-text">
                 {error
                     ? LastUpdateConfig.ERROR_TEXT
                     : isLoading
                     ? LastUpdateConfig.LOADING_TEXT
-                    : `Last updated at ${timeLastUpdate.getHours() % 12}:
-                ${timeLastUpdate.getMinutes()}${ampm}`}
+                    : `Last updated at ${
+                          timeLastUpdate.getHours() % 12
+                      }:${timeLastUpdate.getMinutes()}${ampm}`}
             </div>
         </div>
     );
