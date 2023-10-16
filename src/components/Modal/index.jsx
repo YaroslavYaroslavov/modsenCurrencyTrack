@@ -7,7 +7,6 @@ import usePortal from 'src/hooks/use-portal';
 
 const Modal = ({ active, setActive, children }) => {
     const portal = usePortal();
-
     return (
         portal &&
         ReactDOM.createPortal(
@@ -31,6 +30,6 @@ const Modal = ({ active, setActive, children }) => {
 Modal.propTypes = {
     active: PropTypes.bool,
     setActive: PropTypes.func,
-    children: PropTypes.array,
+    // children: PropTypes.array,
 };
 export default Modal;
