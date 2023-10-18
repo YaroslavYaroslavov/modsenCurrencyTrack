@@ -1,6 +1,6 @@
 import './styled.css';
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Modal from 'src/components/Modal/index.jsx';
 
 import timelineConfig from './config';
@@ -8,7 +8,6 @@ import Graph from './Graph/index.jsx';
 import GraphDataInputs from './GraphDataInputs/index.jsx';
 import SelectCurrency from './SelectCurrency/index.jsx';
 import SelectedCurrencyCard from './SelectedCurrencyCard/index.jsx';
-
 const {
   notationText,
   maxDataEnteredText,
@@ -26,19 +25,23 @@ const Timeline = () => {
   const [modalActive, setModalActive] = useState(false);
   const [datas, setDatas] = useState([]);
   const [isReadyToDraw, setIsReadyToDraw] = useState(false);
-  const handleCurrencyChange = (event) => {
+
+  const handleCurrencyChange = useCallback((event) => {
     setIsReadyToDraw(false);
     setDatas([]);
     setSelectedCurrency(event.target.value);
     setModalActive(true);
-  };
-  const handleOpenModal = () => {
+  }, []);
+
+  const handleOpenModal = useCallback(() => {
     setModalActive(true);
-  };
-  const handleDrawGraph = () => {
+  }, []);
+
+  const handleDrawGraph = useCallback(() => {
     setIsReadyToDraw(true);
     setModalActive(false);
-  };
+  }, []);
+
   return (
     <div className="timelineWrapper">
       <SelectCurrency
@@ -75,8 +78,7 @@ const Timeline = () => {
                     {tradesHighLabel} {h}
                   </span>
                   <span>
-                    {tradesLowLabel}
-                    {l}
+                    {tradesLowLabel} {l}
                   </span>
                   <span>
                     {tradesCloseLabel} {c}
@@ -92,4 +94,5 @@ const Timeline = () => {
     </div>
   );
 };
+
 export default Timeline;

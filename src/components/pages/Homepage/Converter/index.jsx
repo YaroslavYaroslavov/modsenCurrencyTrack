@@ -1,7 +1,5 @@
-import './styled.css';
-
 import PropTypes from 'prop-types';
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import CurrencyIcons from 'src/constants/currencyIcons';
 import calculateValue from 'src/helpers/calculateValue.js';
 
@@ -14,27 +12,36 @@ const Converter = ({ handleChangeCurrency }) => {
   const [toCurrencyValue, setToCurrencyValue] = useState(0);
   const [fromCurrencyValue, setFromCurrencyValue] = useState(0);
 
-  const handleChangeCurrencyFrom = (e) => {
-    const selectedCurrency = e.target.value;
-    setFromCurrencyCode(CurrencyIcons[selectedCurrency].code);
-    handleChangeCurrency(selectedCurrency);
-    setToCurrencyValue(
-      calculateValue(CurrencyIcons[selectedCurrency].code, toCurrencyCode, converterInput),
-    );
-  };
+  const handleChangeCurrencyFrom = useCallback(
+    (e) => {
+      const selectedCurrency = e.target.value;
+      const { code } = CurrencyIcons[selectedCurrency];
+      setFromCurrencyCode(code);
+      handleChangeCurrency(selectedCurrency);
+      setToCurrencyValue(calculateValue(code, toCurrencyCode, converterInput.current.value));
+    },
+    [handleChangeCurrency, toCurrencyCode],
+  );
 
-  const handleChangeCurrencyTo = (e) => {
-    const selectedCurrency = e.target.value;
-    setToCurrencyCode(CurrencyIcons[selectedCurrency].code);
-    setToCurrencyValue(
-      calculateValue(fromCurrencyCode, CurrencyIcons[selectedCurrency].code, converterInput),
-    );
-  };
-  const handleInputChange = (e) => {
-    if (e.target.value.length > 10) return;
-    setFromCurrencyValue(e.target.value);
-    setToCurrencyValue(calculateValue(fromCurrencyCode, toCurrencyCode, converterInput));
-  };
+  const handleChangeCurrencyTo = useCallback(
+    (e) => {
+      const selectedCurrency = e.target.value;
+      const { code } = CurrencyIcons[selectedCurrency];
+      setToCurrencyCode(code);
+      setToCurrencyValue(calculateValue(fromCurrencyCode, code, converterInput.current.value));
+    },
+    [fromCurrencyCode],
+  );
+
+  const handleInputChange = useCallback(
+    (e) => {
+      if (e.target.value.length > 10) return;
+      setFromCurrencyValue(e.target.value);
+      setToCurrencyValue(calculateValue(fromCurrencyCode, toCurrencyCode, e.target.value));
+    },
+    [fromCurrencyCode, toCurrencyCode],
+  );
+
   return (
     <>
       <h2>Choose which currency to convert the cards to</h2>
@@ -61,6 +68,7 @@ const Converter = ({ handleChangeCurrency }) => {
     </>
   );
 };
+
 Converter.propTypes = {
   handleChangeCurrency: PropTypes.func,
 };
