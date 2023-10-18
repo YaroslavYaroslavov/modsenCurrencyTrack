@@ -1,62 +1,98 @@
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url('./src/assets/fonts/Poppins-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('./src/assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('./src/assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('./src/assets/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
 html,
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-color);
-    --hover-color-input: rgba(87, 87, 87, 0.2);
-    --container-width: 65vw;
-    --card-background-color: #202025;
-    --color-black: rgb(0, 0, 0);
-    --color-black-half-opacity: rgba(0, 0, 0, 0.4);
-    --color-white: rgb(255, 255, 255);
-    --color-gray: rgb(137, 137, 137);
-    --color-green: #aedf23;
-    --gradient-logo: linear-gradient(
-        90.18deg,
-        #00ce2c 0.18%,
-        #aedf23 49.3%,
-        #a3dc00 99.88%
-    );
-    --container-width: 65vw;
-    --card-title-color: rgb(217, 217, 217);
-    --card-subtitle-color: rgb(167, 178, 195);
-    --gradient-background: linear-gradient(50deg, #000000, #102418, #000000);
-    --border-color-success: rgb(12, 120, 26);
-    --border-color-success-transparent: rgba(12, 120, 26, 0);
-    --border-color-error: rgb(198, 0, 0);
-    --border-color-error-transparent: rgba(198, 0, 0, 0);
-    --border-color-loading: rgba(247, 154, 13, 1);
-    --border-color-loading-transparent: rgba(247, 154, 13, 0);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  --hover-color-input: rgba(87, 87, 87, 0.2);
+  --container-width: 1250px;
+  --card-background-color: rgba(32, 32, 37, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-black-half-opacity: rgba(0, 0, 0, 0.4);
+  --color-white: rgba(255, 255, 255, 1);
+  --color-gray: rgba(137, 137, 137, 1);
+  --color-green: rgba(174, 223, 35, 1);
+  --gradient-logo: linear-gradient(
+    90deg,
+    rgba(0, 206, 44, 1) 1%,
+    rgba(174, 223, 35, 1) 50%,
+    rgba(163, 220, 0, 1) 100%
+  );
+  --card-title-color: rgba(217, 217, 217, 1);
+  --card-subtitle-color: rgba(167, 178, 195, 1);
+  --gradient-background: linear-gradient(
+    50deg,
+    rgba(0, 0, 0, 1),
+    rgba(16, 36, 24, 1),
+    rgba(0, 0, 0, 1)
+  );
+  --font-SemiBold: 'Poppins-SemiBold';
+  --font-Bold: 'Poppins-Bold';
+  --font-Regular: 'Poppins-Regular';
+  --font-Light: 'Poppins-Light';
+
+  --card-title-font-size: 35px;
+  --card-subtitle-font-size: 32px;
 }
 
 .transition {
-    transition: 0.3s ease;
+  transition: 0.3s ease;
 }
+
 html[data-theme='dark'] {
-    --text-color: rgba(217, 217, 217, 1);
-    --background-color: #000000;
-    --input-background-color: rgb(29, 34, 43);
-    --hover-color: rgb(42, 50, 63);
+  --text-color: rgba(217, 217, 217, 1);
+  --background-color: rgba(0, 0, 0, 1);
+  --input-background-color: rgba(29, 34, 43, 1);
+  --hover-color: rgba(42, 50, 63, 1);
 }
 html[data-theme='light'] {
-    --text-color: #000000;
-    --background-color: #ffffff;
-    --input-background-color: #f4f6f3;
-    --hover-color: rgb(212, 229, 255);
+  --text-color: rgba(0, 0, 0, 1);
+  --background-color: rgba(255, 255, 255, 1);
+  --input-background-color: rgba(244, 246, 243, 1);
+  --hover-color: rgb(193, 193, 193);
 }
-@font-face {
-    font-family: 'Poppins-Light';
-    src: url('./src/assets/fonts/Poppins-Light.ttf') format('truetype');
+
+@media (max-width: 1290px) {
+  html,
+  body {
+    --container-width: 750px;
+  }
 }
-@font-face {
-    font-family: 'Poppins-SemiBold';
-    src: url('./src/assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+@media (max-width: 800px) {
+  html,
+  body {
+    --container-width: 530px;
+    --card-title-font-size: 28px;
+    --card-subtitle-font-size: 24px;
+  }
 }
-@font-face {
-    font-family: 'Poppins-Regular';
-    src: url('./src/assets/fonts/Poppins-Regular.ttf') format('truetype');
+@media (max-width: 630px) {
+  html,
+  body {
+    --container-width: 380px;
+  }
 }
-@font-face {
-    font-family: 'Poppins-Bold';
-    src: url('./src/assets/fonts/Poppins-Bold.ttf') format('truetype');
+@media (max-width: 430px) {
+  html,
+  body {
+    --container-width: 230px;
+    --card-title-font-size: 18px;
+    --card-subtitle-font-size: 15px;
+  }
 }

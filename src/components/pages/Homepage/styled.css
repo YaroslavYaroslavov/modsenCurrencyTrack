@@ -1,0 +1,8 @@
+.currencySelect {
+  font-family: var(--font-SemiBold);
+  height: 30px;
+  width: 140px;
+}
+.currencySelect option {
+  font-family: var(--font-Regular);
+}

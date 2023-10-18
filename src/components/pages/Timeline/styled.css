@@ -1,0 +1,40 @@
+.timelineWrapper {
+  width: var(--container-width);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  counter-reset: section;
+}
+.guide {
+  font-family: var(--font-SemiBold);
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.chartDataList {
+  max-height: 100px;
+  overflow: auto;
+}
+.charDataItem {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  flex-direction: column;
+  position: relative;
+}
+.charDataItem:before {
+  counter-increment: section;
+  content: counter(section) '.';
+  position: absolute;
+  margin-left: -20px;
+}
+.drawGraph {
+  width: 120px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid var(--color-black);
+  font-family: var(--font-SemiBold);
+  transition: 0.1s ease-in-out;
+}

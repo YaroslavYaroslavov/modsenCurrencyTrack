@@ -1,57 +1,57 @@
 .indicator {
-    --indicator-border-color: rgb(12, 120, 26);
-    --indicator-border-color-transparent: rgba(12, 120, 26, 0);
-    --indicator-color: #0c8b45;
-    box-shadow: 0 0 0px 4px var(--indicator-border-color);
-    background-color: var(--indicator-border-color);
-    min-width: 10px;
-    min-height: 10px;
-    border-radius: 100%;
-    animation: borderAnimation 1.5s infinite ease-in;
+  --indicator-border-color: rgb(12, 120, 26);
+  --indicator-border-color-transparent: rgba(12, 120, 26, 0);
+  --indicator-color: #0c8b45;
+  box-shadow: 0 0 0px 4px var(--indicator-border-color);
+  background-color: var(--indicator-border-color);
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: 100%;
+  animation: borderAnimation 1.5s infinite ease-in;
 }
 .indicator[data-status='error'] {
-    --indicator-border-color: rgb(198, 0, 0);
-    --indicator-color: #9a0317;
-    --indicator-border-color-transparent: rgba(198, 0, 0, 0);
+  --indicator-border-color: rgb(198, 0, 0);
+  --indicator-color: #9a0317;
+  --indicator-border-color-transparent: rgba(198, 0, 0, 0);
 }
 
 .indicator[data-status='loading'] {
-    --indicator-border-color: rgba(247, 154, 13, 1);
-    --indicator-border-color-transparent: rgba(247, 154, 13, 0);
-    --indicator-color: #fffb00;
+  --indicator-border-color: rgba(247, 154, 13, 1);
+  --indicator-border-color-transparent: rgba(247, 154, 13, 0);
+  --indicator-color: #fffb00;
 }
 
 .lastupdate {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    justify-content: center;
-    width: var(--container-width);
-    margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: center;
+  width: var(--container-width);
+  margin: auto;
 }
 .lastupdate-text {
-    font-family: 'Poppins-Light';
-    font-size: 33px;
-    line-height: 41px;
-    color: var(--text-color);
+  font-family: var(--font-Light);
+  font-size: 33px;
+  line-height: 41px;
+  color: var(--text-color);
 }
 @keyframes borderAnimation {
-    0% {
-        box-shadow: 0 0 0px 0px var(--indicator-border-color);
-    }
-    100% {
-        box-shadow: 0 0 0px 10px var(--indicator-border-color-transparent);
-    }
+  0% {
+    box-shadow: 0 0 0px 0px var(--indicator-border-color);
+  }
+  100% {
+    box-shadow: 0 0 0px 10px var(--indicator-border-color-transparent);
+  }
 }
 @media (max-width: 700px) {
-    .indicator {
-        transform: scale(0.5);
-    }
-    .lastupdate-text {
-        font-size: 4vw;
-        line-height: 4vw;
-    }
+  .indicator {
+    transform: scale(0.5);
+  }
+  .lastupdate-text {
+    text-align: center;
+    width: 250px;
+  }
 }

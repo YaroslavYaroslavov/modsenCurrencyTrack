@@ -1,5 +1,5 @@
-const LastUpdateConfig = {
-    LOADING_TEXT: 'Loading',
-    ERROR_TEXT: 'Service providing the data is unavailable',
+const lastUpdateConfig = {
+  loadingText: 'Loading',
+  errorText: 'Service providing the data is unavailable',
 };
-export default LastUpdateConfig;
+export default lastUpdateConfig;

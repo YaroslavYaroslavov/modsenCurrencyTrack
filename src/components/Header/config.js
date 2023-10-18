@@ -1,6 +1,6 @@
-const HeaderConfig = {
-    TITLE_FIRST_ROW: 'Modsen Currency',
-    TITLE_SECOND_ROW: 'Tracker',
-    SUBTITLE_ROW: 'Quotes for the dollar and other international currencies.',
+const headerConfig = {
+  titleFirstRow: 'Modsen Currency',
+  titleSecondRow: 'Tracker',
+  subtitleRow: 'Quotes for the dollar and other international currencies.',
 };
-export default HeaderConfig;
+export default headerConfig;

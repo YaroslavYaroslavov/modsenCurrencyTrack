@@ -1,0 +1,21 @@
+@media (max-width: 400px) {
+  .selectedCurrency {
+    width: 200px;
+  }
+  .currencyTextCode {
+    font-size: 10px;
+  }
+}
+
+.currencyTextTitle {
+  font-size: 24px;
+}
+.selectedCurrency {
+  width: 450px;
+  max-width: var(--container-width);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.selectedCurrency:hover {
+  background-color: var(--hover-color-input);
+}
