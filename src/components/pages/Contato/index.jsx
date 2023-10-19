@@ -11,16 +11,16 @@ class Contato extends Component {
     return (
       <div className="contactUs">
         <h2>{headerText}</h2>
-        <form>
-          <div>
+        <form className="flexColumn">
+          <div className="flexColumn">
             <label htmlFor="name">{nameInputLabel}</label>
             <input type="text" id="name" />
           </div>
-          <div>
+          <div className="flexColumn">
             <label htmlFor="email">{emailInputLabel}</label>
             <input type="email" id="email" />
           </div>
-          <div>
+          <div className="flexColumn">
             <label htmlFor="message">{messageInputLabel}</label>
             <textarea id="message" />
           </div>

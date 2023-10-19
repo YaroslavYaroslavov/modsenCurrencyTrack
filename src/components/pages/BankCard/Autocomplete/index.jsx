@@ -45,7 +45,7 @@ class AutocompleteInput extends React.PureComponent {
   render() {
     const { inputValue, suggestions } = this.state;
     return (
-      <div className="autocompleteInputWrapper">
+      <div className="autocompleteInputWrapper flexColumn">
         <input
           className="autocompleteInput"
           type="text"

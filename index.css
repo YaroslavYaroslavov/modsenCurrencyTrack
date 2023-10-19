@@ -54,6 +54,17 @@ body {
 .transition {
   transition: 0.3s ease;
 }
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-color {
+  color: var(--text-color);
+}
+.background-color {
+  background-color: var(--background-color);
+}
 
 html[data-theme='dark'] {
   --text-color: rgba(217, 217, 217, 1);

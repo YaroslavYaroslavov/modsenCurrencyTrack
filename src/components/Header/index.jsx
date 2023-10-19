@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="wrapper">
       <div className="text">
-        <div className="title-wrapper">
+        <div className="title-wrapper flexColumn">
           <span className="title">{titleFirstRow}</span>
           <span className="title">{titleSecondRow}</span>
         </div>

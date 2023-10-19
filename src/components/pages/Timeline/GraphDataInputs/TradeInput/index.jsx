@@ -16,7 +16,7 @@ const TradeInput = ({ setValue, label, value }) => {
   };
 
   return (
-    <label className="labelInput">
+    <label className="flexColumn">
       {label}
       <input
         type="number"

@@ -41,7 +41,7 @@ const Navbar = () => {
       </div>
       <div className={`linksWrapper`}>
         <div className={`menu-wrapper ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenuButton}>
-          <ul className={`menu-content ${isMenuOpen ? 'open' : ''}`}>{links}</ul>
+          <ul className={`flexColumn menu-content ${isMenuOpen ? 'open' : ''}`}>{links}</ul>
         </div>
 
         <div className="links">

@@ -58,7 +58,7 @@ class GraphDataInputs extends Component {
 
   render() {
     return (
-      <div className="inputsWrapper">
+      <div className="inputsWrapper flexColumn">
         <h1>Enter the data to display</h1>
         <TradeInput
           setValue={(e) => {

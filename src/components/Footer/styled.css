@@ -31,8 +31,6 @@ footer {
 .footer-link {
   width: 180px;
   gap: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
 .footer-link-title {
@@ -89,9 +87,8 @@ footer {
 .footer-link-subtitle-wrapper {
   transition: 0.5s;
   height: 90px;
-  display: flex;
+
   margin-top: 20px;
-  flex-direction: column;
   gap: 10px;
   overflow: hidden;
 }

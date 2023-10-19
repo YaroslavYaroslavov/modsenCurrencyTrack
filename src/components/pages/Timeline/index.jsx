@@ -43,7 +43,7 @@ const Timeline = () => {
   }, []);
 
   return (
-    <div className="timelineWrapper">
+    <div className="timelineWrapper flexColumn">
       <SelectCurrency
         selectedCurrency={selectedCurrency}
         handleCurrencyChange={handleCurrencyChange}
@@ -70,7 +70,7 @@ const Timeline = () => {
           {datas.length ? (
             <ol className="chartDataList">
               {datas.map(({ o, h, l, c, x }) => (
-                <li key={x} className="charDataItem">
+                <li key={x} className="charDataItem flexColumn">
                   <span>
                     {tradesOpenLabel} {o}
                   </span>

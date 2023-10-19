@@ -15,11 +15,10 @@
 .autocompleteInputWrapper {
   width: 350px;
   margin: auto;
-  display: flex;
+
   justify-content: center;
   align-items: center;
   margin-bottom: 75px;
-  flex-direction: column;
   position: relative;
 }
 .suggestionWrapper {

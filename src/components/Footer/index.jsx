@@ -20,7 +20,7 @@ const Footer = () => {
         </div>
         <div className="footer-links">
           {links.map(({ linkName, subLinks }) => (
-            <div key={linkName} className="footer-link">
+            <div key={linkName} className="footer-link flexColumn">
               <p className="footer-link-title">{linkName}</p>
 
               {subLinks.map(({ subLinkName }) => (
@@ -37,7 +37,7 @@ const Footer = () => {
             <label key={linkName} className="footer-link-title-mobile">
               {linkName}
               <input type="checkbox" id="general" className="footer-link-checkbox" />
-              <div className="footer-link-subtitle-wrapper">
+              <div className="footer-link-subtitle-wrapper flexColumn">
                 {subLinks.map(({ subLinkName }) => (
                   <a className="footer-link-item" key={subLinkName} href="/">
                     {subLinkName}

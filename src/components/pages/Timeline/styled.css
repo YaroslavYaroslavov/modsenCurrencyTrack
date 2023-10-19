@@ -1,8 +1,6 @@
 .timelineWrapper {
   width: var(--container-width);
   margin: auto;
-  display: flex;
-  flex-direction: column;
 }
 body {
   counter-reset: section;
@@ -18,10 +16,8 @@ body {
   overflow: auto;
 }
 .charDataItem {
-  display: flex;
   flex-wrap: wrap;
   padding-bottom: 20px;
-  flex-direction: column;
   position: relative;
 }
 .charDataItem:before {

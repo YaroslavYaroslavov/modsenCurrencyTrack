@@ -45,7 +45,7 @@ const Converter = ({ handleChangeCurrency }) => {
   return (
     <>
       <h2>Choose which currency to convert the cards to</h2>
-      <div className="inputsContainer">
+      <div className="flexColumn">
         <div className="inputWrapper">
           <span className="head">From</span>
           <CurrencySelect handleChangeCurrency={handleChangeCurrencyFrom} />
