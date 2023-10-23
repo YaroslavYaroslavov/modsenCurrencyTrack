@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import ROUTES from 'src/constants/routes.js';
 import fetchData from 'src/helpers/fetchCurrency.js';
 
@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <Header />
         <LastUpdate error={error} isLoading={isLoading} />
@@ -46,7 +46,7 @@ const App = () => {
         </Routes>
 
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 };
