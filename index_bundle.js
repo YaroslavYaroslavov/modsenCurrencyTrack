@@ -16,10 +16,10 @@
 /* harmony export */   aU: () => (/* binding */ Action),
 /* harmony export */   cP: () => (/* binding */ parsePath),
 /* harmony export */   fp: () => (/* binding */ matchRoutes),
-/* harmony export */   lX: () => (/* binding */ createBrowserHistory),
-/* harmony export */   pC: () => (/* binding */ resolveTo)
+/* harmony export */   pC: () => (/* binding */ resolveTo),
+/* harmony export */   q_: () => (/* binding */ createHashHistory)
 /* harmony export */ });
-/* unused harmony exports IDLE_BLOCKER, IDLE_FETCHER, IDLE_NAVIGATION, UNSAFE_DEFERRED_SYMBOL, UNSAFE_DeferredData, UNSAFE_ErrorResponseImpl, UNSAFE_convertRouteMatchToUiMatch, UNSAFE_convertRoutesToDataRoutes, UNSAFE_warning, createHashHistory, createMemoryHistory, createRouter, createStaticHandler, defer, generatePath, getStaticContextFromError, getToPathname, isDeferredData, json, matchPath, normalizePathname, redirect, redirectDocument, resolvePath */
+/* unused harmony exports IDLE_BLOCKER, IDLE_FETCHER, IDLE_NAVIGATION, UNSAFE_DEFERRED_SYMBOL, UNSAFE_DeferredData, UNSAFE_ErrorResponseImpl, UNSAFE_convertRouteMatchToUiMatch, UNSAFE_convertRoutesToDataRoutes, UNSAFE_warning, createBrowserHistory, createMemoryHistory, createRouter, createStaticHandler, defer, generatePath, getStaticContextFromError, getToPathname, isDeferredData, json, matchPath, normalizePathname, redirect, redirectDocument, resolvePath */
 /**
  * @remix-run/router v1.9.0
  *
@@ -5463,10 +5463,10 @@ if (true) {
 "use strict";
 var react__WEBPACK_IMPORTED_MODULE_0___namespace_cache;
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   VK: () => (/* binding */ BrowserRouter),
+/* harmony export */   UT: () => (/* binding */ HashRouter),
 /* harmony export */   rU: () => (/* binding */ Link)
 /* harmony export */ });
-/* unused harmony exports Form, HashRouter, NavLink, ScrollRestoration, UNSAFE_useScrollRestoration, createBrowserRouter, createHashRouter, createSearchParams, unstable_HistoryRouter, unstable_usePrompt, useBeforeUnload, useFetcher, useFetchers, useFormAction, useLinkClickHandler, useSearchParams, useSubmit */
+/* unused harmony exports BrowserRouter, Form, NavLink, ScrollRestoration, UNSAFE_useScrollRestoration, createBrowserRouter, createHashRouter, createSearchParams, unstable_HistoryRouter, unstable_usePrompt, useBeforeUnload, useFetcher, useFetchers, useFormAction, useLinkClickHandler, useSearchParams, useSubmit */
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7294);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9250);
 /* harmony import */ var _remix_run_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2599);
@@ -5795,26 +5795,26 @@ function BrowserRouter(_ref) {
     future,
     window
   } = _ref;
-  let historyRef = react__WEBPACK_IMPORTED_MODULE_0__.useRef();
+  let historyRef = React.useRef();
   if (historyRef.current == null) {
-    historyRef.current = (0,_remix_run_router__WEBPACK_IMPORTED_MODULE_1__/* .createBrowserHistory */ .lX)({
+    historyRef.current = createBrowserHistory({
       window,
       v5Compat: true
     });
   }
   let history = historyRef.current;
-  let [state, setStateImpl] = react__WEBPACK_IMPORTED_MODULE_0__.useState({
+  let [state, setStateImpl] = React.useState({
     action: history.action,
     location: history.location
   });
   let {
     v7_startTransition
   } = future || {};
-  let setState = react__WEBPACK_IMPORTED_MODULE_0__.useCallback(newState => {
+  let setState = React.useCallback(newState => {
     v7_startTransition && startTransitionImpl ? startTransitionImpl(() => setStateImpl(newState)) : setStateImpl(newState);
   }, [setStateImpl, v7_startTransition]);
-  react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect(() => history.listen(setState), [history, setState]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__/* .Router */ .F0, {
+  React.useLayoutEffect(() => history.listen(setState), [history, setState]);
+  return /*#__PURE__*/React.createElement(Router, {
     basename: basename,
     children: children,
     location: state.location,
@@ -5833,26 +5833,26 @@ function HashRouter(_ref2) {
     future,
     window
   } = _ref2;
-  let historyRef = React.useRef();
+  let historyRef = react__WEBPACK_IMPORTED_MODULE_0__.useRef();
   if (historyRef.current == null) {
-    historyRef.current = createHashHistory({
+    historyRef.current = (0,_remix_run_router__WEBPACK_IMPORTED_MODULE_1__/* .createHashHistory */ .q_)({
       window,
       v5Compat: true
     });
   }
   let history = historyRef.current;
-  let [state, setStateImpl] = React.useState({
+  let [state, setStateImpl] = react__WEBPACK_IMPORTED_MODULE_0__.useState({
     action: history.action,
     location: history.location
   });
   let {
     v7_startTransition
   } = future || {};
-  let setState = React.useCallback(newState => {
+  let setState = react__WEBPACK_IMPORTED_MODULE_0__.useCallback(newState => {
     v7_startTransition && startTransitionImpl ? startTransitionImpl(() => setStateImpl(newState)) : setStateImpl(newState);
   }, [setStateImpl, v7_startTransition]);
-  React.useLayoutEffect(() => history.listen(setState), [history, setState]);
-  return /*#__PURE__*/React.createElement(Router, {
+  react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect(() => history.listen(setState), [history, setState]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__/* .Router */ .F0, {
     basename: basename,
     children: children,
     location: state.location,
@@ -8652,7 +8652,7 @@ var fetchData = function fetchData() {
             break;
           }
           _context.next = 6;
-          return fetch({"ALLUSERSPROFILE":"C:\\ProgramData","APPDATA":"C:\\Users\\zhjck\\AppData\\Roaming","CHROME_CRASHPAD_PIPE_NAME":"\\\\.\\pipe\\crashpad_12592_XGJYHPZPSJGVYXXV","COLOR":"1","COLORTERM":"truecolor","CommonProgramFiles":"C:\\Program Files\\Common Files","CommonProgramFiles(x86)":"C:\\Program Files (x86)\\Common Files","CommonProgramW6432":"C:\\Program Files\\Common Files","COMPUTERNAME":"JAROSLAWIK","ComSpec":"C:\\Windows\\system32\\cmd.exe","DriverData":"C:\\Windows\\System32\\Drivers\\DriverData","EDITOR":"notepad.exe","EGPL_GeoLibrarian_Drive":"L","FPS_BROWSER_APP_PROFILE_STRING":"Internet Explorer","FPS_BROWSER_USER_PROFILE_STRING":"Default","GIT_ASKPASS":"c:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh","HOME":"C:\\Users\\zhjck","HOMEDRIVE":"C:","HOMEPATH":"\\Users\\zhjck","INIT_CWD":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack","IntelliJ IDEA":"C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\bin;","INTEL_DEV_REDIST":"C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\","KMP_DUPLICATE_LIB_OK":"TRUE","LANG":"en_US.UTF-8","LOCALAPPDATA":"C:\\Users\\zhjck\\AppData\\Local","LOGONSERVER":"\\\\JAROSLAWIK","MIC_LD_LIBRARY_PATH":"C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic","MKL_SERIAL":"YES","NIEXTCCOMPILERSUPP":"C:\\Program Files (x86)\\National Instruments\\Shared\\ExternalCompilerSupport\\C\\","NODE":"C:\\Program Files\\nodejs\\node.exe","NODE_EXE":"C:\\Program Files\\nodejs\\\\node.exe","NPM_CLI_JS":"C:\\Program Files\\nodejs\\\\node_modules\\npm\\bin\\npm-cli.js","npm_command":"run-script","npm_config_cache":"C:\\Users\\zhjck\\AppData\\Local\\npm-cache","npm_config_globalconfig":"C:\\Users\\zhjck\\AppData\\Roaming\\npm\\etc\\npmrc","npm_config_global_prefix":"C:\\Users\\zhjck\\AppData\\Roaming\\npm","npm_config_init_module":"C:\\Users\\zhjck\\.npm-init.js","npm_config_local_prefix":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_node_gyp":"C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js","npm_config_noproxy":"","npm_config_prefix":"C:\\Users\\zhjck\\AppData\\Roaming\\npm","npm_config_userconfig":"C:\\Users\\zhjck\\.npmrc","npm_config_user_agent":"npm/8.3.1 node/v16.14.0 win32 x64 workspaces/false","npm_execpath":"C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js","npm_lifecycle_event":"build","npm_lifecycle_script":"webpack --config webpack.prod.js","npm_node_execpath":"C:\\Program Files\\nodejs\\node.exe","npm_package_json":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\package.json","npm_package_name":"modsencurtrack","npm_package_version":"1.1.0","NPM_PREFIX_NPM_CLI_JS":"C:\\Users\\zhjck\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js","NUMBER_OF_PROCESSORS":"4","OneDrive":"C:\\Users\\zhjck\\OneDrive","OPENCV_DIR":"C:\\Users\\zhjck\\Desktop\\opencv\\build","ORIGINAL_XDG_CURRENT_DESKTOP":"undefined","OS":"Windows_NT","Path":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\Projects\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\node_modules\\.bin;C:\\Users\\zhjck\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\Projects\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\node_modules\\.bin;C:\\Users\\zhjck\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\CMake\\bin;C:\\Program Files (x86)\\NoteBook FanControl\\;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\zhjck\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\bin;;C:\\Users\\zhjck\\AppData\\Roaming\\npm","PATHEXT":".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL","PROCESSOR_ARCHITECTURE":"AMD64","PROCESSOR_IDENTIFIER":"Intel64 Family 6 Model 126 Stepping 5, GenuineIntel","PROCESSOR_LEVEL":"6","PROCESSOR_REVISION":"7e05","ProgramData":"C:\\ProgramData","ProgramFiles":"C:\\Program Files","ProgramFiles(x86)":"C:\\Program Files (x86)","ProgramW6432":"C:\\Program Files","PROMPT":"$P$G","PSModulePath":"C:\\Users\\zhjck\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules","PT5HOME":"C:\\Program Files (x86)\\Cisco Packet Tracer 6.0","PT6HOME":"C:\\Program Files (x86)\\Cisco Packet Tracer 6.0","PUBLIC":"C:\\Users\\Public","REACT_APP_CONVERTER_URL":"https://api.currencyapi.com/v3/latest?apikey=cur_live_gTMUNZmKPpqpPzqMymNzC1Lbe7Wsb9JXwalG3DJq&currencies=EUR%2CUSD%2CCAD%2CARS%2CJPY%2CAUD%2CCNY%2CBTC%2CTRY","SESSIONNAME":"Console","SystemDrive":"C:","SystemRoot":"C:\\Windows","TEMP":"C:\\Users\\zhjck\\AppData\\Local\\Temp","TERM_PROGRAM":"vscode","TERM_PROGRAM_VERSION":"1.83.1","TMP":"C:\\Users\\zhjck\\AppData\\Local\\Temp","USERDOMAIN":"JAROSLAWIK","USERDOMAIN_ROAMINGPROFILE":"JAROSLAWIK","USERNAME":"zhjck","USERPROFILE":"C:\\Users\\zhjck","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","VSCODE_GIT_ASKPASS_MAIN":"c:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"C:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe","VSCODE_GIT_IPC_HANDLE":"\\\\.\\pipe\\vscode-git-b9907dc985-sock","VSCODE_INJECTION":"1","windir":"C:\\Windows","ZES_ENABLE_SYSMAN":"1"}.REACT_APP_CONVERTER_URL);
+          return fetch({"ALLUSERSPROFILE":"C:\\ProgramData","APPDATA":"C:\\Users\\zhjck\\AppData\\Roaming","CHROME_CRASHPAD_PIPE_NAME":"\\\\.\\pipe\\crashpad_13884_HIMWWESTDANFBNEF","COLOR":"1","COLORTERM":"truecolor","CommonProgramFiles":"C:\\Program Files\\Common Files","CommonProgramFiles(x86)":"C:\\Program Files (x86)\\Common Files","CommonProgramW6432":"C:\\Program Files\\Common Files","COMPUTERNAME":"JAROSLAWIK","ComSpec":"C:\\Windows\\system32\\cmd.exe","DriverData":"C:\\Windows\\System32\\Drivers\\DriverData","EDITOR":"notepad.exe","EGPL_GeoLibrarian_Drive":"L","FPS_BROWSER_APP_PROFILE_STRING":"Internet Explorer","FPS_BROWSER_USER_PROFILE_STRING":"Default","GIT_ASKPASS":"c:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh","HOME":"C:\\Users\\zhjck","HOMEDRIVE":"C:","HOMEPATH":"\\Users\\zhjck","INIT_CWD":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack","IntelliJ IDEA":"C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\bin;","INTEL_DEV_REDIST":"C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\","KMP_DUPLICATE_LIB_OK":"TRUE","LANG":"en_US.UTF-8","LOCALAPPDATA":"C:\\Users\\zhjck\\AppData\\Local","LOGONSERVER":"\\\\JAROSLAWIK","MIC_LD_LIBRARY_PATH":"C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic","MKL_SERIAL":"YES","NIEXTCCOMPILERSUPP":"C:\\Program Files (x86)\\National Instruments\\Shared\\ExternalCompilerSupport\\C\\","NODE":"C:\\Program Files\\nodejs\\node.exe","NODE_EXE":"C:\\Program Files\\nodejs\\\\node.exe","NPM_CLI_JS":"C:\\Program Files\\nodejs\\\\node_modules\\npm\\bin\\npm-cli.js","npm_command":"run-script","npm_config_cache":"C:\\Users\\zhjck\\AppData\\Local\\npm-cache","npm_config_globalconfig":"C:\\Users\\zhjck\\AppData\\Roaming\\npm\\etc\\npmrc","npm_config_global_prefix":"C:\\Users\\zhjck\\AppData\\Roaming\\npm","npm_config_init_module":"C:\\Users\\zhjck\\.npm-init.js","npm_config_local_prefix":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_node_gyp":"C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js","npm_config_noproxy":"","npm_config_prefix":"C:\\Users\\zhjck\\AppData\\Roaming\\npm","npm_config_userconfig":"C:\\Users\\zhjck\\.npmrc","npm_config_user_agent":"npm/8.3.1 node/v16.14.0 win32 x64 workspaces/false","npm_execpath":"C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js","npm_lifecycle_event":"build","npm_lifecycle_script":"webpack --config webpack.prod.js","npm_node_execpath":"C:\\Program Files\\nodejs\\node.exe","npm_package_json":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\package.json","npm_package_name":"modsencurtrack","npm_package_version":"1.1.0","NPM_PREFIX_NPM_CLI_JS":"C:\\Users\\zhjck\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js","NUMBER_OF_PROCESSORS":"4","OneDrive":"C:\\Users\\zhjck\\OneDrive","OPENCV_DIR":"C:\\Users\\zhjck\\Desktop\\opencv\\build","ORIGINAL_XDG_CURRENT_DESKTOP":"undefined","OS":"Windows_NT","Path":"C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\Projects\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\node_modules\\.bin;C:\\Users\\zhjck\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Users\\zhjck\\Desktop\\Projects\\modsenCurTrack\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\Projects\\node_modules\\.bin;C:\\Users\\zhjck\\Desktop\\node_modules\\.bin;C:\\Users\\zhjck\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\CMake\\bin;C:\\Program Files (x86)\\NoteBook FanControl\\;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\zhjck\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.2\\bin;;C:\\Users\\zhjck\\AppData\\Roaming\\npm","PATHEXT":".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL","PROCESSOR_ARCHITECTURE":"AMD64","PROCESSOR_IDENTIFIER":"Intel64 Family 6 Model 126 Stepping 5, GenuineIntel","PROCESSOR_LEVEL":"6","PROCESSOR_REVISION":"7e05","ProgramData":"C:\\ProgramData","ProgramFiles":"C:\\Program Files","ProgramFiles(x86)":"C:\\Program Files (x86)","ProgramW6432":"C:\\Program Files","PROMPT":"$P$G","PSModulePath":"C:\\Users\\zhjck\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules","PT5HOME":"C:\\Program Files (x86)\\Cisco Packet Tracer 6.0","PT6HOME":"C:\\Program Files (x86)\\Cisco Packet Tracer 6.0","PUBLIC":"C:\\Users\\Public","REACT_APP_CONVERTER_URL":"https://api.currencyapi.com/v3/latest?apikey=cur_live_gTMUNZmKPpqpPzqMymNzC1Lbe7Wsb9JXwalG3DJq&currencies=EUR%2CUSD%2CCAD%2CARS%2CJPY%2CAUD%2CCNY%2CBTC%2CTRY","SESSIONNAME":"Console","SystemDrive":"C:","SystemRoot":"C:\\Windows","TEMP":"C:\\Users\\zhjck\\AppData\\Local\\Temp","TERM_PROGRAM":"vscode","TERM_PROGRAM_VERSION":"1.83.1","TMP":"C:\\Users\\zhjck\\AppData\\Local\\Temp","USERDOMAIN":"JAROSLAWIK","USERDOMAIN_ROAMINGPROFILE":"JAROSLAWIK","USERNAME":"zhjck","USERPROFILE":"C:\\Users\\zhjck","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","VSCODE_GIT_ASKPASS_MAIN":"c:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"C:\\Users\\zhjck\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe","VSCODE_GIT_IPC_HANDLE":"\\\\.\\pipe\\vscode-git-b9907dc985-sock","VSCODE_INJECTION":"1","windir":"C:\\Windows","ZES_ENABLE_SYSMAN":"1"}.REACT_APP_CONVERTER_URL);
         case 6:
           response = _context.sent;
           _context.next = 9;
@@ -9208,7 +9208,7 @@ var App = function App() {
       setIsLoading(false);
     });
   }, []);
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(dist/* BrowserRouter */.VK, null, /*#__PURE__*/react.createElement(components_Navbar, null), /*#__PURE__*/react.createElement(components_Header, null), /*#__PURE__*/react.createElement(components_LastUpdate, {
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(dist/* HashRouter */.UT, null, /*#__PURE__*/react.createElement(components_Navbar, null), /*#__PURE__*/react.createElement(components_Header, null), /*#__PURE__*/react.createElement(components_LastUpdate, {
     error: error,
     isLoading: isLoading
   }), /*#__PURE__*/react.createElement(react_router_dist/* Routes */.Z5, null, routes.map(function (_ref) {
