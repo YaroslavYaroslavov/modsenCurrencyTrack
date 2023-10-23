@@ -2,7 +2,7 @@ import { lazy } from 'react';
 
 const notFoundPath = '*';
 const homepagePath = '/';
-const timilinePath = '/timiline';
+const timelinePath = '/timeline';
 const bankcardPath = '/bankcard';
 const contatoPath = '/contato';
 
@@ -14,7 +14,7 @@ const NotFound = lazy(() => import('src/components/pages/NotFound/index.jsx'));
 const ROUTES = [
   { path: notFoundPath, Element: NotFound },
   { path: homepagePath, Element: Homepage, pageName: 'Homepage' },
-  { path: timilinePath, Element: Timeline, pageName: 'Timeline' },
+  { path: timelinePath, Element: Timeline, pageName: 'Timeline' },
   { path: bankcardPath, Element: BankCard, pageName: 'BankCard' },
   { path: contatoPath, Element: Contato, pageName: 'Contato' },
 ];
