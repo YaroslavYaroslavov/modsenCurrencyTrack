@@ -1,7 +1,7 @@
 "use strict";
-(self["webpackChunkmodsencurtrack"] = self["webpackChunkmodsencurtrack"] || []).push([[104],{
+(self["webpackChunkmodsencurtrack"] = self["webpackChunkmodsencurtrack"] || []).push([[666],{
 
-/***/ 3104:
+/***/ 7666:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -9,7 +9,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ components_Timeline)
+  "default": () => (/* binding */ pages_Timeline)
 });
 
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
@@ -30,9 +30,9 @@ var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleE
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
 var styleTagTransform = __webpack_require__(4589);
 var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/Timeline/styled.css
-var styled = __webpack_require__(6324);
-;// CONCATENATED MODULE: ./src/components/Timeline/styled.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/Timeline/styled.css
+var styled = __webpack_require__(2248);
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/styled.css
 
       
       
@@ -65,18 +65,22 @@ var update = injectStylesIntoStyleTag_default()(styled/* default */.Z, options);
 var react = __webpack_require__(7294);
 // EXTERNAL MODULE: ./src/components/Modal/index.jsx + 2 modules
 var Modal = __webpack_require__(3831);
-;// CONCATENATED MODULE: ./src/components/Timeline/config.js
-var TimelineConfig = {
-  NOTATION_TEXT: 'Notation: High, Low - The highest and lowest price recorded during trades; Open - trades starts on this cost; Close - trades stops on this cost.',
-  MAX_DATA_ENTERED_TEXT: 'The maximum number of values has been entered',
-  DRAW_GRAPH_BUTTON_TEXT: 'Draw Graph',
-  GUIDE_TEXT: 'Press on currency image to set data',
-  MAX_DATA_ARRAY_LENGTH: 30
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/config.js
+var timelineConfig = {
+  notationText: 'Notation: High, Low - The highest and lowest price recorded during trades; Open - trades starts on this cost; Close - trades stops on this cost.',
+  maxDataEnteredText: 'The maximum number of values has been entered',
+  drawGraphButtonText: 'Draw Graph',
+  guideText: 'Press on currency image to set data',
+  maxDataArrayLength: 30,
+  tradesOpenLabel: 'Trades Opens:',
+  tradesCloseLabel: 'Trades Close:',
+  tradesHighLabel: 'Maximum cost:',
+  tradesLowLabel: 'Minimum cost'
 };
-/* harmony default export */ const config = (TimelineConfig);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/Timeline/Graph/styled.css
-var Graph_styled = __webpack_require__(896);
-;// CONCATENATED MODULE: ./src/components/Timeline/Graph/styled.css
+/* harmony default export */ const config = (timelineConfig);
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/Timeline/Graph/styled.css
+var Graph_styled = __webpack_require__(996);
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/Graph/styled.css
 
       
       
@@ -108,7 +112,7 @@ var styled_update = injectStylesIntoStyleTag_default()(Graph_styled/* default */
 // EXTERNAL MODULE: ./node_modules/prop-types/index.js
 var prop_types = __webpack_require__(5697);
 var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
-;// CONCATENATED MODULE: ./src/components/Timeline/Graph/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/Graph/index.jsx
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -202,9 +206,9 @@ Graph.propTypes = {
   datas: (prop_types_default()).array
 };
 /* harmony default export */ const Timeline_Graph = (Graph);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/Timeline/GraphDataInputs/styled.css
-var GraphDataInputs_styled = __webpack_require__(7230);
-;// CONCATENATED MODULE: ./src/components/Timeline/GraphDataInputs/styled.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/Timeline/GraphDataInputs/styled.css
+var GraphDataInputs_styled = __webpack_require__(2121);
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/GraphDataInputs/styled.css
 
       
       
@@ -252,15 +256,16 @@ var formatDate = function formatDate() {
   return "".concat(year, "-").concat(month, "-").concat(day);
 };
 /* harmony default export */ const helpers_formatDate = (formatDate);
-;// CONCATENATED MODULE: ./src/components/Timeline/GraphDataInputs/config.js
-var GraphDataInputsConfig = {
-  WARNING_MESSAGE_INVALID_DATA: 'Close value must be between Low and High values',
-  ADD_INPUT_TEXT: 'Add'
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/GraphDataInputs/config.js
+var graphDataInputsConfig = {
+  warningMessageInvalidInputs: 'Close value must be between Low and High values',
+  warningMessageInvalidDate: 'The same date has already been entered.',
+  addInputText: 'Add'
 };
-/* harmony default export */ const GraphDataInputs_config = (GraphDataInputsConfig);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/Timeline/GraphDataInputs/TradeInput/styled.css
-var TradeInput_styled = __webpack_require__(3655);
-;// CONCATENATED MODULE: ./src/components/Timeline/GraphDataInputs/TradeInput/styled.css
+/* harmony default export */ const GraphDataInputs_config = (graphDataInputsConfig);
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/Timeline/GraphDataInputs/TradeInput/styled.css
+var TradeInput_styled = __webpack_require__(2985);
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/GraphDataInputs/TradeInput/styled.css
 
       
       
@@ -289,12 +294,12 @@ var TradeInput_styled_update = injectStylesIntoStyleTag_default()(TradeInput_sty
 
        /* harmony default export */ const GraphDataInputs_TradeInput_styled = (TradeInput_styled/* default */.Z && TradeInput_styled/* default */.Z.locals ? TradeInput_styled/* default */.Z.locals : undefined);
 
-;// CONCATENATED MODULE: ./src/components/Timeline/GraphDataInputs/TradeInput/config.js
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/GraphDataInputs/TradeInput/config.js
 var tradeInputConfig = {
-  MAX_INPUT_LENGTH: 10
+  maxInputLength: 10
 };
 /* harmony default export */ const TradeInput_config = (tradeInputConfig);
-;// CONCATENATED MODULE: ./src/components/Timeline/GraphDataInputs/TradeInput/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/GraphDataInputs/TradeInput/index.jsx
 
 
 
@@ -304,7 +309,7 @@ var TradeInput = function TradeInput(_ref) {
     label = _ref.label,
     value = _ref.value;
   var checkLength = function checkLength(e) {
-    if (e.target.value.length > TradeInput_config.MAX_INPUT_LENGTH) {
+    if (e.target.value.length > TradeInput_config.maxInputLength) {
       return false;
     } else return true;
   };
@@ -312,8 +317,8 @@ var TradeInput = function TradeInput(_ref) {
     checkLength(e) && setValue(e);
   };
   return /*#__PURE__*/react.createElement("label", {
-    className: "labelInput"
-  }, label, " value:", /*#__PURE__*/react.createElement("input", {
+    className: "flexColumn"
+  }, label, /*#__PURE__*/react.createElement("input", {
     type: "number",
     onChange: handleChangeInput,
     placeholder: label,
@@ -327,7 +332,7 @@ TradeInput.propTypes = {
   value: (prop_types_default()).number
 };
 /* harmony default export */ const GraphDataInputs_TradeInput = (TradeInput);
-;// CONCATENATED MODULE: ./src/components/Timeline/GraphDataInputs/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/GraphDataInputs/index.jsx
 function GraphDataInputs_typeof(o) { "@babel/helpers - typeof"; return GraphDataInputs_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, GraphDataInputs_typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -355,6 +360,9 @@ function GraphDataInputs_toPrimitive(input, hint) { if (GraphDataInputs_typeof(i
 
 
 
+var warningMessageInvalidInputs = GraphDataInputs_config.warningMessageInvalidInputs,
+  warningMessageInvalidDate = GraphDataInputs_config.warningMessageInvalidDate,
+  addInputText = GraphDataInputs_config.addInputText;
 var GraphDataInputs = /*#__PURE__*/function (_Component) {
   GraphDataInputs_inherits(GraphDataInputs, _Component);
   var _super = GraphDataInputs_createSuper(GraphDataInputs);
@@ -367,28 +375,40 @@ var GraphDataInputs = /*#__PURE__*/function (_Component) {
         open = _this$state.open,
         high = _this$state.high,
         low = _this$state.low,
-        close = _this$state.close;
+        close = _this$state.close,
+        enteredDates = _this$state.enteredDates;
       var handleDatasChange = _this.props.handleDatasChange;
+      var selectedDate = _this.dateInputRef.current.value;
       if (close < low || close > high) {
-        alert(GraphDataInputs_config.WARNING_MESSAGE_INVALID_DATA);
+        alert(warningMessageInvalidInputs);
+        return;
+      }
+      if (enteredDates.includes(selectedDate)) {
+        alert(warningMessageInvalidDate);
         return;
       }
       handleDatasChange(function (prev) {
         return [].concat(_toConsumableArray(prev), [{
-          x: Date.parse(_this.dateInputRef.current.value),
+          x: Date.parse(selectedDate),
           o: open,
           h: high,
           l: low,
           c: close
         }]);
       });
-      _this.dateInputRef.current.value = helpers_addOneDay(_this.dateInputRef.current.value);
+      _this.dateInputRef.current.value = helpers_addOneDay(selectedDate);
+      _this.setState(function (prev) {
+        return {
+          enteredDates: [].concat(_toConsumableArray(prev.enteredDates), [selectedDate])
+        };
+      });
     });
     _this.state = {
       open: 0,
       high: 0,
       low: 0,
-      close: 0
+      close: 0,
+      enteredDates: []
     };
     _this.dateInputRef = /*#__PURE__*/(0,react.createRef)();
     return _this;
@@ -396,9 +416,10 @@ var GraphDataInputs = /*#__PURE__*/function (_Component) {
   GraphDataInputs_createClass(GraphDataInputs, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this2 = this,
+        _this$dateInputRef$cu;
       return /*#__PURE__*/react.createElement("div", {
-        className: "inputsWrapper"
+        className: "inputsWrapper flexColumn"
       }, /*#__PURE__*/react.createElement("h1", null, "Enter the data to display"), /*#__PURE__*/react.createElement(GraphDataInputs_TradeInput, {
         setValue: function setValue(e) {
           _this2.setState({
@@ -440,8 +461,9 @@ var GraphDataInputs = /*#__PURE__*/function (_Component) {
         className: "dateInput"
       })), /*#__PURE__*/react.createElement("button", {
         className: "buttonAddOHLC",
-        onClick: this.handleButtonAddClick
-      }, GraphDataInputs_config.ADD_INPUT_TEXT));
+        onClick: this.handleButtonAddClick,
+        disabled: this.state.enteredDates.includes((_this$dateInputRef$cu = this.dateInputRef.current) === null || _this$dateInputRef$cu === void 0 ? void 0 : _this$dateInputRef$cu.value)
+      }, addInputText));
     }
   }]);
   return GraphDataInputs;
@@ -450,9 +472,9 @@ GraphDataInputs.propTypes = {
   handleDatasChange: (prop_types_default()).func
 };
 /* harmony default export */ const Timeline_GraphDataInputs = (GraphDataInputs);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/Timeline/SelectCurrency/styled.css
-var SelectCurrency_styled = __webpack_require__(2733);
-;// CONCATENATED MODULE: ./src/components/Timeline/SelectCurrency/styled.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/Timeline/SelectCurrency/styled.css
+var SelectCurrency_styled = __webpack_require__(3020);
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/SelectCurrency/styled.css
 
       
       
@@ -483,7 +505,7 @@ var SelectCurrency_styled_update = injectStylesIntoStyleTag_default()(SelectCurr
 
 // EXTERNAL MODULE: ./src/constants/currencyIcons.js + 11 modules
 var currencyIcons = __webpack_require__(9883);
-;// CONCATENATED MODULE: ./src/components/Timeline/SelectCurrency/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/SelectCurrency/index.jsx
 
 
 
@@ -510,9 +532,9 @@ SelectCurrency.propTypes = {
   selectedCurrency: (prop_types_default()).string
 };
 /* harmony default export */ const Timeline_SelectCurrency = (SelectCurrency);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/Timeline/SelectedCurrencyCard/styled.css
-var SelectedCurrencyCard_styled = __webpack_require__(6242);
-;// CONCATENATED MODULE: ./src/components/Timeline/SelectedCurrencyCard/styled.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/Timeline/SelectedCurrencyCard/styled.css
+var SelectedCurrencyCard_styled = __webpack_require__(5856);
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/SelectedCurrencyCard/styled.css
 
       
       
@@ -541,7 +563,7 @@ var SelectedCurrencyCard_styled_update = injectStylesIntoStyleTag_default()(Sele
 
        /* harmony default export */ const Timeline_SelectedCurrencyCard_styled = (SelectedCurrencyCard_styled/* default */.Z && SelectedCurrencyCard_styled/* default */.Z.locals ? SelectedCurrencyCard_styled/* default */.Z.locals : undefined);
 
-;// CONCATENATED MODULE: ./src/components/Timeline/SelectedCurrencyCard/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/SelectedCurrencyCard/index.jsx
 
 
 
@@ -549,27 +571,31 @@ var SelectedCurrencyCard_styled_update = injectStylesIntoStyleTag_default()(Sele
 var SelectedCurrencyCard = function SelectedCurrencyCard(_ref) {
   var selectedCurrency = _ref.selectedCurrency,
     handleOpenModal = _ref.handleOpenModal;
+  var _currencyIcons$select = currencyIcons/* default */.Z[selectedCurrency],
+    icon = _currencyIcons$select.icon,
+    code = _currencyIcons$select.code,
+    displayName = _currencyIcons$select.displayName;
   return /*#__PURE__*/react.createElement("div", {
     className: "selectedCurrency",
     onClick: handleOpenModal
   }, /*#__PURE__*/react.createElement("img", {
     className: "currencyIco",
-    src: currencyIcons/* default */.Z[selectedCurrency].icon,
-    alt: currencyIcons/* default */.Z[selectedCurrency].code
+    src: icon,
+    alt: code
   }), /*#__PURE__*/react.createElement("div", {
     className: "currencyTextInfoWrapper"
   }, /*#__PURE__*/react.createElement("div", {
     className: "currencyTextTitle"
-  }, currencyIcons/* default */.Z[selectedCurrency].displayName), /*#__PURE__*/react.createElement("div", {
+  }, displayName), /*#__PURE__*/react.createElement("div", {
     className: "currencyTextCode"
-  }, currencyIcons/* default */.Z[selectedCurrency].code)));
+  }, code)));
 };
 SelectedCurrencyCard.propTypes = {
   selectedCurrency: (prop_types_default()).string,
   handleOpenModal: (prop_types_default()).func
 };
 /* harmony default export */ const Timeline_SelectedCurrencyCard = (SelectedCurrencyCard);
-;// CONCATENATED MODULE: ./src/components/Timeline/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/Timeline/index.jsx
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || Timeline_unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function Timeline_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return Timeline_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return Timeline_arrayLikeToArray(o, minLen); }
@@ -584,6 +610,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var notationText = config.notationText,
+  maxDataEnteredText = config.maxDataEnteredText,
+  drawGraphButtonText = config.drawGraphButtonText,
+  guideText = config.guideText,
+  maxDataArrayLength = config.maxDataArrayLength,
+  tradesOpenLabel = config.tradesOpenLabel,
+  tradesCloseLabel = config.tradesCloseLabel,
+  tradesHighLabel = config.tradesHighLabel,
+  tradesLowLabel = config.tradesLowLabel;
 var Timeline = function Timeline() {
   var _useState = (0,react.useState)('australian_dollar'),
     _useState2 = _slicedToArray(_useState, 2),
@@ -601,21 +636,21 @@ var Timeline = function Timeline() {
     _useState8 = _slicedToArray(_useState7, 2),
     isReadyToDraw = _useState8[0],
     setIsReadyToDraw = _useState8[1];
-  var handleCurrencyChange = function handleCurrencyChange(event) {
+  var handleCurrencyChange = (0,react.useCallback)(function (event) {
     setIsReadyToDraw(false);
     setDatas([]);
     setSelectedCurrency(event.target.value);
     setModalActive(true);
-  };
-  var handleOpenModal = function handleOpenModal() {
+  }, []);
+  var handleOpenModal = (0,react.useCallback)(function () {
     setModalActive(true);
-  };
-  var handleDrawGraph = function handleDrawGraph() {
+  }, []);
+  var handleDrawGraph = (0,react.useCallback)(function () {
     setIsReadyToDraw(true);
     setModalActive(false);
-  };
+  }, []);
   return /*#__PURE__*/react.createElement("div", {
-    className: "timelineWrapper"
+    className: "timelineWrapper flexColumn"
   }, /*#__PURE__*/react.createElement(Timeline_SelectCurrency, {
     selectedCurrency: selectedCurrency,
     handleCurrencyChange: handleCurrencyChange
@@ -627,34 +662,35 @@ var Timeline = function Timeline() {
     datas: datas
   }) : /*#__PURE__*/react.createElement("p", {
     className: "guide"
-  }, config.GUIDE_TEXT), /*#__PURE__*/react.createElement(Modal/* default */.Z, {
+  }, guideText), /*#__PURE__*/react.createElement(Modal/* default */.Z, {
     active: modalActive,
     setActive: setModalActive
-  }, datas.length < config.MAX_DATA_ARRAY_LENGTH ? /*#__PURE__*/react.createElement(Timeline_GraphDataInputs, {
+  }, datas.length < maxDataArrayLength ? /*#__PURE__*/react.createElement(Timeline_GraphDataInputs, {
     handleDatasChange: setDatas
-  }) : /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("h1", null, config.MAX_DATA_ENTERED_TEXT), /*#__PURE__*/react.createElement("button", {
+  }) : /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("h1", null, maxDataEnteredText), /*#__PURE__*/react.createElement("button", {
     className: "drawGraph",
     onClick: handleDrawGraph
-  }, config.DRAW_GRAPH_BUTTON_TEXT)), /*#__PURE__*/react.createElement("div", {
+  }, drawGraphButtonText)), /*#__PURE__*/react.createElement("div", {
     className: "chartDataListWrapper"
   }, datas.length ? /*#__PURE__*/react.createElement("ol", {
     className: "chartDataList"
-  }, datas.map(function (_ref, index) {
+  }, datas.map(function (_ref) {
     var o = _ref.o,
       h = _ref.h,
       l = _ref.l,
-      c = _ref.c;
+      c = _ref.c,
+      x = _ref.x;
     return /*#__PURE__*/react.createElement("li", {
-      key: index,
-      className: "charDataItem"
-    }, /*#__PURE__*/react.createElement("span", null, "Trades Opens: ", o), /*#__PURE__*/react.createElement("span", null, "Maximum Cost: ", h), /*#__PURE__*/react.createElement("span", null, "Minimum Cost: ", l), /*#__PURE__*/react.createElement("span", null, "Trades Close: ", c));
-  })) : /*#__PURE__*/react.createElement("p", null, config.NOTATION_TEXT))));
+      key: x,
+      className: "charDataItem flexColumn"
+    }, /*#__PURE__*/react.createElement("span", null, tradesOpenLabel, " ", o), /*#__PURE__*/react.createElement("span", null, tradesHighLabel, " ", h), /*#__PURE__*/react.createElement("span", null, tradesLowLabel, " ", l), /*#__PURE__*/react.createElement("span", null, tradesCloseLabel, " ", c));
+  })) : /*#__PURE__*/react.createElement("p", null, notationText))));
 };
-/* harmony default export */ const components_Timeline = (Timeline);
+/* harmony default export */ const pages_Timeline = (Timeline);
 
 /***/ }),
 
-/***/ 3655:
+/***/ 2985:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -670,15 +706,11 @@ var Timeline = function Timeline() {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.tradeInput {
-    width: 100%;
-    height: 30px;
-    text-align: center;
-    font-family: 'Poppins-SemiBold';
-    border: 1px solid var(--color-black);
-}
-.labelInput {
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-family: var(--font-SemiBold);
+  border: 1px solid var(--color-black);
 }
 `, ""]);
 // Exports
@@ -687,7 +719,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tradeInput {
 
 /***/ }),
 
-/***/ 7230:
+/***/ 2121:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -703,30 +735,28 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tradeInput {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.inputsWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  align-items: center;
 }
 .buttonAddOHLC {
-    width: 120px;
-    height: 50px;
-    background-color: transparent;
-    border: 2px solid var(--color-black);
-    font-family: 'Poppins-SemiBold';
-    transition: 0.1s ease-in-out;
-    font-size: large;
+  width: 120px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid var(--color-black);
+  font-family: var(--font-SemiBold);
+  transition: 0.1s ease-in-out;
+  font-size: large;
 }
 .buttonAddOHLC:hover {
-    border: 6px solid var(--color-black);
+  border: 6px solid var(--color-black);
 }
 .dateInput {
-    width: 100%;
-    height: 30px;
-    text-align: center;
-    font-family: 'Poppins-SemiBold';
-    border: 1px solid var(--color-black);
-    margin-top: 10px;
-    margin-bottom: 10px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-family: var(--font-SemiBold);
+  border: 1px solid var(--color-black);
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 `, ""]);
 // Exports
@@ -735,7 +765,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.inputsWrapper {
 
 /***/ }),
 
-/***/ 896:
+/***/ 996:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -766,7 +796,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.canvasWrapper {
 
 /***/ }),
 
-/***/ 2733:
+/***/ 3020:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -782,45 +812,45 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.canvasWrapper {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.selectedCurrency {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-family: 'Poppins-Regular';
-    color: var(--text-color);
-    margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Poppins-Regular';
+  color: var(--text-color);
+  margin-bottom: 50px;
 }
 .currencyTextInfoWrapper {
-    display: flex;
-    flex-direction: column;
-    height: 80px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  justify-content: space-between;
 }
 .currencyTextTitle {
-    font-size: 35px;
+  font-size: 35px;
 }
 .canvasWrapper {
-    width: var(--container-width);
+  width: var(--container-width);
 }
 .selectCurrency {
-    color: var(--text-color);
-    background-color: var(--background-color);
-    border: none;
-    width: 300px;
-    font-family: sans-serif;
-    font-size: 30px;
-    height: 100px;
-    transition: 0.3s ease;
-    margin-bottom: 150px;
-    cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border: none;
+  width: 300px;
+  font-family: var(--font-SemiBold);
+  font-size: 30px;
+  height: 100px;
+  transition: 0.3s ease;
+  margin-bottom: 150px;
+  cursor: pointer;
 }
 .selectCurrency:hover {
-    background-color: var(--hover-color);
+  background-color: var(--hover-color);
 }
-@media (max-width: 400px) {
-    .selectCurrency {
-        width: 200px;
-        font-size: 20px;
-    }
+@media (max-width: 450px) {
+  .selectCurrency {
+    width: 200px;
+    font-size: 20px;
+  }
 }
 `, ""]);
 // Exports
@@ -829,7 +859,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.selectedCurrency {
 
 /***/ }),
 
-/***/ 6242:
+/***/ 5856:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -845,28 +875,25 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.selectedCurrency {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `@media (max-width: 400px) {
-    .selectedCurrency {
-        width: 200px;
-    }
-    .currencyTextCode {
-        font-size: 10px;
-    }
-    .currencyIco {
-        transform: scale(0.8);
-    }
+  .selectedCurrency {
+    width: 200px;
+  }
+  .currencyTextCode {
+    font-size: 10px;
+  }
 }
 
+.currencyTextTitle {
+  font-size: 24px;
+}
 .selectedCurrency {
-    width: 450px;
-    max-width: var(--container-width);
-    cursor: pointer;
-    transition: 0.5s;
+  width: 450px;
+  max-width: var(--container-width);
+  cursor: pointer;
+  transition: 0.5s;
 }
 .selectedCurrency:hover {
-    background-color: var(--hover-color-input);
-}
-.currencyTextTitle {
-    font-size: clamp(10px, 5vw, 40px);
+  background-color: var(--hover-color-input);
 }
 `, ""]);
 // Exports
@@ -875,7 +902,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (max-width: 400px) {
 
 /***/ }),
 
-/***/ 6324:
+/***/ 2248:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -891,44 +918,40 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (max-width: 400px) {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.timelineWrapper {
-    width: var(--container-width);
-    margin: auto;
-    display: flex;
-    flex-direction: column;
+  width: var(--container-width);
+  margin: auto;
 }
 body {
-    counter-reset: section;
+  counter-reset: section;
 }
 .guide {
-    font-family: sans-serif;
-    font-size: clamp(20px, 5vw, 40px);
-    color: var(--text-color);
+  font-family: var(--font-SemiBold);
+  font-size: 24px;
+  color: var(--text-color);
 }
 
 .chartDataList {
-    max-height: 100px;
-    overflow: auto;
+  max-height: 100px;
+  overflow: auto;
 }
 .charDataItem {
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-    flex-direction: column;
-    position: relative;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  position: relative;
 }
 .charDataItem:before {
-    counter-increment: section;
-    content: counter(section) '.';
-    position: absolute;
-    margin-left: -20px;
+  counter-increment: section;
+  content: counter(section) '.';
+  position: absolute;
+  margin-left: -20px;
 }
 .drawGraph {
-    width: 120px;
-    height: 50px;
-    background-color: transparent;
-    border: 2px solid var(--color-black);
-    font-family: 'Poppins-SemiBold';
-    transition: 0.1s ease-in-out;
+  width: 120px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid var(--color-black);
+  font-family: var(--font-SemiBold);
+  transition: 0.1s ease-in-out;
 }
 `, ""]);
 // Exports

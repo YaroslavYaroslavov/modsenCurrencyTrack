@@ -1,7 +1,7 @@
 "use strict";
-(self["webpackChunkmodsencurtrack"] = self["webpackChunkmodsencurtrack"] || []).push([[845],{
+(self["webpackChunkmodsencurtrack"] = self["webpackChunkmodsencurtrack"] || []).push([[739],{
 
-/***/ 6845:
+/***/ 4739:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -9,7 +9,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ components_BankCard)
+  "default": () => (/* binding */ pages_BankCard)
 });
 
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
@@ -30,9 +30,9 @@ var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleE
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
 var styleTagTransform = __webpack_require__(4589);
 var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/BankCard/styled.css
-var styled = __webpack_require__(8302);
-;// CONCATENATED MODULE: ./src/components/BankCard/styled.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/BankCard/styled.css
+var styled = __webpack_require__(8653);
+;// CONCATENATED MODULE: ./src/components/pages/BankCard/styled.css
 
       
       
@@ -81,9 +81,9 @@ var BanksCurrencyHave = [{
   balloonContent: 'проспект Франциска Скорины, 24, Полоцк, Витебская область'
 }];
 /* harmony default export */ const banksData = (BanksCurrencyHave);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/BankCard/Autocomplete/styled.css
-var Autocomplete_styled = __webpack_require__(3648);
-;// CONCATENATED MODULE: ./src/components/BankCard/Autocomplete/styled.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/BankCard/Autocomplete/styled.css
+var Autocomplete_styled = __webpack_require__(985);
+;// CONCATENATED MODULE: ./src/components/pages/BankCard/Autocomplete/styled.css
 
       
       
@@ -126,7 +126,12 @@ var findCoordinatesByCurrency = function findCoordinatesByCurrency(banks, sugges
   return null;
 };
 /* harmony default export */ const findCoordByCur = (findCoordinatesByCurrency);
-;// CONCATENATED MODULE: ./src/components/BankCard/Autocomplete/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/BankCard/Autocomplete/config.js
+var autocompleteConfig = {
+  notFoundMessage: 'Not found'
+};
+/* harmony default export */ const config = (autocompleteConfig);
+;// CONCATENATED MODULE: ./src/components/pages/BankCard/Autocomplete/index.jsx
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -146,6 +151,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 
 
+
+var notFoundMessage = config.notFoundMessage;
 var AutocompleteInput = /*#__PURE__*/function (_React$PureComponent) {
   _inherits(AutocompleteInput, _React$PureComponent);
   var _super = _createSuper(AutocompleteInput);
@@ -198,7 +205,7 @@ var AutocompleteInput = /*#__PURE__*/function (_React$PureComponent) {
         inputValue = _this$state.inputValue,
         suggestions = _this$state.suggestions;
       return /*#__PURE__*/react.createElement("div", {
-        className: "autocompleteInputWrapper"
+        className: "autocompleteInputWrapper flexColumn"
       }, /*#__PURE__*/react.createElement("input", {
         className: "autocompleteInput",
         type: "text",
@@ -209,13 +216,11 @@ var AutocompleteInput = /*#__PURE__*/function (_React$PureComponent) {
         className: "suggestionWrapper"
       }, inputValue && !suggestions.length ? /*#__PURE__*/react.createElement("div", {
         className: "suggestion"
-      }, "Not found") : suggestions.map(function (suggestion) {
+      }, notFoundMessage) : suggestions.map(function (suggestion) {
         return /*#__PURE__*/react.createElement("div", {
           key: suggestion,
           className: "suggestion",
-          onClick: function onClick() {
-            return _this2.handleSuggestionClick(suggestion);
-          }
+          onClick: _this2.handleSuggestionClick.bind(_this2, suggestion)
         }, suggestion);
       })));
     }
@@ -226,7 +231,7 @@ AutocompleteInput.propTypes = {
   handleZoomPoint: (prop_types_default()).func
 };
 /* harmony default export */ const Autocomplete = (AutocompleteInput);
-;// CONCATENATED MODULE: ./src/components/BankCard/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/BankCard/index.jsx
 function BankCard_typeof(o) { "@babel/helpers - typeof"; return BankCard_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, BankCard_typeof(o); }
 function BankCard_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function BankCard_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, BankCard_toPropertyKey(descriptor.key), descriptor); } }
@@ -245,7 +250,6 @@ function BankCard_toPrimitive(input, hint) { if (BankCard_typeof(input) !== "obj
 
 
 
-var DIV_MAP_TEMPLATE = '<div style="font-weight: bold;">$[properties.iconContent]</div>';
 var BankCard = /*#__PURE__*/function (_Component) {
   BankCard_inherits(BankCard, _Component);
   var _super = BankCard_createSuper(BankCard);
@@ -279,7 +283,6 @@ var BankCard = /*#__PURE__*/function (_Component) {
         }, {
           searchControlProvider: 'yandex#search'
         });
-        var MyIconContentLayout = _this2.state.ymaps.templateLayoutFactory.createClass(DIV_MAP_TEMPLATE);
         banksData.forEach(function (bank) {
           var placemark = new _this2.state.ymaps.Placemark(bank.coord, {
             hintContent: bank.bankName,
@@ -288,8 +291,7 @@ var BankCard = /*#__PURE__*/function (_Component) {
             iconLayout: 'default#imageWithContent',
             iconImageSize: [50, 50],
             iconImageOffset: [-25, -50],
-            iconContentOffset: [15, 15],
-            iconContentLayout: MyIconContentLayout
+            iconContentOffset: [15, 15]
           });
           myMap.geoObjects.add(placemark);
         });
@@ -312,11 +314,11 @@ var BankCard = /*#__PURE__*/function (_Component) {
   }]);
   return BankCard;
 }(react.Component);
-/* harmony default export */ const components_BankCard = (BankCard);
+/* harmony default export */ const pages_BankCard = (BankCard);
 
 /***/ }),
 
-/***/ 3648:
+/***/ 985:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -332,64 +334,63 @@ var BankCard = /*#__PURE__*/function (_Component) {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.autocompleteInput {
-    background: var(--input-background-color);
-    color: var(--text-color);
-    border: none;
-    font-size: 18px;
-    width: 20vw;
-    height: 65.5px;
-    border-radius: 10px;
-    padding-left: 20px;
+  background: var(--input-background-color);
+  color: var(--text-color);
+  border: none;
+  font-size: 18px;
+  width: 350px;
+  height: 65px;
+  border-radius: 10px;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 .autocompleteInput::placeholder {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 .autocompleteInputWrapper {
-    width: 65vw;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 75px;
-    flex-direction: column;
-    position: relative;
+  width: 350px;
+  margin: auto;
+
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 75px;
+  position: relative;
 }
 .suggestionWrapper {
-    position: absolute;
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-    top: 68px;
-    z-index: 2;
-    transition: 0.3s ease;
+  position: absolute;
+  top: 68px;
+  z-index: 1;
+  transition: 0.3s;
 }
 .suggestion {
-    background: var(--input-background-color);
-    color: var(--text-color);
-    width: 20vw;
-    cursor: pointer;
-    padding-left: 20px;
-    height: 65px;
-    display: flex;
-    align-items: center;
-    font-family: sans-serif;
+  background: var(--input-background-color);
+  color: var(--text-color);
+  width: 350px;
+  cursor: pointer;
+  padding-left: 20px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-Light);
 }
 .suggestion:hover {
-    background-color: var(--hover-color);
+  background-color: var(--hover-color);
 }
 @media (max-width: 900px) {
-    .suggestion {
-        width: 40vw;
-    }
-    .autocompleteInput {
-        width: 40vw;
-    }
+  .suggestion {
+    width: 350px;
+  }
+  .autocompleteInput {
+    width: 350px;
+  }
 }
-@media (max-width: 400px) {
-    .suggestion {
-        width: 50vw;
-    }
-    .autocompleteInput {
-        width: 50vw;
-    }
+@media (max-width: 430px) {
+  .suggestion {
+    width: 350px;
+  }
+  .autocompleteInput {
+    width: 350px;
+  }
 }
 `, ""]);
 // Exports
@@ -398,7 +399,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.autocompleteInput {
 
 /***/ }),
 
-/***/ 8302:
+/***/ 8653:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {

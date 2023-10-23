@@ -1,7 +1,7 @@
 "use strict";
-(self["webpackChunkmodsencurtrack"] = self["webpackChunkmodsencurtrack"] || []).push([[441],{
+(self["webpackChunkmodsencurtrack"] = self["webpackChunkmodsencurtrack"] || []).push([[711],{
 
-/***/ 3441:
+/***/ 6711:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -9,7 +9,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ components_NotFound)
+  "default": () => (/* binding */ pages_NotFound)
 });
 
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
@@ -30,9 +30,9 @@ var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleE
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
 var styleTagTransform = __webpack_require__(4589);
 var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/NotFound/styled.css
-var styled = __webpack_require__(6579);
-;// CONCATENATED MODULE: ./src/components/NotFound/styled.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/components/pages/NotFound/styled.css
+var styled = __webpack_require__(4494);
+;// CONCATENATED MODULE: ./src/components/pages/NotFound/styled.css
 
       
       
@@ -65,24 +65,33 @@ var update = injectStylesIntoStyleTag_default()(styled/* default */.Z, options);
 var react = __webpack_require__(7294);
 // EXTERNAL MODULE: ./node_modules/react-router-dom/dist/index.js
 var dist = __webpack_require__(9655);
-;// CONCATENATED MODULE: ./src/components/NotFound/index.jsx
+;// CONCATENATED MODULE: ./src/components/pages/NotFound/config.js
+var notFoundPageConfig = {
+  notFoundMessage: 'Uh, it seems we havent done that yet. The best solution would be to go',
+  linlToHomepageText: 'Homepage'
+};
+/* harmony default export */ const config = (notFoundPageConfig);
+;// CONCATENATED MODULE: ./src/components/pages/NotFound/index.jsx
 
 
 
+
+var notFoundMessage = config.notFoundMessage,
+  linlToHomepageText = config.linlToHomepageText;
 var NotFound = function NotFound() {
   return /*#__PURE__*/react.createElement("div", {
-    className: "notFounded "
-  }, "Uh, it seems we havent done that yet. The best solution would be to go ", /*#__PURE__*/react.createElement(dist/* Link */.rU, {
+    className: "notFounded"
+  }, notFoundMessage, /*#__PURE__*/react.createElement(dist/* Link */.rU, {
     to: '/'
   }, /*#__PURE__*/react.createElement("span", {
     className: "link"
-  }, "Homepage")));
+  }, linlToHomepageText)));
 };
-/* harmony default export */ const components_NotFound = (NotFound);
+/* harmony default export */ const pages_NotFound = (NotFound);
 
 /***/ }),
 
-/***/ 6579:
+/***/ 4494:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -98,11 +107,11 @@ var NotFound = function NotFound() {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.notFounded {
-    font-family: 'Poppins-Bold';
-    color: var(--text-color);
-    font-size: 25px;
-    width: 390px;
-    margin: auto;
+  font-family: var(--font-Bold);
+  color: var(--text-color);
+  font-size: 24px;
+  width: 390px;
+  margin: auto;
 }
 `, ""]);
 // Exports

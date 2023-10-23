@@ -84,14 +84,12 @@ function usePortal() {
     var portalContainer = document.createElement('div');
     portalContainerRef.current = portalContainer;
     document.body.appendChild(portalContainer);
-    return function () {
-      document.body.removeChild(portalContainer);
-    };
-  }, []);
-  (0,react.useEffect)(function () {
     if (portalContainerRef.current) {
       setPortal(portalContainerRef.current);
     }
+    return function () {
+      document.body.removeChild(portalContainer);
+    };
   }, []);
   return portal;
 }
@@ -106,12 +104,13 @@ var Modal = function Modal(_ref) {
   var active = _ref.active,
     setActive = _ref.setActive,
     children = _ref.children;
+  var handleCloseModal = function handleCloseModal() {
+    setActive(false);
+  };
   var portal = use_portal();
   return portal && /*#__PURE__*/react_dom.createPortal( /*#__PURE__*/react.createElement("div", {
     className: active ? 'modal active' : 'modal',
-    onClick: function onClick() {
-      return setActive(false);
-    }
+    onClick: handleCloseModal
   }, /*#__PURE__*/react.createElement("div", {
     className: active ? 'modal_content active' : 'modal_content',
     onClick: function onClick(e) {
@@ -121,10 +120,9 @@ var Modal = function Modal(_ref) {
 };
 Modal.propTypes = {
   active: (prop_types_default()).bool,
-  setActive: (prop_types_default()).func
-  // children: PropTypes.array,
+  setActive: (prop_types_default()).func,
+  children: prop_types_default().oneOfType([(prop_types_default()).object, (prop_types_default()).array])
 };
-
 /* harmony default export */ const components_Modal = (Modal);
 
 /***/ }),
@@ -271,40 +269,40 @@ var currencyIcons = {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.modal {
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--color-black-half-opacity);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    opacity: 0;
-    transform: scale(1);
-    transition: 0.2s;
-    pointer-events: none;
-    justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-black-half-opacity);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: scale(1);
+  transition: 0.2s;
+  pointer-events: none;
+  justify-content: center;
 }
 .modal.active {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 .modal_content {
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 12px;
-    transform: scale(0);
-    transition: 0.5s;
-    background-color: white;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 12px;
+  transform: scale(0);
+  transition: 0.5s;
+  background-color: var(--color-white);
 }
 
 .modal_content.active {
-    transform: scale(1);
+  transform: scale(1);
 }
 @media (max-width: 400px) {
-    .modal_content {
-        max-width: 200px;
-    }
+  .modal_content {
+    max-width: 200px;
+  }
 }
 `, ""]);
 // Exports
