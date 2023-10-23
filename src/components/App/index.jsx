@@ -1,12 +1,13 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import Footer from 'src/components/Footer/index.jsx';
-import Header from 'src/components/Header/index.jsx';
-import LastUpdate from 'src/components/LastUpdate/index.jsx';
-import Loader from 'src/components/Loader/index.jsx';
-import Navbar from 'src/components/Navbar/index.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ROUTES from 'src/constants/routes.js';
 import fetchData from 'src/helpers/fetchCurrency.js';
+
+import Footer from '../Footer/index.jsx';
+import Header from '../Header/index.jsx';
+import LastUpdate from '../LastUpdate/index.jsx';
+import Loader from '../Loader/index.jsx';
+import Navbar from '../Navbar/index.jsx';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      <HashRouter>
+      <BrowserRouter>
         <Navbar />
         <Header />
         <LastUpdate error={error} isLoading={isLoading} />
@@ -45,7 +46,7 @@ const App = () => {
         </Routes>
 
         <Footer />
-      </HashRouter>
+      </BrowserRouter>
     </>
   );
 };
