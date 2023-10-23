@@ -1,130 +1,121 @@
 footer {
-    padding-top: 40px;
-    width: var(--container-width);
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
+  padding-top: 40px;
+  width: var(--container-width);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 .footer-about {
-    width: 25vw;
-    font-size: 24px;
+  width: 1250px;
+  font-size: 24px;
 }
 .footer-about-title {
-    display: flex;
-    font-family: 'Poppins-SemiBold';
-    align-items: center;
-    margin-bottom: 30px;
-    background-image: var(--gradient-logo);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    gap: 20px;
+  display: flex;
+  font-family: var(--font-SemiBold);
+  align-items: center;
+  margin-bottom: 30px;
+  background-image: var(--gradient-logo);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  gap: 20px;
 }
 .footer-about-subtitle {
-    font-family: 'Poppins-Light';
-    color: var(--text-color);
+  font-family: var(--font-Light);
+  color: var(--text-color);
 }
 .footer-links {
-    display: flex;
-    gap: 50px;
+  display: flex;
+  gap: 50px;
 }
 .footer-link {
-    width: 9vw;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
+  width: 180px;
+  gap: 20px;
 }
 
 .footer-link-title {
-    color: var(--text-color);
-    font-family: 'Poppins-Regular';
-    font-size: 28px;
-    margin-bottom: 10px;
+  color: var(--text-color);
+  font-family: var(--font-Regular);
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 .footer-link-item {
-    font-family: 'Poppins-Regular';
-    font-size: 24px;
-    color: var(--color-gray);
+  font-family: var(--font-Regular);
+  font-size: 24px;
+  color: var(--color-gray);
 }
 .copyright {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 30vw;
-    text-align: center;
-    margin: auto;
-    font-family: 'Poppins-Regular';
-    font-size: clamp(10px, 3vw, 24px);
-    color: var(--color-gray);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: var(--container-width);
+  text-align: center;
+  margin: auto;
+  font-family: var(--font-Regular);
+  color: var(--color-gray);
 }
 .footer-link-checkbox {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: none;
-    background-color: transparent;
-    position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: transparent;
+  position: relative;
 }
 
 .footer-link-title-mobile {
-    font-family: 'Poppins-SemiBold';
-    font-size: 26px;
-    display: none;
-    color: var(--text-color);
+  font-family: var(--font-SemiBold);
+  font-size: 26px;
+  display: none;
+  color: var(--text-color);
 }
 
 .footer-link-checkbox::after {
-    content: url(../../assets/images/arrow-down-svgrepo-com.svg);
-    position: absolute;
-    top: -395px;
-    left: -393px;
-    transform: scale(0.03, 0.03);
-    transition: all 0.3s ease;
-    margin-left: 20px;
+  content: url(../../assets/images/arrow-down-svgrepo-com.svg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  margin-left: 20px;
 }
 
 .footer-link-checkbox:checked::after {
-    transform: scale(0.03, 0.03) rotate(180deg);
+  transform: rotate(180deg);
 }
 .footer-link-subtitle-wrapper {
-    transition: 0.5s;
-    height: 20vw;
-    display: flex;
-    margin-top: 20px;
-    flex-direction: column;
-    gap: 10px;
-    overflow: hidden;
+  transition: 0.5s;
+  height: 90px;
+
+  margin-top: 20px;
+  gap: 10px;
+  overflow: hidden;
 }
 .footer-link-checkbox:not(:checked) ~ .footer-link-subtitle-wrapper {
-    height: 0;
+  height: 0;
 }
 
 @media (max-width: 1290px) {
-    .footer-about {
-        display: none;
-    }
-    .footer-link {
-        display: none;
-    }
-    .footer-links {
-        flex-direction: column;
-    }
-    .footer-link-title-mobile {
-        display: block;
+  .footer-about {
+    display: none;
+  }
+  .footer-link {
+    display: none;
+  }
+  .footer-links {
+    flex-direction: column;
+  }
+  .footer-link-title-mobile {
+    display: block;
+  }
 
-        font-size: 3vw;
-    }
-    .footer-link-item {
-        font-size: 4vw;
-    }
-    footer {
-        display: block;
-        width: var(--container-width);
-        margin: auto;
-    }
-    .copyright {
-        width: var(--container-width);
-    }
+  footer {
+    display: block;
+
+    margin: auto;
+  }
+  .copyright {
+    width: var(--container-width);
+  }
 }

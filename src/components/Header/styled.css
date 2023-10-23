@@ -1,82 +1,78 @@
 .wrapper {
-    width: 97vw;
-    display: flex;
+  display: flex;
 
-    padding-top: 50px;
-    padding-bottom: 50px;
-    gap: 40px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  gap: 40px;
 
-    background: var(--gradient-background);
-    margin: auto;
+  background: var(--gradient-background);
+  margin: auto;
 }
 .text {
-    margin-left: 10%;
-    text-align: center;
+  margin-left: 10%;
+  text-align: center;
 }
 .title-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-
-    justify-content: center;
+  align-items: end;
+  justify-content: center;
 }
 .title {
-    font-family: 'Poppins-SemiBold';
-    font-size: 76px;
-    line-height: 114px;
-    background-image: var(--gradient-logo);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    margin-right: 100px;
+  font-family: var(--font-SemiBold);
+  font-size: 76px;
+  line-height: 114px;
+  background-image: var(--gradient-logo);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-right: 100px;
 }
 .subtitle {
-    font-family: 'Poppins-Light';
-    font-size: 25px;
-    text-align: center;
-    width: 400px;
-    line-height: 47px;
-    color: rgba(217, 217, 217, 1);
-    float: right;
+  font-family: var(--font-Light);
+  font-size: 25px;
+  text-align: center;
+  width: 400px;
+  line-height: 47px;
+  color: rgba(217, 217, 217, 1);
+  float: right;
 }
+
 @media (max-width: 1290px) {
-    .curLogo {
-        display: none;
-    }
-    .title-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .title-wrapper span {
-        margin-right: 0;
-    }
-    .text {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: 0;
-    }
-    .wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
+  .curLogo {
+    display: none;
+  }
+  .title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .title-wrapper span {
+    margin-right: 0;
+  }
+  .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 @media (max-width: 490px) {
-    .title {
-        font-size: 56px;
-        line-height: 50px;
-    }
-    .subtitle {
-        width: 80vw;
-        font-size: 15px;
-    }
-    .title-wrapper {
-        width: var(--container-width);
-        margin: auto;
-    }
+  .title {
+    font-size: 56px;
+    line-height: 50px;
+  }
+  .subtitle {
+    font-size: 15px;
+  }
+  .title-wrapper {
+    width: var(--container-width);
+    margin: auto;
+  }
 }

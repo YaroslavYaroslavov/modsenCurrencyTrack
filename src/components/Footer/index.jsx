@@ -3,69 +3,53 @@ import './styled.css';
 import React from 'react';
 import logo from 'src/assets/images/logo_small.png';
 
-import FooterConfig from './config';
+import footerConfig from './config.js';
+
+const { title, subtitle, links, copyright } = footerConfig;
+
 const Footer = () => {
-    return (
-        <>
-            <footer>
-                <div className="footer-about">
-                    <div className="footer-about-title">
-                        <img src={logo} alt="logotype" />
-                        <div className="footer-about-name">
-                            {FooterConfig.TITLE}
-                        </div>
-                    </div>
-                    <p className="footer-about-subtitle">
-                        {FooterConfig.SUBTITLE}
-                    </p>
-                </div>
-                <div className="footer-links">
-                    {FooterConfig.LINKS.map((link) => (
-                        <div key={link.linkName} className="footer-link">
-                            <p className="footer-link-title">{link.linkName}</p>
+  return (
+    <>
+      <footer>
+        <div className="footer-about">
+          <div className="footer-about-title">
+            <img src={logo} alt="logotype" />
+            <div className="footer-about-name">{title}</div>
+          </div>
+          <p className="footer-about-subtitle">{subtitle}</p>
+        </div>
+        <div className="footer-links">
+          {links.map(({ linkName, subLinks }) => (
+            <div key={linkName} className="footer-link flexColumn">
+              <p className="footer-link-title">{linkName}</p>
 
-                            {link.subLinks.map((sublink) => (
-                                <a
-                                    className="footer-link-item"
-                                    key={sublink.subLinkName}
-                                    href="/"
-                                >
-                                    {sublink.subLinkName}
-                                </a>
-                            ))}
-                        </div>
-                    ))}
-                </div>
+              {subLinks.map(({ subLinkName }) => (
+                <a className="footer-link-item" key={subLinkName} href="/">
+                  {subLinkName}
+                </a>
+              ))}
+            </div>
+          ))}
+        </div>
 
-                <div className="footer-links-mobile">
-                    {FooterConfig.LINKS.map((link) => (
-                        <label
-                            key={link.linkName}
-                            className="footer-link-title-mobile"
-                        >
-                            {link.linkName}
-                            <input
-                                type="checkbox"
-                                id="general"
-                                className="footer-link-checkbox"
-                            />
-                            <div className="footer-link-subtitle-wrapper">
-                                {link.subLinks.map((sublink) => (
-                                    <a
-                                        className="footer-link-item"
-                                        key={sublink.subLinkName}
-                                        href="/"
-                                    >
-                                        {sublink.subLinkName}
-                                    </a>
-                                ))}
-                            </div>
-                        </label>
-                    ))}
-                </div>
-            </footer>
-            <div className="copyright">{FooterConfig.COPYRIGHT}</div>
-        </>
-    );
+        <div className="footer-links-mobile">
+          {links.map(({ linkName, subLinks }) => (
+            <label key={linkName} className="footer-link-title-mobile">
+              {linkName}
+              <input type="checkbox" id="general" className="footer-link-checkbox" />
+              <div className="footer-link-subtitle-wrapper flexColumn">
+                {subLinks.map(({ subLinkName }) => (
+                  <a className="footer-link-item" key={subLinkName} href="/">
+                    {subLinkName}
+                  </a>
+                ))}
+              </div>
+            </label>
+          ))}
+        </div>
+      </footer>
+      <div className="copyright">{copyright}</div>
+    </>
+  );
 };
 export default Footer;
