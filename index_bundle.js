@@ -4362,7 +4362,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `footer {
 .footer-link-subtitle-wrapper {
   transition: 0.5s;
   height: 90px;
-
   margin-top: 20px;
   gap: 10px;
   overflow: hidden;
@@ -4477,9 +4476,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.wrapper {
   }
   .wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
   }
 }
 @media (max-width: 490px) {

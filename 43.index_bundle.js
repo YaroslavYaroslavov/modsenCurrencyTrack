@@ -164,13 +164,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.contactUs {
   font-family: var(--font-Bold);
   font-size: 24px;
 }
-.contactUs form {
-  display: flex;
-  flex-direction: column;
-}
+
 .contactUs form div {
-  display: flex;
-  flex-direction: column;
   min-width: 170px;
   max-width: 450px;
 }
