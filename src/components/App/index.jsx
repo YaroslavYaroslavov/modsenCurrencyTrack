@@ -1,11 +1,10 @@
-import React, { Suspense, useEffect, useState } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { HashRouter } from 'react-router-dom';
 import Footer from 'src/components/Footer/index.jsx';
 import Header from 'src/components/Header/index.jsx';
 import LastUpdate from 'src/components/LastUpdate/index.jsx';
-import Loader from 'src/components/Loader/index.jsx';
 import Navbar from 'src/components/Navbar/index.jsx';
-import ROUTES from 'src/constants/routes.js';
+import RoutesTemplate from 'src/components/RoutesTemplate/index.jsx';
 import fetchData from 'src/helpers/fetchCurrency.js';
 
 const App = () => {
@@ -29,21 +28,7 @@ const App = () => {
         <Navbar />
         <Header />
         <LastUpdate error={error} isLoading={isLoading} />
-
-        <Routes>
-          {ROUTES.map(({ path, Element }) => (
-            <Route
-              path={path}
-              element={
-                <Suspense fallback={<Loader />}>
-                  <Element />
-                </Suspense>
-              }
-              key={path}
-            />
-          ))}
-        </Routes>
-
+        <RoutesTemplate />
         <Footer />
       </HashRouter>
     </>

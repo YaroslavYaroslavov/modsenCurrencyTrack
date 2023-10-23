@@ -1,9 +1,13 @@
 import './styled.css';
 
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 
-const ThemeSwitcher = React.memo(({ handleChangeTheme, theme }) => {
+import { useTheme } from '../../../hooks/use-theme';
+const ThemeSwitcher = React.memo(() => {
+  const { theme, setTheme } = useTheme();
+  const handleChangeTheme = useCallback(() => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  }, [setTheme, theme]);
   return (
     <>
       <label className="switch">
@@ -11,7 +15,8 @@ const ThemeSwitcher = React.memo(({ handleChangeTheme, theme }) => {
           onChange={handleChangeTheme}
           type="checkbox"
           className="themeSwitcher"
-          checked={theme === 'light' ? true : false}
+          data-testid="theme-switch"
+          defaultChecked={theme === 'light' ? true : false}
         />
         <span className="slider"></span>
       </label>
@@ -19,10 +24,5 @@ const ThemeSwitcher = React.memo(({ handleChangeTheme, theme }) => {
   );
 });
 ThemeSwitcher.displayName = 'ThemeSwitcher';
-
-ThemeSwitcher.propTypes = {
-  handleChangeTheme: PropTypes.func,
-  theme: PropTypes.string,
-};
 
 export default ThemeSwitcher;

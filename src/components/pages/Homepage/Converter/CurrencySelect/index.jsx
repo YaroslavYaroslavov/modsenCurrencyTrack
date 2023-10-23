@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import currencyIcons from 'src/constants/currencyIcons';
+
+import currencyIcons from '../../../../../constants/currencyIcons';
 
 const CurrencySelect = ({ handleChangeCurrency }) => {
   return (

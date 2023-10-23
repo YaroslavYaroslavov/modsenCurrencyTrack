@@ -2,7 +2,8 @@ import './styled.css';
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import currencyIcons from 'src/constants/currencyIcons';
+
+import currencyIcons from '../../../../constants/currencyIcons';
 
 const SelectedCurrencyCard = ({ selectedCurrency, handleOpenModal }) => {
   const { icon, code, displayName } = currencyIcons[selectedCurrency];

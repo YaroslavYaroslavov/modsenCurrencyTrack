@@ -1,8 +1,8 @@
 import './styled.css';
 
 import React, { useCallback, useState } from 'react';
-import Modal from 'src/components/Modal/index.jsx';
 
+import Modal from '../../..//components/Modal/index.jsx';
 import timelineConfig from './config';
 import Graph from './Graph/index.jsx';
 import GraphDataInputs from './GraphDataInputs/index.jsx';
@@ -43,7 +43,7 @@ const Timeline = () => {
   }, []);
 
   return (
-    <div className="timelineWrapper flexColumn">
+    <div data-testid="Timiline" className="timelineWrapper flexColumn">
       <SelectCurrency
         selectedCurrency={selectedCurrency}
         handleCurrencyChange={handleCurrencyChange}

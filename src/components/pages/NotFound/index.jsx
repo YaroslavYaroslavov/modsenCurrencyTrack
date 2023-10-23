@@ -7,7 +7,7 @@ import notFoundPageConfig from './config';
 const { notFoundMessage, linlToHomepageText } = notFoundPageConfig;
 const NotFound = () => {
   return (
-    <div className="notFounded">
+    <div className="notFounded" data-testid="NotFound">
       {notFoundMessage}
       {<Link to={'/'}>{<span className="link">{linlToHomepageText}</span>}</Link>}
     </div>

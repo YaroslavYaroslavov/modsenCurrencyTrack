@@ -3,7 +3,8 @@ import './styled.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import usePortal from 'src/hooks/use-portal';
+
+import usePortal from '../../hooks/use-portal';
 
 const Modal = ({ active, setActive, children }) => {
   const handleCloseModal = () => {

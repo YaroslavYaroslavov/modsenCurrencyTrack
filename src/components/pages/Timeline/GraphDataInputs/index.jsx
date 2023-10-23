@@ -2,9 +2,9 @@ import './styled.css';
 
 import PropTypes from 'prop-types';
 import React, { Component, createRef } from 'react';
-import addOneDay from 'src/helpers/addOneDay.js';
-import formatDate from 'src/helpers/formatDate';
 
+import addOneDay from '../../../../helpers/addOneDay.js';
+import formatDate from '../../../../helpers/formatDate';
 import graphDataInputsConfig from './config';
 import TradeInput from './TradeInput/index.jsx';
 

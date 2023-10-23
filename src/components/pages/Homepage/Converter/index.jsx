@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useRef, useState } from 'react';
-import CurrencyIcons from 'src/constants/currencyIcons';
-import calculateValue from 'src/helpers/calculateValue.js';
 
+import calculateValue from '../../../..//helpers/calculateValue.js';
+import CurrencyIcons from '../../../../constants/currencyIcons';
 import CurrencySelect from './CurrencySelect/index.jsx';
 
 const Converter = ({ handleChangeCurrency }) => {
@@ -43,7 +43,7 @@ const Converter = ({ handleChangeCurrency }) => {
   );
 
   return (
-    <>
+    <div data-testid="Contato">
       <h2>Choose which currency to convert the cards to</h2>
       <div className="flexColumn">
         <div className="inputWrapper">
@@ -65,7 +65,7 @@ const Converter = ({ handleChangeCurrency }) => {
           <span className="toCurrency">{toCurrencyValue.toFixed(4)}</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

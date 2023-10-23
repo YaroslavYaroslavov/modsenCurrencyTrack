@@ -2,7 +2,8 @@ import './styled.css';
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import currencyIcons from 'src/constants/currencyIcons.js';
+
+import currencyIcons from '../../../../constants/currencyIcons.js';
 
 const SelectCurrency = ({ handleCurrencyChange, selectedCurrency }) => {
   return (

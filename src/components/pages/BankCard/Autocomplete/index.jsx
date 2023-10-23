@@ -2,9 +2,9 @@ import './styled.css';
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import BanksCurrencyHave from 'src/constants/banksData.js';
-import findCoordinatesByCurrency from 'src/helpers/findCoordByCur.js';
 
+import BanksCurrencyHave from '../../../../constants/banksData';
+import findCoordinatesByCurrency from '../../../../helpers/findCoordByCur.js';
 import autocompleteConfig from './config.js';
 
 const { notFoundMessage } = autocompleteConfig;

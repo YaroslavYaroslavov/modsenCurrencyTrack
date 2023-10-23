@@ -2,9 +2,9 @@ import './styled.css';
 
 import PropTypes from 'prop-types';
 import React, { memo, useCallback, useMemo } from 'react';
-import currencyIcons from 'src/constants/currencyIcons';
-import getDataFromLocalStorage from 'src/helpers/getDataFromLocalStorage';
 
+import currencyIcons from '../../../../constants/currencyIcons';
+import getDataFromLocalStorage from '../../../../helpers/getDataFromLocalStorage';
 import configCurrencyCard from './config.js';
 const { noInfoMessage } = configCurrencyCard;
 

@@ -1,8 +1,8 @@
 import './styled.css';
 
 import React, { Component } from 'react';
-import BanksCurrencyHave from 'src/constants/banksData.js';
 
+import BanksCurrencyHave from '../../../constants/banksData';
 import AutocompleteInput from './Autocomplete/index.jsx';
 
 class BankCard extends Component {

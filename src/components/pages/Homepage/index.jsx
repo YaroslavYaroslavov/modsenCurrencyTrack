@@ -1,10 +1,10 @@
 import './styled.css';
 
 import React, { useMemo, useState } from 'react';
-import Modal from 'src/components/Modal/index.jsx';
-import currencyIcons from 'src/constants/currencyIcons';
-import getDataFromLocalStorage from 'src/helpers/getDataFromLocalStorage.js';
 
+import getDataFromLocalStorage from '../../..//helpers/getDataFromLocalStorage.js';
+import Modal from '../../../components/Modal/index.jsx';
+import currencyIcons from '../../../constants/currencyIcons';
 import Converter from './Converter/index.jsx';
 import CurrencyCard from './CurrencyCard/index.jsx';
 import CurrencyTable from './CurrencyTable/index.jsx';
@@ -42,13 +42,13 @@ const Homepage = () => {
   );
 
   return (
-    <>
+    <div data-testid="Homepage">
       <CurrencyTable type="Stocks">{stocks}</CurrencyTable>
       <CurrencyTable type="Quotes">{quotes}</CurrencyTable>
       <Modal active={modalActive} setActive={setModalActive}>
         <Converter handleChangeCurrency={setConvertTo} />
       </Modal>
-    </>
+    </div>
   );
 };
 

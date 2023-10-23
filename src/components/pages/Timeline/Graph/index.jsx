@@ -1,4 +1,4 @@
-import './styled.css';
+// import './styled.css';
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -10,9 +10,9 @@ class Graph extends Component {
     this.canvasRef = React.createRef();
     this.myChart = null;
   }
-
   componentDidMount() {
     const { isReady, datas } = this.props;
+    console.log(JSON.stringify(datas));
     if (this.canvasRef.current && isReady) {
       const ctx = this.canvasRef.current.getContext('2d');
       this.myChart = new window.Chart(ctx, {
@@ -60,7 +60,7 @@ class Graph extends Component {
   render() {
     return (
       <div className="canvasWrapper">
-        <canvas ref={this.canvasRef}></canvas>
+        {this.props.isReady && <canvas data-testid="graph" ref={this.canvasRef}></canvas>}
       </div>
     );
   }
