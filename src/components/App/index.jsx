@@ -8,6 +8,7 @@ import Header from '../Header/index.jsx';
 import LastUpdate from '../LastUpdate/index.jsx';
 import Loader from '../Loader/index.jsx';
 import Navbar from '../Navbar/index.jsx';
+import RoutesTemplate from '../RoutesTemplate/index.jsx';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,21 +31,7 @@ const App = () => {
         <Navbar />
         <Header />
         <LastUpdate error={error} isLoading={isLoading} />
-
-        <Routes>
-          {ROUTES.map(({ path, Element }) => (
-            <Route
-              path={path}
-              element={
-                <Suspense fallback={<Loader />}>
-                  <Element />
-                </Suspense>
-              }
-              key={path}
-            />
-          ))}
-        </Routes>
-
+        <RoutesTemplate />
         <Footer />
       </HashRouter>
     </>

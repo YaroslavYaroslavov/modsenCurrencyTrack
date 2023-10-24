@@ -42,13 +42,13 @@ const Homepage = () => {
   );
 
   return (
-    <>
+    <div data-testid="Homepage">
       <CurrencyTable type="Stocks">{stocks}</CurrencyTable>
       <CurrencyTable type="Quotes">{quotes}</CurrencyTable>
       <Modal active={modalActive} setActive={setModalActive}>
         <Converter handleChangeCurrency={setConvertTo} />
       </Modal>
-    </>
+    </div>
   );
 };
 

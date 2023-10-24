@@ -9,7 +9,7 @@ const { headerText, nameInputLabel, emailInputLabel, messageInputLabel, sendButt
 class Contato extends Component {
   render() {
     return (
-      <div className="contactUs">
+      <div className="contactUs" data-testid="Contato">
         <h2>{headerText}</h2>
         <form className="flexColumn">
           <div className="flexColumn">

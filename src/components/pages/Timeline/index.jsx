@@ -43,7 +43,7 @@ const Timeline = () => {
   }, []);
 
   return (
-    <div className="timelineWrapper flexColumn">
+    <div data-testid="Timeline" className="timelineWrapper flexColumn">
       <SelectCurrency
         selectedCurrency={selectedCurrency}
         handleCurrencyChange={handleCurrencyChange}
