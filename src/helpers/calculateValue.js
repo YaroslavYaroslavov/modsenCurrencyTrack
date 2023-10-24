@@ -4,7 +4,7 @@ const { data } = getDataFromLocalStorage();
 const calculateValue = (leftCurrencyCode, rightCurrencyCode, converterInput) => {
   if (data) {
     return (
-      (Number(converterInput.current.value) / data.data[leftCurrencyCode].value) *
+      (Number(converterInput) / data.data[leftCurrencyCode].value) *
       data.data[rightCurrencyCode].value
     );
   } else return 0;

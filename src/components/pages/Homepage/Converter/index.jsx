@@ -1,3 +1,5 @@
+import './styled.css';
+
 import PropTypes from 'prop-types';
 import React, { useCallback, useRef, useState } from 'react';
 import CurrencyIcons from 'src/constants/currencyIcons';
