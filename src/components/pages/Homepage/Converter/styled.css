@@ -4,6 +4,11 @@
   gap: 5px;
 }
 
+.head {
+  display: block;
+  width: 45px;
+}
+
 .inputCurrencyFrom {
   width: 50%;
 
