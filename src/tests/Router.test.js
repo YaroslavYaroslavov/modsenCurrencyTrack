@@ -5,19 +5,16 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
-import Navbar from '../components/Navbar/index.jsx';
-import BankCard from '../components/pages/BankCard/index.jsx';
+import Navbar from '../components/Navbar';
+import BankCard from '../components/pages/BankCard';
 import Contato from '../components/pages/Contato/index.jsx';
 import Homepage from '../components/pages/Homepage/index.jsx';
 import NotFound from '../components/pages/NotFound/index.jsx';
 import Timeline from '../components/pages/Timeline/index.jsx';
 import RoutesTemplate from '../components/RoutesTemplate/index.jsx';
+import paths from '../constants/paths';
 
-const notFoundPath = '*';
-const homepagePath = '/';
-const timelinePath = '/timeline';
-const bankcardPath = '/bankcard';
-const contatoPath = '/contato';
+const { notFoundPath, homepagePath, timelinePath, bankcardPath, contatoPath } = paths;
 
 const ROUTES = [
   { path: notFoundPath, Element: NotFound },
@@ -27,8 +24,8 @@ const ROUTES = [
   { path: contatoPath, Element: Contato, pageName: 'Contato' },
 ];
 
-jest.mock('../../assets/images/logo_small.png', () => '');
-jest.mock('../components/RoutesTemplate/index.jsx', () => {
+jest.mock('src/assets/images/logo_small.png', () => '');
+jest.mock('src/components/RoutesTemplate/index.jsx', () => {
   const RoutesTemplate = jest.fn(() => null);
   return RoutesTemplate;
 });
@@ -97,6 +94,22 @@ describe('Проверка навигации', () => {
     );
 
     expect(screen.getByTestId('Timeline')).toBeInTheDocument();
+  });
+
+  test('Отрисовыввается Bankcard', () => {
+    const script = document.createElement('script');
+    script.src =
+      'https://api-maps.yandex.ru/2.1/?apikey=92ef74ac-91c7-48b8-96a8-210b6ddf84e1&lang=ru_RU';
+    script.onload = () => {
+      document.body.appendChild(script);
+      render(
+        <MemoryRouter initialEntries={['/bankcard']}>
+          <RoutesTemplate />
+        </MemoryRouter>,
+      );
+
+      expect(screen.getByTestId('Bankcard')).toBeInTheDocument();
+    };
   });
 
   test('Отрисовыввается Contato', () => {

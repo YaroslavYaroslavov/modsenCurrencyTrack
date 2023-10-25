@@ -1,11 +1,11 @@
 import './styled.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import BanksCurrencyHave from 'src/constants/banksData.js';
 
-import AutocompleteInput from './Autocomplete/index.jsx';
+import AutocompleteInput from './Autocomplete';
 
-class BankCard extends Component {
+class BankCard extends PureComponent {
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
@@ -61,10 +61,10 @@ class BankCard extends Component {
 
   render() {
     return (
-      <>
+      <div data-testid="Bankcard">
         <AutocompleteInput handleZoomPoint={this.handleZoomPoint} />
         <div ref={this.mapRef} id="map" className="yandexMap"></div>
-      </>
+      </div>
     );
   }
 }

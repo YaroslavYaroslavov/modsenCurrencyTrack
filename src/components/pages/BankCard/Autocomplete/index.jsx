@@ -55,7 +55,7 @@ class AutocompleteInput extends React.PureComponent {
         />
         <div className="suggestionWrapper">
           {inputValue && !suggestions.length ? (
-            <div className="suggestion">{notFoundMessage}</div>
+            <span className="suggestion">{notFoundMessage}</span>
           ) : (
             suggestions.map((suggestion) => (
               <div

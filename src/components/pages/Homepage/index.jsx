@@ -1,13 +1,13 @@
 import './styled.css';
 
 import React, { useMemo, useState } from 'react';
-import Modal from 'src/components/Modal/index.jsx';
+import Modal from 'src/components/Modal';
 import currencyIcons from 'src/constants/currencyIcons';
 import getDataFromLocalStorage from 'src/helpers/getDataFromLocalStorage.js';
 
-import Converter from './Converter/index.jsx';
-import CurrencyCard from './CurrencyCard/index.jsx';
-import CurrencyTable from './CurrencyTable/index.jsx';
+import Converter from './Converter';
+import CurrencyCard from './CurrencyCard';
+import CurrencyTable from './CurrencyTable';
 
 const Homepage = () => {
   const [modalActive, setModalActive] = useState(false);

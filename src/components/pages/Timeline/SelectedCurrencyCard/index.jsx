@@ -1,10 +1,10 @@
 import './styled.css';
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 import currencyIcons from 'src/constants/currencyIcons';
 
-const SelectedCurrencyCard = ({ selectedCurrency, handleOpenModal }) => {
+const SelectedCurrencyCard = memo(({ selectedCurrency, handleOpenModal }) => {
   const { icon, code, displayName } = currencyIcons[selectedCurrency];
   return (
     <div className="selectedCurrency" onClick={handleOpenModal}>
@@ -15,7 +15,7 @@ const SelectedCurrencyCard = ({ selectedCurrency, handleOpenModal }) => {
       </div>
     </div>
   );
-};
+});
 SelectedCurrencyCard.propTypes = {
   selectedCurrency: PropTypes.string,
   handleOpenModal: PropTypes.func,

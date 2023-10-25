@@ -1,7 +1,7 @@
 import getDataFromLocalStorage from './getDataFromLocalStorage.js';
-const { data } = getDataFromLocalStorage();
 
 const calculateValue = (leftCurrencyCode, rightCurrencyCode, converterInput) => {
+  const { data } = getDataFromLocalStorage();
   if (data?.data[leftCurrencyCode]?.value && data?.data[rightCurrencyCode]?.value) {
     return (
       (Number(converterInput) / data.data[leftCurrencyCode].value) *

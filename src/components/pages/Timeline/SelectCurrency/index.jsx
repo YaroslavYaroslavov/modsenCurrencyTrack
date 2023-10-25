@@ -1,10 +1,10 @@
 import './styled.css';
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 import currencyIcons from 'src/constants/currencyIcons.js';
 
-const SelectCurrency = ({ handleCurrencyChange, selectedCurrency }) => {
+const SelectCurrency = memo(({ handleCurrencyChange, selectedCurrency }) => {
   return (
     <>
       <select className="selectCurrency" value={selectedCurrency} onChange={handleCurrencyChange}>
@@ -21,7 +21,7 @@ const SelectCurrency = ({ handleCurrencyChange, selectedCurrency }) => {
       </select>
     </>
   );
-};
+});
 SelectCurrency.propTypes = {
   handleCurrencyChange: PropTypes.func,
   selectedCurrency: PropTypes.string,

@@ -1,12 +1,12 @@
 import './styled.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import contatoConfig from './config';
 
 const { headerText, nameInputLabel, emailInputLabel, messageInputLabel, sendButtonText } =
   contatoConfig;
-class Contato extends Component {
+class Contato extends PureComponent {
   render() {
     return (
       <div className="contactUs" data-testid="Contato">

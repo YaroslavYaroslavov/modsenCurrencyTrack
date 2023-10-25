@@ -1,10 +1,10 @@
 import './styled.css';
 
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-const COLOR_GRAY = 'rgb(128,128,128)';
-class Graph extends Component {
+const COLOR_GRAY = 'rgba(128,128,128,1)';
+class Graph extends PureComponent {
   constructor(props) {
     super(props);
     this.canvasRef = React.createRef();

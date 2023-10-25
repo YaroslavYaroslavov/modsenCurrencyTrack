@@ -1,10 +1,7 @@
 import { lazy } from 'react';
+import paths from './paths';
 
-const notFoundPath = '*';
-const homepagePath = '/';
-const timelinePath = '/timeline';
-const bankcardPath = '/bankcard';
-const contatoPath = '/contato';
+const { notFoundPath, homepagePath, timelinePath, bankcardPath, contatoPath } = paths;
 
 const Homepage = lazy(() => import('src/components/pages/Homepage/index.jsx'));
 const BankCard = lazy(() => import('src/components/pages/BankCard/index.jsx'));

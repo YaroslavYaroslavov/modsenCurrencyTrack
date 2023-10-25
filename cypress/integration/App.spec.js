@@ -1,3 +1,11 @@
+const clear = Cypress.LocalStorage.clear;
+
+Cypress.LocalStorage.clear = function (keys, ls, rs) {
+  // do something with the keys here
+  if (keys) {
+    return clear.apply(this, arguments);
+  }
+};
 const datas = [
   {
     time_period_start: '2023-04-16T00:00:00.0000000Z',
@@ -301,7 +309,43 @@ const datas = [
   },
 ];
 
-describe('App E2E', () => {
+describe('Модуль конвертации валют', () => {
+  it('Модуль конвертации валют', () => {
+    cy.visit('/');
+    cy.get('.menu-toggle').click();
+    cy.get('a[data-testid]').contains('Homepage').click();
+    cy.get('.card-wrapper').first().click();
+    cy.get('.currencySelect').first().select('Euro');
+    cy.get('.inputCurrencyFrom').clear().type('123');
+  });
+});
+
+describe('Модуль смены темы', () => {
+  it('Модуль смены темы', () => {
+    cy.visit('/');
+
+    cy.get('.themeSwitcher')
+      .click()
+      .then(($themeSwitcher) => {
+        if ($themeSwitcher.attr('checked')) {
+          cy.get('html').should('have.css', 'background-color', 'rgb(255, 255, 255)');
+        } else {
+          cy.get('html').should('have.css', 'background-color', 'rgb(0, 0, 0)');
+        }
+      });
+  });
+});
+describe('Модуль поиска и карты', () => {
+  it('Модуль поиска и карты', () => {
+    cy.visit('/');
+    cy.get('.menu-toggle').click();
+    cy.get('a[data-testid]').contains('BankCard').click();
+    cy.get('.autocompleteInput').clear().type('E');
+    cy.get('.suggestion').should('exist').click();
+  });
+});
+
+describe('Модуль отрсиовки графика', () => {
   it('Переход на страницу', () => {
     cy.visit('/');
     cy.get('.menu-toggle').click();

@@ -1,14 +1,12 @@
-import React, { Suspense, useEffect, useState } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import ROUTES from 'src/constants/routes.js';
-import fetchData from 'src/helpers/fetchCurrency.js';
+import React, { useEffect, useState } from 'react';
+import { HashRouter } from 'react-router-dom';
+import fetchData from 'src/helpers/fetchCurrency';
 
-import Footer from '../Footer/index.jsx';
-import Header from '../Header/index.jsx';
-import LastUpdate from '../LastUpdate/index.jsx';
-import Loader from '../Loader/index.jsx';
-import Navbar from '../Navbar/index.jsx';
-import RoutesTemplate from '../RoutesTemplate/index.jsx';
+import Footer from '../Footer';
+import Header from '../Header';
+import LastUpdate from '../LastUpdate';
+import Navbar from '../Navbar';
+import RoutesTemplate from '../RoutesTemplate';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);

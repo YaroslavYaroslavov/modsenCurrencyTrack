@@ -7,7 +7,7 @@ import Logo from 'src/assets/images/logo_small.png';
 import ROUTES from 'src/constants/routes.js';
 import { useTheme } from 'src/hooks/use-theme';
 
-import ThemeSwitcher from './ThemeSwitcher/index.jsx';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
