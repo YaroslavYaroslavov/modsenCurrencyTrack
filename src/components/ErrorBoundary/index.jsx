@@ -5,7 +5,7 @@ import React from 'react';
 import errorBoundaryConfig from './config';
 
 const { errorBoundaryText } = errorBoundaryConfig;
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { hasError: false };

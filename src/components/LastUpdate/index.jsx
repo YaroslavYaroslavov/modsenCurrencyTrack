@@ -1,14 +1,14 @@
 import './styled.css';
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 import getDataFromLocalStorage from 'src/helpers/getDataFromLocalStorage';
 
 import lastUpdateConfig from './config';
 
 const { errorText, loadingText } = lastUpdateConfig;
 
-const LastUpdate = ({ error, isLoading }) => {
+const LastUpdate = memo(({ error, isLoading }) => {
   const { lastUpdated } = getDataFromLocalStorage();
 
   const timeLastUpdate = new Date(lastUpdated);
@@ -24,12 +24,12 @@ const LastUpdate = ({ error, isLoading }) => {
         className={'indicator'}
         data-status={error ? 'error' : isLoading ? 'loading' : 'success'}
       ></div>
-      <div className="lastupdate-text">
+      <p className="lastupdate-text">
         {error ? errorText : isLoading ? loadingText : timeLastUpdateString}
-      </div>
+      </p>
     </div>
   );
-};
+});
 LastUpdate.propTypes = {
   isLoading: PropTypes.bool,
   lastUpdated: PropTypes.string,

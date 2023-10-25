@@ -33,11 +33,11 @@ const CurrencyCard = memo(
       <div onClick={handleOpenModal} className="card-wrapper">
         <img src={currencyFrom?.icon} alt="card icon" className="card-ico" />
         <div className="card-text">
-          <div className="card-title">{currencyFrom?.displayName}</div>
-          <div className="card-subtitle">
+          <p className="card-title">{currencyFrom?.displayName}</p>
+          <p className="card-subtitle">
             {(convertTo && currencyTo?.currencyText + ' ' + convertedValue.toFixed(5)) ||
               noInfoMessage}
-          </div>
+          </p>
         </div>
       </div>
     );

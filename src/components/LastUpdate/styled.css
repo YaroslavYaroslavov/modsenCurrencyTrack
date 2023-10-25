@@ -1,7 +1,7 @@
 .indicator {
-  --indicator-border-color: rgb(12, 120, 26);
+  --indicator-border-color: rgba(12, 120, 26, 1);
   --indicator-border-color-transparent: rgba(12, 120, 26, 0);
-  --indicator-color: #0c8b45;
+  --indicator-color: rgba(12, 139, 69, 1);
   box-shadow: 0 0 0px 4px var(--indicator-border-color);
   background-color: var(--indicator-border-color);
   min-width: 10px;
@@ -10,15 +10,15 @@
   animation: borderAnimation 1.5s infinite ease-in;
 }
 .indicator[data-status='error'] {
-  --indicator-border-color: rgb(198, 0, 0);
-  --indicator-color: #9a0317;
+  --indicator-border-color: rgba(198, 0, 0, 1);
+  --indicator-color: rgba(154, 3, 23, 1);
   --indicator-border-color-transparent: rgba(198, 0, 0, 0);
 }
 
 .indicator[data-status='loading'] {
   --indicator-border-color: rgba(247, 154, 13, 1);
   --indicator-border-color-transparent: rgba(247, 154, 13, 0);
-  --indicator-color: #fffb00;
+  --indicator-color: rgba(255, 251, 0, 1);
 }
 
 .lastupdate {

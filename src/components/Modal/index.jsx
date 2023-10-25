@@ -1,11 +1,11 @@
 import './styled.css';
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 import ReactDOM from 'react-dom';
 import usePortal from 'src/hooks/use-portal';
 
-const Modal = ({ active, setActive, children }) => {
+const Modal = memo(({ active, setActive, children }) => {
   const handleCloseModal = () => {
     setActive(false);
   };
@@ -25,7 +25,7 @@ const Modal = ({ active, setActive, children }) => {
       portal,
     )
   );
-};
+});
 Modal.propTypes = {
   active: PropTypes.bool,
   setActive: PropTypes.func,

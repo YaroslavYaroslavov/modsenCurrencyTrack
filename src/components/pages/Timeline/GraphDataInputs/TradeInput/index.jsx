@@ -1,11 +1,11 @@
 import './styled.css';
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 
 import tradeInputConfig from './config';
 
-const TradeInput = ({ setValue, label, value }) => {
+const TradeInput = memo(({ setValue, label, value }) => {
   const checkLength = (e) => {
     if (e.target.value.length > tradeInputConfig.maxInputLength) {
       return false;
@@ -27,7 +27,7 @@ const TradeInput = ({ setValue, label, value }) => {
       />
     </label>
   );
-};
+});
 
 TradeInput.propTypes = {
   setValue: PropTypes.func,

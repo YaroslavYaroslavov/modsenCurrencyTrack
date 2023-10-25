@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { memo } from 'react';
 import currencyIcons from 'src/constants/currencyIcons';
 
-const CurrencySelect = ({ handleChangeCurrency }) => {
+const CurrencySelect = memo(({ handleChangeCurrency }) => {
   return (
     <select onChange={handleChangeCurrency} className="currencySelect">
       {Object.keys(currencyIcons).map((key) => {
@@ -17,7 +17,7 @@ const CurrencySelect = ({ handleChangeCurrency }) => {
       })}
     </select>
   );
-};
+});
 CurrencySelect.propTypes = {
   handleChangeCurrency: PropTypes.func,
 };

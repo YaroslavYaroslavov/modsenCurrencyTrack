@@ -1,13 +1,13 @@
 import './styled.css';
 
 import PropTypes from 'prop-types';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState, memo } from 'react';
 import CurrencyIcons from 'src/constants/currencyIcons';
 import calculateValue from 'src/helpers/calculateValue.js';
 
-import CurrencySelect from './CurrencySelect/index.jsx';
+import CurrencySelect from './CurrencySelect';
 
-const Converter = ({ handleChangeCurrency }) => {
+const Converter = memo(({ handleChangeCurrency }) => {
   const converterInput = useRef();
   const [fromCurrencyCode, setFromCurrencyCode] = useState('AUD');
   const [toCurrencyCode, setToCurrencyCode] = useState('AUD');
@@ -69,7 +69,7 @@ const Converter = ({ handleChangeCurrency }) => {
       </div>
     </>
   );
-};
+});
 
 Converter.propTypes = {
   handleChangeCurrency: PropTypes.func,

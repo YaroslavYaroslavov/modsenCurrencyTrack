@@ -1,17 +1,17 @@
 import './styled.css';
 
 import PropTypes from 'prop-types';
-import React, { Component, createRef } from 'react';
+import React, { PureComponent, createRef } from 'react';
 import addOneDay from 'src/helpers/addOneDay.js';
 import formatDate from 'src/helpers/formatDate';
 
 import graphDataInputsConfig from './config';
-import TradeInput from './TradeInput/index.jsx';
+import TradeInput from './TradeInput';
 
 const { warningMessageInvalidInputs, warningMessageInvalidDate, addInputText } =
   graphDataInputsConfig;
 
-class GraphDataInputs extends Component {
+class GraphDataInputs extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

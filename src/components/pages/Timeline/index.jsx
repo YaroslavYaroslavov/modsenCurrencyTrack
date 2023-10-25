@@ -1,13 +1,13 @@
 import './styled.css';
 
-import React, { useCallback, useState } from 'react';
-import Modal from 'src/components/Modal/index.jsx';
+import React, { useCallback, useState, memo } from 'react';
+import Modal from 'src/components/Modal';
 
 import timelineConfig from './config';
-import Graph from './Graph/index.jsx';
-import GraphDataInputs from './GraphDataInputs/index.jsx';
-import SelectCurrency from './SelectCurrency/index.jsx';
-import SelectedCurrencyCard from './SelectedCurrencyCard/index.jsx';
+import Graph from './Graph';
+import GraphDataInputs from './GraphDataInputs';
+import SelectCurrency from './SelectCurrency';
+import SelectedCurrencyCard from './SelectedCurrencyCard';
 const {
   notationText,
   maxDataEnteredText,
@@ -20,7 +20,7 @@ const {
   tradesLowLabel,
 } = timelineConfig;
 
-const Timeline = () => {
+const Timeline = memo(() => {
   const [selectedCurrency, setSelectedCurrency] = useState('australian_dollar');
   const [modalActive, setModalActive] = useState(false);
   const [datas, setDatas] = useState([]);
@@ -43,7 +43,7 @@ const Timeline = () => {
   }, []);
 
   return (
-    <div className="timelineWrapper flexColumn">
+    <div data-testid="Timeline" className="timelineWrapper flexColumn">
       <SelectCurrency
         selectedCurrency={selectedCurrency}
         handleCurrencyChange={handleCurrencyChange}
@@ -93,6 +93,6 @@ const Timeline = () => {
       </Modal>
     </div>
   );
-};
+});
 
 export default Timeline;

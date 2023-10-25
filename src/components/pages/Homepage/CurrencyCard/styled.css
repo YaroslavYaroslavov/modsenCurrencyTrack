@@ -23,14 +23,20 @@
 .card-title {
   font-family: var(--font-Regular);
   font-size: var(--card-title-font-size);
-
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   color: var(--card-title-color);
 }
 
 .card-subtitle {
   font-family: var(--font-Light);
   font-size: var(--card-subtitle-font-size);
-
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   color: var(--card-subtitle-color);
 }
 @media (max-width: 1650px) {
